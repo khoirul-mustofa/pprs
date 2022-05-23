@@ -21,7 +21,8 @@ class BeritaController extends Controller
             "title" => "Semua Berita",
             // "semuaBerita" => Berita::all()
             // menampilkan semau berita dari yang terakhir di uploud
-            "semuaBerita"=> Berita::latest()->get()
+            // jika ada reques yang berisi search kalok ada ambil isinya dari model Berita method filter
+            "semuaBerita"=> Berita::latest()->filter(request(['search','kategori', 'author']))->get()
         ]);
     }
 
@@ -34,14 +35,14 @@ class BeritaController extends Controller
         ]);
     }
 
-    public function cariBerita(){
-        return view('semuaBerita',[
-            "title" => "Semua Berita",
-            // "semuaBerita" => Berita::all()
-            // menampilkan semau berita dari yang terakhir di uploud
-            "semuaBerita"=> Berita::latest()->Filter(['search'])->get()
-        ]);
-    }
+    // public function cariBerita(){
+    //     return view('semuaBerita',[
+    //         "title" => "Semua Berita",
+    //         // "semuaBerita" => Berita::all()
+    //         // menampilkan semau berita dari yang terakhir di uploud
+    //         "semuaBerita"=> Berita::latest()->Filter(['search'])->get()
+    //     ]);
+    // }
     /**
      * Show the form for creating a new resource.
      *

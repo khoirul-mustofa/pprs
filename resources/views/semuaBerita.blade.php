@@ -7,6 +7,14 @@
       <div class="row justify-content-center mb-3">
           <div class="col-md-6">
                 <form action="/berita" method="GET">
+
+                    @if(request('kategori'))
+                        <input type="hidden" name="kategori" value="{{ request('kategori') }}">
+                    @endif
+                    @if(request('author'))
+                        <input type="hidden" name="author" value="{{ request('author') }}">
+                    @endif
+
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request("search") }}">
                         <button class="btn btn-outline-light" type="submit" >Search</button>
@@ -22,7 +30,7 @@
               <h5 class="card-title">{{ $semuaBerita[0]->title }}</h5>
 
               <small class="fw-normal font-Roboto">
-                  Oleh: <a class="text-decoration-none" href="/author/{{ $semuaBerita[0]->user->username }}">{{ $semuaBerita[0]->user->name }}</a> pada kategori <a class="text-decoration-none" href="/kategori/{{ $semuaBerita[0]->kategori->name }}">{{ $semuaBerita[0]->kategori->name }}</a> {{ $semuaBerita[0]->created_at->diffForHumans() }}
+                  Oleh: <a class="text-decoration-none" href="/berita?author={{ $semuaBerita[0]->user->username }}">{{ $semuaBerita[0]->user->name }}</a> pada kategori <a class="text-decoration-none" href="/berita?kategori={{ $semuaBerita[0]->kategori->name }}">{{ $semuaBerita[0]->kategori->name }}</a> {{ $semuaBerita[0]->created_at->diffForHumans() }}
                 </small>
 
               <p class="card-text">{{ $semuaBerita[0]->excerpt }}</p>
@@ -39,7 +47,7 @@
       <div class="col">
         <div class="card shadow-lg">
             <div class="py-1 px-1 py-md-2 px-md-3 position-absolute" style="background-color: rgba(0, 0, 0, 0.7)">
-                <a href="/kategori/{{ $post->kategori->name }}" class="text-decoration-none text-light"> {{ $semuaBerita[0]->kategori->name }}</a>
+                <a href="/berita?kategori={{ $post->kategori->name }}" class="text-decoration-none text-light"> {{ $post->kategori->name }}</a>
             </div>
           <img class="rounded-2" src="https://source.unsplash.com/700x400?mosque,muslim" alt="">
           <div class="card-body">
@@ -47,7 +55,7 @@
              {{-- <h5><a href="/berita/{{ $post->slug }}" class="card-text fw-semibold text-decoration-none text-dark">{{ $post->title }}</a></h5> --}}
              <h5 class="card-text fw-semibold text-decoration-none text-dark">{{ $post->title }}</h5>
 
-             <small class="fw-normal font-Roboto">Oleh: <a class="text-decoration-none" href="/author/{{ $post->user->username }}">{{ $post->user->name }}</a></small>
+             <small class="fw-normal font-Roboto">Oleh: <a class="text-decoration-none" href="/berita?author={{ $post->user->username }}">{{ $post->user->name }}</a></small>
              {{-- pada kategori <a class="text-decoration-none" href="/kategori/{{ $post->kategori->name }}">{{ $post->kategori->name }}</a> --}}
 
              <hr class="w-100 clearfix mt-2" />
