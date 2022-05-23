@@ -17,20 +17,11 @@ class BeritaController extends Controller
      */
     public function index()
     {
-
-        $semuaBerita = Berita::latest();
-
-
-        if(request('search')){
-            // sintak pencarian Query sql
-            $semuaBerita->where('title', 'like', '%' . request('search') . '%');
-        }
-
-        // menampilkan semau berita dari yang terakhir di uploud
         return view('semuaBerita',[
             "title" => "Semua Berita",
             // "semuaBerita" => Berita::all()
-            "semuaBerita"=> $semuaBerita->get()
+            // menampilkan semau berita dari yang terakhir di uploud
+            "semuaBerita"=> Berita::latest()->get()
         ]);
     }
 
@@ -43,6 +34,14 @@ class BeritaController extends Controller
         ]);
     }
 
+    public function cariBerita(){
+        return view('semuaBerita',[
+            "title" => "Semua Berita",
+            // "semuaBerita" => Berita::all()
+            // menampilkan semau berita dari yang terakhir di uploud
+            "semuaBerita"=> Berita::latest()->cariBerita()->get()
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *

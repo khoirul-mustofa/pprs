@@ -6,7 +6,7 @@
       <h1 class="text-light text-center mb-3">{{ $title }}</h1>
       <div class="row justify-content-center mb-3">
           <div class="col-md-6">
-                <form action="/berita/cari" method="GET">
+                <form action="/berita" method="GET">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request("search") }}">
                         <button class="btn btn-outline-light" type="submit" >Search</button>

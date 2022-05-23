@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class PendaftaranController extends Controller
@@ -27,6 +28,8 @@ class PendaftaranController extends Controller
     {
         //
     }
+
+
 
     /**
      * Store a newly created resource in storage.

@@ -14,9 +14,18 @@ class Berita extends Model
 
     // kebalikan dari $fillable yaitu yang tidak boleh di isi manual [id]
     protected $guarded = ['id'];
-    
     // eager loading menggunakan with agar tidak mengulang-ngulang query pada saat looping
     protected $with = ['user', 'kategori'];
+
+
+    public function scopecariBerita($query){
+
+        if(request('search')){
+            return $query->where('title', 'like', '%' .request('search'). '%')
+                        ->orWhere('konten', 'like', '%' .request('search'). '%');
+        }
+    }
+
 
     public function kategori(){
         return $this->belongsTo(Kategori::class);
