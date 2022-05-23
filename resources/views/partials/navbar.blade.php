@@ -19,7 +19,7 @@
           <a class="nav-link {{ ($title=== "pendaftaran") ? 'active border border-light border-top-0 border-start-0 border-end-0' : '' }}"  href="/pendaftaran">Pendaftaran</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($title=== "Berita") ? 'active border border-light border-top-0 border-start-0 border-end-0' : '' }}"  href="/berita">Berita</a>
+          <a class="nav-link {{ ($title=== "Semua Berita") ? 'active border border-light border-top-0 border-start-0 border-end-0' : '' }}"  href="/semua-berita">Berita</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ ($title=== "pengumuman") ? 'active border border-light border-top-0 border-start-0 border-end-0' : '' }}"  href="/pengumuman">Pengumuman</a>
@@ -27,7 +27,7 @@
         <li class="nav-item">
           <a class="nav-link {{ ($title=== "kontak") ? 'active border border-light border-top-0 border-start-0 border-end-0' : '' }}"  href="/kontak">Kontak</a>
         </li>
-        
+
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

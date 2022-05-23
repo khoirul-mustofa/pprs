@@ -17,18 +17,29 @@ class BeritaController extends Controller
      */
     public function index()
     {
+
+        $semuaBerita = Berita::latest();
+
+
+        if(request('search')){
+            // sintak pencarian Query sql
+            $semuaBerita->where('title', 'like', '%' . request('search') . '%');
+        }
+
+        // menampilkan semau berita dari yang terakhir di uploud
         return view('semuaBerita',[
-            "title" => "Berita",
+            "title" => "Semua Berita",
             // "semuaBerita" => Berita::all()
-            "semuaBerita"=>Berita::latest()->get()
+            "semuaBerita"=> $semuaBerita->get()
         ]);
     }
 
     // menampilkan semua postingan dari user yang ditentukan
-    public function userBerita(User $author){
+    // berdasarkan author atau user
+    public function userBerita(User $user){
         return view('semuaBerita',[
-            "title" => $author->name,
-            "semuaBerita"=> $author->berita
+            "title" => "Berita Berdasarkan : $user->name",
+            "semuaBerita"=> $user->berita->load('kategori', 'user'),
         ]);
     }
 
@@ -64,7 +75,8 @@ class BeritaController extends Controller
     public function show(Berita $berita)
     {
         return view('detailBerita',[
-            "title"=> "Berita",
+            // Detail Berita
+            "title"=> "Detail Berita",
             "detailBerita" => $berita,
             "semuaKategori"=>Kategori::all(),
 

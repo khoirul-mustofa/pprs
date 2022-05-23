@@ -49,10 +49,9 @@ class KategoriController extends Controller
      */
     public function show(Kategori $kategori)
     {
-        return view('beritaKategori',[
-            'title' => $kategori->name,
-            'berita' => $kategori->semuaBerita,
-            'beritaKategori' => $kategori->name
+        return view('semuaBerita',[
+            'title' => "Semua Berita Berdasarkan Kategori : $kategori->name",
+            'semuaBerita' => $kategori->semuaBerita->load('user','kategori')
         ]);
     }
 

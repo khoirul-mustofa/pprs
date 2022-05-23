@@ -28,7 +28,7 @@ Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
 
 // metod get : jika requestnya /berita maka panggil controllerBerita yang methodnya index
-Route::get('/berita', [BeritaController::class, 'index']);
+Route::get('/semua-berita', [BeritaController::class, 'index']);
 
 Route::get('/author/{user:username}', [BeritaController::class, 'userBerita']);
 
@@ -42,7 +42,7 @@ route::get('/admin', [AdminController::class, 'index']);
 
 Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'show']);
 
-Route::get('/kategori', [KategoriController::class, 'index']);
+// Route::get('/kategori', [KategoriController::class, 'index']);
 
 Route::get('/bootstrap', function(){
     return view('startbootstrap-blog-post.dist.index');
