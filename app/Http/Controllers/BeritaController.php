@@ -39,7 +39,7 @@ class BeritaController extends Controller
             "title" => "Semua Berita",
             // "semuaBerita" => Berita::all()
             // menampilkan semau berita dari yang terakhir di uploud
-            "semuaBerita"=> Berita::latest()->cariBerita()->get()
+            "semuaBerita"=> Berita::latest()->Filter(['search'])->get()
         ]);
     }
     /**

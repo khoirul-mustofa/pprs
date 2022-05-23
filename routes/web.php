@@ -34,7 +34,6 @@ Route::get('/author/{user:username}', [BeritaController::class, 'userBerita']);
 
 Route::get('/berita/{berita:slug}', [BeritaController::class, 'show']);
 
-
 Route::get('/berita', [BeritaController::class, 'cariBerita']);
 
 Route::get('/pengumuman', [PengumumanController::class, 'index']);

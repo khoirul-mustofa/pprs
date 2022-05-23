@@ -18,7 +18,7 @@ class Berita extends Model
     protected $with = ['user', 'kategori'];
 
 
-    public function scopecariBerita($query){
+    public function scopeFilter($query){
 
         if(request('search')){
             return $query->where('title', 'like', '%' .request('search'). '%')
