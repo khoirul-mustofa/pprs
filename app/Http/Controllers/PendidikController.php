@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Berita;
-use Illuminate\Http\Request;
+use App\Http\Requests\StorePendidikRequest;
+use App\Http\Requests\UpdatePendidikRequest;
+use App\Models\Pendidik;
 
-class BerandaController extends Controller
+class PendidikController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,7 @@ class BerandaController extends Controller
      */
     public function index()
     {
-        return view('beranda',[
-            "title" => "beranda",
-            "headLine" => Berita::all(),
-        ]);
+        //
     }
 
     /**
@@ -33,10 +31,10 @@ class BerandaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StorePendidikRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePendidikRequest $request)
     {
         //
     }
@@ -44,10 +42,10 @@ class BerandaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pendidik  $pendidik
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pendidik $pendidik)
     {
         //
     }
@@ -55,10 +53,10 @@ class BerandaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pendidik  $pendidik
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pendidik $pendidik)
     {
         //
     }
@@ -66,11 +64,11 @@ class BerandaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\UpdatePendidikRequest  $request
+     * @param  \App\Models\Pendidik  $pendidik
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePendidikRequest $request, Pendidik $pendidik)
     {
         //
     }
@@ -78,10 +76,10 @@ class BerandaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pendidik  $pendidik
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pendidik $pendidik)
     {
         //
     }

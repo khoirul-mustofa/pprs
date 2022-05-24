@@ -22,18 +22,18 @@ class BeritaController extends Controller
             // "semuaBerita" => Berita::all()
             // menampilkan semau berita dari yang terakhir di uploud
             // jika ada reques yang berisi search kalok ada ambil isinya dari model Berita method filter
-            "semuaBerita"=> Berita::latest()->filter(request(['search','kategori', 'author']))->get()
+            "semuaBerita"=> Berita::latest()->filter(request(['search','kategori', 'author']))->paginate(7)->withQueryString()
         ]);
     }
 
     // menampilkan semua postingan dari user yang ditentukan
     // berdasarkan author atau user
-    public function userBerita(User $user){
-        return view('semuaBerita',[
-            "title" => "Berita Berdasarkan : $user->name",
-            "semuaBerita"=> $user->berita->load('kategori', 'user'),
-        ]);
-    }
+    // public function userBerita(User $user){
+    //     return view('semuaBerita',[
+    //         "title" => "Berita Berdasarkan : $user->name",
+    //         "semuaBerita"=> $user->berita->load('kategori', 'user'),
+    //     ]);
+    // }
 
     // public function cariBerita(){
     //     return view('semuaBerita',[

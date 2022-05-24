@@ -30,7 +30,7 @@ Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
 // metod get : jika requestnya /berita maka panggil controllerBerita yang methodnya index
 Route::get('/berita', [BeritaController::class, 'index']);
 
-Route::get('/author/{user:username}', [BeritaController::class, 'userBerita']);
+// Route::get('/author/{user:username}', [BeritaController::class, 'userBerita']);
 
 Route::get('/berita/{berita:slug}', [BeritaController::class, 'show']);
 

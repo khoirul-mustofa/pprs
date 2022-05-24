@@ -63,7 +63,7 @@
             <p class="card-text">{{ $post->excerpt }}</p>
 
             <div class="d-flex justify-content-between align-items-center">
-              <small class="text-muted"><span class="fw-bold">Diposting :</span> {{ $post->created_at }}</small>
+              <small class="text-muted"><span class="fw-bold">Diposting :</span> {{ $post->created_at->diffForHumans() }}</small>
             </div>
             <a href="/berita/{{ $post->slug }}" class="btn text-decoration-none btn-primary mt-2 mb-1">Selengkapnya..</a>
           </div>
@@ -75,7 +75,11 @@
           <p class="text-center fs-4">Tidak ada berita ditemukan</p>
     @endif
   </div>
+<div class="d-flex justify-content-end">
+  {{ $semuaBerita->links() }}
 </div>
+</div>
+
 
 
 @endsection

@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(5)->create();
-        Berita::factory(20)->create();
+        Berita::factory(50)->create();
 
         // DB::table('users')->insert([
         //     'name' => 'khoirul',
