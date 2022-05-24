@@ -10,6 +10,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +43,9 @@ Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'show']);
 
 Route::get('/login',[LoginController::class, 'index']);
 
-Route::get('/register',[RegisterControlller::class, 'index']);
+Route::get('/register',[RegisterController::class, 'create']);
+
+Route::post('/register',[RegisterController::class, 'store']);
 
 
 

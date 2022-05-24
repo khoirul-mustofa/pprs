@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
-class ResgisterController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class ResgisterController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -23,7 +24,9 @@ class ResgisterController extends Controller
      */
     public function create()
     {
-        //
+        return view('register.index',[
+            'title'=> 'register'
+        ]);
     }
 
     /**
@@ -34,7 +37,15 @@ class ResgisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:15',
+            'username' => 'required|unique:users|max:20|min:3',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6|max:255',
+        ]);
+
+        dd('registrasi berhasil');
+
     }
 
     /**
