@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="css/navbar.css">
 <nav class="navbar navbar-expand-xl navbar-dark shadow sticky-top" style="background-image: url('/img/AnimatedShape.svg');">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">

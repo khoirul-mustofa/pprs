@@ -26,23 +26,6 @@ class BeritaController extends Controller
         ]);
     }
 
-    // menampilkan semua postingan dari user yang ditentukan
-    // berdasarkan author atau user
-    // public function userBerita(User $user){
-    //     return view('semuaBerita',[
-    //         "title" => "Berita Berdasarkan : $user->name",
-    //         "semuaBerita"=> $user->berita->load('kategori', 'user'),
-    //     ]);
-    // }
-
-    // public function cariBerita(){
-    //     return view('semuaBerita',[
-    //         "title" => "Semua Berita",
-    //         // "semuaBerita" => Berita::all()
-    //         // menampilkan semau berita dari yang terakhir di uploud
-    //         "semuaBerita"=> Berita::latest()->Filter(['search'])->get()
-    //     ]);
-    // }
     /**
      * Show the form for creating a new resource.
      *

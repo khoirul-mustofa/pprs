@@ -9,6 +9,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +28,7 @@ Route::get('/profil', [ProfilController::class, 'index']);
 
 Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
 
-// metod get : jika requestnya /berita maka panggil controllerBerita yang methodnya index
 Route::get('/berita', [BeritaController::class, 'index']);
-
-// Route::get('/author/{user:username}', [BeritaController::class, 'userBerita']);
 
 Route::get('/berita/{berita:slug}', [BeritaController::class, 'show']);
 
@@ -42,7 +40,10 @@ route::get('/admin', [AdminController::class, 'index']);
 
 Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'show']);
 
-// Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/login',[LoginController::class, 'index']);
+
+Route::get('/register',[RegisterControlller::class, 'index']);
+
 
 
 

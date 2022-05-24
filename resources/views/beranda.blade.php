@@ -2,7 +2,6 @@
 @extends('layouts.main')
 
 @section('konten')
-<link rel="stylesheet" href="/css/beranda.css">
 
 {{-- headLine[0] --}}
 <div class="container-fluid">

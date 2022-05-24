@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('konten')
-<link rel="stylesheet" href="css/berita.css">
 <div class="container">
   <div class="album py-4 py-md-5">
       <h1 class="text-light text-center mb-3">{{ $title }}</h1>
@@ -61,7 +60,7 @@
              <hr class="w-100 clearfix mt-2" />
 
             <p class="card-text">{{ $post->excerpt }}</p>
-{{-- 
+{{--
             <div class="d-flex justify-content-between align-items-center">
 
             </div> --}}
