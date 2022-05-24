@@ -21,7 +21,7 @@ class BeritaFactory extends Factory
             // mt_rand untuk mengeneret bilangan random
             'title' => $this->faker->sentence(mt_rand(2,8)),
             'slug' => $this->faker->unique()->slug(),
-            'excerpt' => $this->faker->paragraph(1,3),
+            'excerpt' => $this->faker->paragraph(3),
             // 'konten' => '<p>' . implode('</p><p>', $this->faker->paragraphs(mt_rand(10,30))) . '</>',
             'konten' => collect($this->faker->paragraphs(mt_rand(10,30)))
             ->map(fn($p)=>"<p>$p</p>")

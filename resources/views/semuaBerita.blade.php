@@ -55,16 +55,16 @@
              {{-- <h5><a href="/berita/{{ $post->slug }}" class="card-text fw-semibold text-decoration-none text-dark">{{ $post->title }}</a></h5> --}}
              <h5 class="card-text fw-semibold text-decoration-none text-dark">{{ $post->title }}</h5>
 
-             <small class="fw-normal font-Roboto">Oleh: <a class="text-decoration-none" href="/berita?author={{ $post->user->username }}">{{ $post->user->name }}</a></small>
+             <small class="fw-normal font-Roboto">Oleh: <a class="text-decoration-none" href="/berita?author={{ $post->user->username }}">{{ $post->user->name }}</a> <small class="text-muted">{{ $post->created_at->diffForHumans() }}</small></small>
              {{-- pada kategori <a class="text-decoration-none" href="/kategori/{{ $post->kategori->name }}">{{ $post->kategori->name }}</a> --}}
 
              <hr class="w-100 clearfix mt-2" />
 
             <p class="card-text">{{ $post->excerpt }}</p>
-
+{{-- 
             <div class="d-flex justify-content-between align-items-center">
-              <small class="text-muted"><span class="fw-bold">Diposting :</span> {{ $post->created_at->diffForHumans() }}</small>
-            </div>
+
+            </div> --}}
             <a href="/berita/{{ $post->slug }}" class="btn text-decoration-none btn-primary mt-2 mb-1">Selengkapnya..</a>
           </div>
         </div>
