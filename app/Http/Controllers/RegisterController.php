@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Auth\Events\Validated;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+
 
 class RegisterController extends Controller
 {
@@ -37,15 +40,20 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validateData = $request->validate([
             'name' => 'required|max:15',
             'username' => 'required|unique:users|max:20|min:3',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:6|max:255',
         ]);
 
-        dd('registrasi berhasil');
+        $validateData['password'] = Hash::make($validateData['password']);
 
+        User::create($validateData);
+
+        // $request->session()->flash('success','Registrasi berhasil, silahkan login');
+
+        return redirect('/login')->with('success','Registrasi berhasil, silahkan login');
     }
 
     /**

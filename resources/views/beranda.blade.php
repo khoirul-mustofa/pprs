@@ -152,9 +152,7 @@
       </main>
       <div class="row d-flex justify-content-center mx-auto my-5">
         <div class="col-md-4 col-6">
-          <div class="wrap">
-            <button class="button" id="btn1">Tampilkan Pendidik</button>
-          </div>
+            <button type="button" class="btn btn-success">Pendidik</button>
         </div>
       </div>
     </div>
