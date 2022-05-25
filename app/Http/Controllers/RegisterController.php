@@ -52,8 +52,9 @@ class RegisterController extends Controller
         User::create($validateData);
 
         // $request->session()->flash('success','Registrasi berhasil, silahkan login');
-
+        // Allert muncul setelah redirect ke route login
         return redirect('/login')->with('success','Registrasi berhasil, silahkan login');
+
     }
 
     /**
