@@ -41,13 +41,15 @@ Route::get('/admin', [AdminController::class, 'index']);
 
 Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'show']);
 
-Route::get('/login',[LoginController::class, 'index']);
+Route::get('/login',[LoginController::class, 'index'])->middleware('guest');
+
 Route::post('/login',[LoginController::class, 'authenticate']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/register',[RegisterController::class, 'create']);
 Route::post('/register',[RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
 
 
 

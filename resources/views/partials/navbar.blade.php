@@ -26,7 +26,11 @@
         <li class="nav-item">
           <a class="nav-link {{ ($title=== "kontak") ? 'active border border-light border-top-0 border-start-0 border-end-0' : '' }}"  href="/kontak">Kontak</a>
         </li>
-
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a href="/login" class="nav-link">Login</a>
+        </li>
       </ul>
       {{-- <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
