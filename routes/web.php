@@ -28,7 +28,8 @@ Route::get('/', [BerandaController::class, 'index']);
 
 Route::get('/profil', [ProfilController::class, 'index']);
 
-Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
+Route::get('/pendaftaran-santri', [PendaftaranController::class, 'index']);
+Route::post('/pendaftaran-santri', [PendaftaranController::class, 'create']);
 
 Route::get('/berita', [BeritaController::class, 'index']);
 Route::get('/berita/{berita:slug}', [BeritaController::class, 'show']);
