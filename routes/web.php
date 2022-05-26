@@ -6,6 +6,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PendaftaranController;
@@ -30,22 +31,23 @@ Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
 
 Route::get('/berita', [BeritaController::class, 'index']);
-
 Route::get('/berita/{berita:slug}', [BeritaController::class, 'show']);
 
 Route::get('/pengumuman', [PengumumanController::class, 'index']);
 
 Route::get('/kontak', [KontakController::class, 'index']);
 
-route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index']);
 
 Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'show']);
 
 Route::get('/login',[LoginController::class, 'index']);
+Route::post('/login',[LoginController::class, 'authenticate']);
 
 Route::get('/register',[RegisterController::class, 'create']);
-
 Route::post('/register',[RegisterController::class, 'store']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 
 

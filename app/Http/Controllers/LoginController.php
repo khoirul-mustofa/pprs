@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -17,6 +18,27 @@ class LoginController extends Controller
             'title' => 'Login'
         ]);
     }
+
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email:dns',
+            'password' => 'min:6|required'
+        ]);
+
+        // Jika percobaan login yang dilakukan oleh credential (credential = email dan password) itu berhasil maka
+        // akan dipindahkan ke sebuah halaman dashborad
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
+        }
+        // Jika gagal kembalikan kehalaman login, dengan mengirimkan pesan errornya.
+        // Jangan memberikan informasi apapun ke user meskipun email salah atau tidak terdaftar,
+        // ini digunakan untuk keamanan penyerangan
+        return back()->with('loginError','Login Gagal!')->onlyInput('email');
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
