@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,13 +20,13 @@ class BeritaFactory extends Factory
             // mt_rand untuk mengeneret bilangan random
             'title' => $this->faker->sentence(mt_rand(2,8)),
             'slug' => $this->faker->unique()->slug(),
-            'excerpt' => $this->faker->paragraph(3),
+            'excerpt' => $this->faker->paragraph(1,2),
             // 'konten' => '<p>' . implode('</p><p>', $this->faker->paragraphs(mt_rand(10,30))) . '</>',
             'konten' => collect($this->faker->paragraphs(mt_rand(10,30)))
             ->map(fn($p)=>"<p>$p</p>")
             ->implode(''),
-            'user_id' =>mt_rand(1,5),
-            'kategori_id' =>mt_rand(1,5),
+            'user_id' =>mt_rand(1,3),
+            'kategori_id' =>mt_rand(1,3),
         ];
     }
 }

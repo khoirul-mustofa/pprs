@@ -43,6 +43,7 @@ class Berita extends Model
             });
         });
     }
+    
 
 
     public function kategori(){

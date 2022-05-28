@@ -24,7 +24,7 @@
 
         @if($semuaBerita->count())
         <div class="card mb-3">
-            <img src="https://source.unsplash.com/700x400?mosque" class="center " alt="...">
+            <img src="https://source.unsplash.com/1920x1080?mosque" class="center rounded" alt="...">
             <div class="card-body text-center">
               <h5 class="card-title">{{ $semuaBerita[0]->title }}</h5>
 
@@ -45,10 +45,10 @@
       @foreach ($semuaBerita->skip(1) as $post)
       <div class="col">
         <div class="card shadow-lg">
-            <div class="py-1 px-1 py-md-2 px-md-3 position-absolute" style="background-color: rgba(0, 0, 0, 0.7)">
+            <div class="py-1 px-1 py-md-2 px-md-3 position-absolute rounded" style="background-color: rgba(0, 0, 0, 0.7)">
                 <a href="/berita?kategori={{ $post->kategori->name }}" class="text-decoration-none text-light"> {{ $post->kategori->name }}</a>
             </div>
-          <img class="rounded-2" src="https://source.unsplash.com/700x400?mosque,muslim" alt="">
+          <img class="rounded-2" src="https://source.unsplash.com/1920x1080?mosque,muslim" alt="">
           <div class="card-body">
 
              {{-- <h5><a href="/berita/{{ $post->slug }}" class="card-text fw-semibold text-decoration-none text-dark">{{ $post->title }}</a></h5> --}}
