@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Berita extends Model
 {
     use HasFactory;
-    use Sluggable;
 
     // properti-properti yang boleh di isi manual [title excerpt konten] yang lain akan di isi otomatis oleh laravel
     // protected $fillable = ['title', 'excerpt', 'konten'];
@@ -18,8 +17,6 @@ class Berita extends Model
     protected $guarded = ['id'];
     // eager loading menggunakan with agar tidak mengulang-ngulang query pada saat looping
     protected $with = ['user', 'kategori'];
-
-
 
 
     public function scopeFilter($query, array $filters){
@@ -59,6 +56,7 @@ class Berita extends Model
         ]
     ];
     }
+
 
     public function kategori(){
         return $this->belongsTo(Kategori::class);

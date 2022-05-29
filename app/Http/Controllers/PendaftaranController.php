@@ -13,9 +13,7 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-    return view('pendaftaran',[
-        'title' => 'pendaftaran'
-    ]);
+
     }
 
     /**
@@ -25,7 +23,9 @@ class PendaftaranController extends Controller
      */
     public function create(Request $request)
     {
-        
+        return view('pendaftaran',[
+            'title' => 'pendaftaran'
+        ]);
     }
 
     /**
@@ -36,7 +36,7 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

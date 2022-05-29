@@ -28,13 +28,13 @@
                 <div class="mb-2 rounded bg-white p-3 border">
                     <label for="jnk" class="mb-2">Jenis Kelamin</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jenisKelamin" id="jkel1">
+                        <input class="form-check-input" type="radio" name="jenisKelamin" id="jkel1" value="laki-laki">
                         <label class="form-check-label" for="laki">
                           laki-Laki
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jenisKelamin" id="jkel2" checked>
+                        <input class="form-check-input" type="radio" name="jenisKelamin" value="perempuan" id="jkel2" checked>
                         <label class="form-check-label" for="perempuan">
                           Perempuan
                         </label>
@@ -43,19 +43,19 @@
                 <div class="mb-2 rounded bg-white p-3 border">
                     <label class="mb-2">Status Anak</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="statusAnak" id="kandung">
+                        <input class="form-check-input" type="radio" name="statusAnak" id="kandung" value="kandung">
                         <label class="form-check-label" for="kandung">
                           Kandung
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="statusAnak" id="tiri">
+                        <input class="form-check-input" type="radio" name="statusAnak" id="tiri" value="tiri">
                         <label class="form-check-label" for="tiri">
                           Tiri
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="statusAnak" id="asuh" checked>
+                        <input class="form-check-input" type="radio" name="statusAnak" id="asuh" checked value="asuh">
                         <label class="form-check-label" for="asuh">
                           Asuh
                         </label>
@@ -151,7 +151,7 @@
                 <div class="form-floating mb-2 px-4">
                     <h4 class="fw-bold mb-2">PERNYATAAN</h4>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pernyataan" id="pernyataan" required>
+                        <input class="form-check-input" type="radio" name="pernyataan" id="pernyataan" required value="Iya, Menyetujui">
                         <label class="form-check-label" for="pernyataan">
                           Iya, Menyetujui
                         </label>

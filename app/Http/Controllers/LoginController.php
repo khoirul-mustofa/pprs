@@ -23,13 +23,13 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'email' => 'required|email:dns',
-            'password' => 'min:6|required'
+            'password' => 'required'
         ]);
 
         // Jika percobaan login yang dilakukan oleh credential (credential = email dan password) itu berhasil maka
         // akan dipindahkan ke sebuah halaman dashborad
         if(Auth::attempt($credentials)){
-            // $request->session()->regenerate();
+            $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
 
@@ -41,6 +41,16 @@ class LoginController extends Controller
 
     }
 
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -19,7 +19,7 @@ class DashboardBeritaController extends Controller
         return view('dashboard.berita.index',[
             'semuaBerita' => Berita::all()
         ]);
-        }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +28,9 @@ class DashboardBeritaController extends Controller
      */
     public function create()
     {
-        return view('dashboard.berita.create');
+        return view('dashboard.berita.create',[
+            'categories' => Kategori::all()
+        ]);
     }
 
     /**
@@ -39,7 +41,7 @@ class DashboardBeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         return $request;
     }
 
     /**
@@ -93,9 +95,9 @@ class DashboardBeritaController extends Controller
         //
     }
 
-    public function checkSlug(Request $request)
-    {
-        $slug = SlugService::createSlug(Berita::class, 'slug', $request->title);
-        return response()->json(['slug' => $slug]);
-    }
+    // public function checkSlug(Request $request)
+    // {
+    //     $slug = SlugService::createSlug(Berita::class, 'slug', $request->title);
+    //     return response()->json(['slug' => $slug]);
+    // }
 }

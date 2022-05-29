@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('konten')
-<div class="container rounded mt-5" style="
+<div class="container rounded mt-1" style="
     background-color:rgba(238, 252, 246, 0.799);
     backdrop-filter: blur(7000px);">
     <div class="row">

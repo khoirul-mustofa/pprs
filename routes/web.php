@@ -12,7 +12,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use League\CommonMark\Extension\SmartPunct\DashParser;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +29,9 @@ Route::get('/', [BerandaController::class, 'index']);
 
 Route::get('/profil', [ProfilController::class, 'index']);
 
-Route::get('/pendaftaran-santri', [PendaftaranController::class, 'index']);
+Route::get('/pendaftaran-santri', [PendaftaranController::class, 'create']);
 
-Route::post('/pendaftaran-santri', [PendaftaranController::class, 'create']);
+Route::post('/pendaftaran-santri', [PendaftaranController::class, 'store']);
 //
 Route::get('/berita', [BeritaController::class, 'index']);
 
@@ -41,26 +41,26 @@ Route::get('/pengumuman', [PengumumanController::class, 'index']);
 
 Route::get('/kontak', [KontakController::class, 'index']);
 
-Route::get('/admin', [AdminController::class, 'index']);
+// Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
 
 Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'show']);
 
-Route::get('/login',[LoginController::class, 'index'])->middleware('guest');
-
+Route::get('/login',[LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class, 'authenticate']);
+Route::post('/logout',[LoginController::class, 'logout']);
 
-Route::get('/dashboard', function(){return view('dashboard.index');});
+Route::get('/dashboard', function(){return view('dashboard.layouts.main');})->middleware('auth');
 
 // Route::resource('/dashboard/berita',DashboardBeritaController::class);
-Route::get('/dashboard/berita/create',[DashboardBeritaController::class, 'create']);
-Route::get('/dashboard/berita/{berita:slug}',[DashboardBeritaController::class, 'show']);
-Route::get('/dashboard/berita',[DashboardBeritaController::class, 'index']);
+Route::post('/dashboard/berita/create',[DashboardBeritaController::class, 'store'])->middleware('auth');
+Route::get('/dashboard/berita/create',[DashboardBeritaController::class, 'create'])->middleware('auth');
+Route::get('/dashboard/berita/{berita:slug}',[DashboardBeritaController::class, 'show'])->middleware('auth');
+Route::get('/dashboard/berita',[DashboardBeritaController::class, 'index'])->middleware('auth');
+// Route::get('/dashboard/berita/checkSlug', 'DashboardBeritaController@checkSlug');
 
-Route::get('/dashboard/berita/checkSlug', 'DashboardBeritaController@checkSlug');
 
-
-Route::get('/register',[RegisterController::class, 'create']);
-Route::post('/register',[RegisterController::class, 'store']);
+Route::get('/register',[RegisterController::class, 'create'])->middleware('guest');
+Route::post('/register',[RegisterController::class, 'store'])->middleware('guest');
 
 
 
