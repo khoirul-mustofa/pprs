@@ -30,7 +30,7 @@
                     <!-- Post header-->
                     <header class="mb-4">
                         <!-- Post title-->
-                        <h1 class="fw-bolder mb-1 mt-3">Sejarah</h1>
+                        <h1 class="fw-bolder mb-1 mt-3">Lorem Ipsum</h1>
                         <!-- Post meta content-->
                     </header>
                     <!-- Preview image figure-->

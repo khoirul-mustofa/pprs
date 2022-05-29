@@ -2,21 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
+use Cviebrock\EloquentSluggable\Sluggable;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Berita extends Model
 {
     use HasFactory;
+    use Sluggable;
+
     // properti-properti yang boleh di isi manual [title excerpt konten] yang lain akan di isi otomatis oleh laravel
     // protected $fillable = ['title', 'excerpt', 'konten'];
     // kebalikan dari $fillable yaitu yang tidak boleh di isi manual [id]
     protected $guarded = ['id'];
     // eager loading menggunakan with agar tidak mengulang-ngulang query pada saat looping
     protected $with = ['user', 'kategori'];
-
-
 
 
 
@@ -43,8 +44,21 @@ class Berita extends Model
             });
         });
     }
-    
 
+    // mengubah keysearch dari id ke slug sebagai default
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => ['title']
+        ]
+    ];
+    }
 
     public function kategori(){
         return $this->belongsTo(Kategori::class);

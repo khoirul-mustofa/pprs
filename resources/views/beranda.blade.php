@@ -182,7 +182,7 @@
     </div>
     <div class="row">
         <div class="d-flex justify-content-center">
-            <a href="#"><button type="button" class="btn btn-light">Seluruh Pengurus</button></a>
+            <a href="#"><button type="button" class="btn btn-light">Semua Pengurus</button></a>
         </div>
     </div>
 </div>

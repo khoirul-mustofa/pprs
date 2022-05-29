@@ -11,13 +11,13 @@
           <div class="col-12 mb-3">
             <div class="row">
               <h2 class="fs-2 fw-bold text-center">Hubungi Kami</h2>
-              <div class="row d-flex container-fluid justify-content-center mt-1 mx-auto">               
+              <div class="row d-flex container-fluid justify-content-center mt-1 mx-auto">
                 <div class="col-1 bg-warning mx-2" style="padding: 2px"></div>
                 <div class="col-1 bg-warning" style="padding: 2px"></div>
               </div>
-            </div>                
+            </div>
           </div>
-      
+
         <div class="row">
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
@@ -74,7 +74,7 @@
          style="background-color: rgba(212, 204, 204, 0.2)"
          >
       © 2022 Copyright <span class="fw-bold text-warning">pprs Pusat</span>
-      
+
     </div>
     <!-- Copyright -->
   </footer>

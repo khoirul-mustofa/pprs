@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class PendaftaranController extends Controller
+class DashboardBeritaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,19 +16,19 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-    return view('pendaftaran',[
-        'title' => 'pendaftaran'
-    ]);
-    }
+        return view('dashboard.berita.index',[
+            'semuaBerita' => Berita::all()
+        ]);
+        }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        
+        return view('dashboard.berita.create');
     }
 
     /**
@@ -42,21 +45,27 @@ class PendaftaranController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Berita $berita)
     {
-        //
+        return view('dashboard.berita.show',[
+            // Detail Berita
+            "title"=> "Detail Berita",
+            "detailBerita" => $berita,
+            "semuaKategori"=>Kategori::all(),
+
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Berita $berita)
     {
         //
     }
@@ -65,10 +74,10 @@ class PendaftaranController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Berita $berita)
     {
         //
     }
@@ -76,11 +85,17 @@ class PendaftaranController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Berita $berita)
     {
         //
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Berita::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }
