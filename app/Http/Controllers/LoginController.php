@@ -27,7 +27,7 @@ class LoginController extends Controller
         ]);
 
         // Jika percobaan login yang dilakukan oleh credential (credential = email dan password) itu berhasil maka
-        // akan dipindahkan ke sebuah halaman dashborad
+        // akan diarahkan ke sebuah halaman dashborad
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
