@@ -10,6 +10,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PengurusController;
 use App\Http\Controllers\RegisterController;
 
 
@@ -57,6 +58,7 @@ Route::get('/dashboard/berita',[DashboardBeritaController::class, 'index'])->mid
 Route::get('/register',[RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register',[RegisterController::class, 'store'])->middleware('guest');
 
+Route::get('/pprs/pengurus',[PengurusController::class, 'index']);
 
 
 

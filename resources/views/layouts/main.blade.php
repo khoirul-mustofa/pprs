@@ -16,14 +16,10 @@
     <title>PPRS | {{ $title }}</title>
   </head>
   <body style="background-color: #10a67f;">
-
-
-      {{-- @include('partials.navbar')  disini akan tersimpan atatu terdapat halaman navbar--}}
-      @include('partials.navbar')
-      @yield('konten')
-      {{-- @include('partials.footer') --}}
-
-
+        {{-- @include('partials.navbar')  disini akan tersimpan atatu terdapat halaman navbar--}}
+        @include('partials.navbar')
+        @yield('konten')
+        {{-- @include('partials.footer') --}}
   </body>
 
 

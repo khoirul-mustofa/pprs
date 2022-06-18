@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use App\Models\Kategori;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardBeritaController extends Controller
 {
@@ -41,7 +41,16 @@ class DashboardBeritaController extends Controller
      */
     public function store(Request $request)
     {
-         return $request;
+        $validateData = $request->validate([
+            'title' => 'required',
+            'slug' => 'required',
+            'kategori_id' => 'required',
+            'konten' => 'required'
+         ]);
+         $validateData['user_id'] = auth()->user()->id;
+         $validateData['excerpt'] = Str::limit(strip_tags ($request->konten), 200, '...');
+         Berita::create($validateData);
+         return redirect('/dashboard/berita')->with('success', 'New berita has been added!');
     }
 
     /**

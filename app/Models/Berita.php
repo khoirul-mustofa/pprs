@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Berita extends Model

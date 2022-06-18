@@ -4,6 +4,12 @@
     <h1 class="h2">Berita</h1>
 </div>
 
+@if (session()->has('success'))
+    <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
+
 <div class="table-responsive col-lg-12">
     <a href="/dashboard/berita/create" class="btn btn-primary mb-3">Tambah berita baru</a>
     <table class="table table-striped table-sm">

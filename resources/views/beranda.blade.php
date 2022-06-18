@@ -1,10 +1,6 @@
-
 @extends('layouts.main')
-
 @section('konten')
 
-{{-- headLine[0] --}}
-<div class="container-fluid">
     <div class="container">
 
       <div class="row mt-1">
@@ -55,7 +51,7 @@
                 @if($headLine->count())
                 <div class="col">
                     <div class="card shadow-lg">
-                        <div class="py-1 px-1 py-md-2 px-md-3 position-absolute" style="background-color: rgba(0, 0, 0, 0.7)">
+                        <div class="py-1 px-md-1 py-md-2 px-md-3 position-absolute" style="background-color: rgba(0, 0, 0, 0.7)">
                             <a href="/berita?kategori={{ $headLine[0]->kategori->name }}" class="text-decoration-none text-light"> {{ $headLine[0]->kategori->name }}</a>
                         </div>
                       <img class="rounded-2" src="https://source.unsplash.com/1920x1080?mosque,muslim" alt="">
@@ -182,8 +178,8 @@
     </div>
     <div class="row">
         <div class="d-flex justify-content-center">
-            <a href="#"><button type="button" class="btn btn-light">Semua Pengurus</button></a>
+            <a href="/pprs/pengurus"><button type="button" class="btn btn-light">Semua Pengurus</button></a>
         </div>
     </div>
-</div>
+
 @endsection

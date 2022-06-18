@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePendidikRequest;
-use App\Http\Requests\UpdatePendidikRequest;
-use App\Models\Pendidik;
+use Illuminate\Http\Request;
 
-class PendidikController extends Controller
+class PengurusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,9 @@ class PendidikController extends Controller
      */
     public function index()
     {
-        //
+        return view('pengurus.index',[
+            'title'=>'pengurus'
+        ]);
     }
 
     /**
@@ -31,10 +31,10 @@ class PendidikController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePendidikRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePendidikRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class PendidikController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pendidik  $pendidik
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Pendidik $pendidik)
+    public function show($id)
     {
         //
     }
@@ -53,10 +53,10 @@ class PendidikController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pendidik  $pendidik
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pendidik $pendidik)
+    public function edit($id)
     {
         //
     }
@@ -64,11 +64,11 @@ class PendidikController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePendidikRequest  $request
-     * @param  \App\Models\Pendidik  $pendidik
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePendidikRequest $request, Pendidik $pendidik)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +76,10 @@ class PendidikController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pendidik  $pendidik
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pendidik $pendidik)
+    public function destroy($id)
     {
         //
     }

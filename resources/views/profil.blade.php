@@ -24,7 +24,7 @@
         </div>
     </div>
         <div class="row">
-            <div class="col-lg-8 bg-light rounded">
+            <div class="col-lg-8 bg-light rounded px-3">
                 <!-- Post content-->
                 <article>
                     <!-- Post header-->
@@ -34,10 +34,10 @@
                         <!-- Post meta content-->
                     </header>
                     <!-- Preview image figure-->
-                    <figure class="mb-4"><img class="img-fluid rounded" src="https://source.unsplash.com/900x400?mosque " alt="..." /></figure>
+                    <figure class="mb-4"><img class="img-fluid rounded" src="https://source.unsplash.com/900x400?mosque " alt="..."/></figure>
                     <!-- Post content-->
                     <section class="mb-5">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, itaque quis. Ratione voluptatem dolore laborum? Quis nobis fugiat assumenda atque?</p> <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, et. Atque ut molestias temporibus? A doloremque nihil impedit accusantium nobis?</p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum quaerat aspernatur totam perspiciatis nisi, hic consectetur nulla deserunt atque.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, itaque quis. Ratione voluptatem dolore laborum? Quis nobis fugiat assumenda atque?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, et. Atque ut molestias temporibus? A doloremque nihil impedit accusantium nobis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum quaerat aspernatur totam perspiciatis nisi, hic consectetur nulla deserunt atque.</p>
                     </section>
                 </article>
             </div>
