@@ -50,6 +50,7 @@ Route::get('/logout',[LoginController::class, 'logout'])->middleware('auth');
 
 Route::get('/dashboard', function(){return view('dashboard.index');})->middleware('auth');
 
+Route::delete('/dashboard/berita/{berita:slug}',[DashboardBeritaController::class, 'destroy'])->middleware('auth');
 Route::post('/dashboard/berita/create',[DashboardBeritaController::class, 'store'])->middleware('auth');
 Route::get('/dashboard/berita/create',[DashboardBeritaController::class, 'create'])->middleware('auth');
 Route::get('/dashboard/berita/{berita:slug}',[DashboardBeritaController::class, 'show'])->middleware('auth');
