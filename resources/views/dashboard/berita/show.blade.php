@@ -16,10 +16,14 @@
                     <!-- Post categories-->
                     <a class="badge bg-secondary text-decoration-none link-light mb-4" href="/berita?kategori={{ $detailBerita->kategori->slug }}">{{ $detailBerita->kategori->name }}</a>
                     <br>
-                    <a href="/dashboard/berita" class="btn btn-success"><span data-feather="arrow-left" ></span> Kembali ke semua berita </a>
-                    <a href="" class="btn btn-warning"><span data-feather="edit" ></span> Ubah </a>
-                    <a href="" class="btn btn-danger"><span data-feather="x-circle" ></span> Hapus </a>
-
+                    <a href="/dashboard/berita" class="btn btn-success"><span data-feather="arrow-left" ></span>  Back</a>
+                    <a href="/dashboard/berita/{{ $detailBerita->slug }}/edit" class="btn btn-warning"><span data-feather="edit" ></span>  Edit</a>
+                    
+                    <form action="/dashboard/berita/{{ $detailBerita->slug }}" method="post" class="d-inline">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger " onclick="return confirm('Hapus data?')"><span data-feather="x-circle"></span>  Delete</button>
+                    </form>
                 </header>
                 <!-- Preview image figure-->
                 <figure class="mb-4"><img class="img-fluid rounded" src="https://source.unsplash.com/900x400?mosque " alt="..." /></figure>

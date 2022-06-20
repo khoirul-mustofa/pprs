@@ -43,10 +43,16 @@ class DashboardBeritaController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required',
-            'slug' => 'required',
+            'slug' => 'required|unique:beritas',
             'kategori_id' => 'required',
+            'image' => 'image|file|max:1024',
             'konten' => 'required'
          ]);
+
+        if($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('berita-images');
+        }
+
          $validateData['user_id'] = auth()->user()->id;
          $validateData['excerpt'] = Str::limit(strip_tags ($request->konten), 200, '...');
          Berita::create($validateData);
@@ -78,7 +84,10 @@ class DashboardBeritaController extends Controller
      */
     public function edit(Berita $berita)
     {
-        //
+        return view('dashboard.berita.edit',[
+            'berita' => $berita,
+            'categories' => Kategori::all()
+        ]);
     }
 
     /**
@@ -90,7 +99,22 @@ class DashboardBeritaController extends Controller
      */
     public function update(Request $request, Berita $berita)
     {
-        //
+        $rules = [
+            'title' => 'required',
+            'kategori_id' => 'required',
+            'konten' => 'required'
+         ];
+
+         if ($request->slug != $berita->slug) {
+            $rules['slug'] = 'required|unique:beritas';
+         }
+
+         $validateData = $request->validate($rules);
+         $validateData['user_id'] = auth()->user()->id;
+         $validateData['excerpt'] = Str::limit(strip_tags ($request->konten), 200, '...');
+         Berita::where('id', $berita->id)
+                ->update($validateData);
+         return redirect('/dashboard/berita')->with('success', 'Berita berhasil diupdate!');
     }
 
     /**
@@ -102,7 +126,7 @@ class DashboardBeritaController extends Controller
     public function destroy(Berita $berita)
     {
         Berita::destroy($berita->id);
-        return redirect('/dashboard/berita')->with('success_delete', 'Berita berhasil dihapus!');
+        return redirect('/dashboard/berita')->with('success', 'Berita berhasil dihapus!');
     }
 
     // public function checkSlug(Request $request)

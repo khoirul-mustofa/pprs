@@ -9,11 +9,7 @@
         {{ session('success') }}
     </div>
 @endif
-@if (session()->has('success_delete'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('success_delete') }}
-    </div>
-@endif
+
 
 <div class="table-responsive col-lg-12">
     <a href="/dashboard/berita/create" class="btn btn-primary mb-3">Tambah berita baru</a>
@@ -34,7 +30,7 @@
             <td>{{ $b->kategori->name }}</td>
             <td>
                 <a href="/dashboard/berita/{{ $b->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
-                <a href="#" class="badge bg-warning"><span data-feather="edit"></span></a>
+                <a href="/dashboard/berita/{{ $b->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
 
                 <form action="/dashboard/berita/{{ $b->slug }}" method="post" class="d-inline">
                     @csrf

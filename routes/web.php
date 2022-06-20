@@ -55,6 +55,8 @@ Route::post('/dashboard/berita/create',[DashboardBeritaController::class, 'store
 Route::get('/dashboard/berita/create',[DashboardBeritaController::class, 'create'])->middleware('auth');
 Route::get('/dashboard/berita/{berita:slug}',[DashboardBeritaController::class, 'show'])->middleware('auth');
 Route::get('/dashboard/berita',[DashboardBeritaController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/berita/{berita:slug}/edit',[DashboardBeritaController::class, 'edit'])->middleware('auth');
+Route::put('/dashboard/berita/{berita:slug}',[DashboardBeritaController::class, 'update'])->middleware('auth');
 
 Route::get('/register',[RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register',[RegisterController::class, 'store'])->middleware('guest');

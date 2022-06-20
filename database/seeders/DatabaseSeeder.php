@@ -21,11 +21,12 @@ class DatabaseSeeder extends Seeder
         User::factory(5)->create();
         Berita::factory(100)->create();
 
-        // DB::table('users')->insert([
-        //     'name' => 'khoirul',
-        //     'email' => 'khoirul@gmail.com',
-        //     'password'=> Hash::make('12345'),
-        // ]);
+        DB::table('users')->insert([
+            'name' => 'khoirul',
+            'username' => 'khoirul',
+            'email' => 'khoirul@gmail.com',
+            'password'=> Hash::make('password'),
+        ]);
         // DB::table('users')->insert([
         //     'name' => 'mustofa',
         //     'email' => 'mustofa@gmail.com',

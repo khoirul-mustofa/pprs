@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('title');
             $table->string('slug')->Unique();
+            $table->string('image')->nullable();
             $table->string('excerpt');
             $table->text('konten');
             $table->timestamp('published_at')->nullable();
