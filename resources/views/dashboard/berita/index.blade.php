@@ -9,6 +9,11 @@
         {{ session('success') }}
     </div>
 @endif
+@if (session()->has('success'))
+    <div class="alert alert-danger" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
 
 <div class="table-responsive col-lg-12">
     <a href="/dashboard/berita/create" class="btn btn-primary mb-3">Tambah berita baru</a>
