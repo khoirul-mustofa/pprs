@@ -102,7 +102,7 @@ class DashboardBeritaController extends Controller
     public function destroy(Berita $berita)
     {
         Berita::destroy($berita->id);
-        return redirect('/dashboard/berita')->with('success', 'Berita berhasil dihapus!');
+        return redirect('/dashboard/berita')->with('success_delete', 'Berita berhasil dihapus!');
     }
 
     // public function checkSlug(Request $request)

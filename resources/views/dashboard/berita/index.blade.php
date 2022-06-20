@@ -9,9 +9,9 @@
         {{ session('success') }}
     </div>
 @endif
-@if (session()->has('success'))
+@if (session()->has('success_delete'))
     <div class="alert alert-danger" role="alert">
-        {{ session('success') }}
+        {{ session('success_delete') }}
     </div>
 @endif
 
