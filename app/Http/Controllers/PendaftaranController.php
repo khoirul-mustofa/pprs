@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 
 class PendaftaranController extends Controller
@@ -13,7 +14,9 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-
+        // return view('pendaftaran',[
+        //     'title' => 'pendaftaran-santri'
+        // ]);
     }
 
     /**
@@ -36,7 +39,32 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        // dd($request);
+        Pendaftaran::create([
+            'nama' => $request->nama,
+            'templahir' => $request->tempatLahir,
+            'tgllahir' => $request->tglLahir,
+            'jkl' => $request->jenisKelamin,
+            'statusa' => $request->statusAnak,
+            'nik' => $request->nik,
+            'desa' => $request->desa,
+            'kecamatan' => $request->kecamatan,
+            'kabupaten' => $request->kabupaten,
+            'provinsi' => $request->provinsi,
+            'email' => $request->email,
+            'riwayat' => $request->riwayatMedis,
+            'ayah' => $request->nmaAyah,
+            'pekerjaanA' => $request->krjAyah,
+            'ibu' => $request->nmaIbu,
+            'pekerjaanI' => $request->krjIbu,
+            'hp' => $request->noHp,
+            'sekolah' => $request->nmSekolah,
+            'alamat' => $request->almtSekolah,
+            'ijazah' => $request->ijazahTerakhir,
+            'menyetujui' => $request->pernyataan
+         ]);
+
+        return redirect('/pendaftaran-santri/create')->with('success','Selamat Berhasil Mendaftar!');
     }
 
     /**

@@ -15,6 +15,27 @@ return new class extends Migration
     {
         Schema::create('pendaftarans', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('templahir');
+            $table->date('tgllahir');
+            $table->string('jkl');
+            $table->string('statusa');
+            $table->string('nik');
+            $table->string('desa');
+            $table->string('kecamatan');
+            $table->string('kabupaten');
+            $table->string('provinsi');
+            $table->string('email');
+            $table->string('riwayat')->default('-');
+            $table->string('ayah');
+            $table->string('pekerjaanA');
+            $table->string('ibu');
+            $table->string('pekerjaanI');
+            $table->string('hp');
+            $table->string('sekolah');
+            $table->string('alamat');
+            $table->string('ijazah');
+            $table->string('menyetujui');
             $table->timestamps();
         });
     }

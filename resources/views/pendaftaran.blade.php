@@ -10,8 +10,13 @@
         <main class="form-register w-100 m-auto container bg-light rounded">
             <h2 class="text-center pt-3">Formulir Pendaftaran Santri 2022/2023</h2>
             <small>Sekretariat : JL. KH. Busthomil Karim Purwosari Kec. Padang Ratu Kab. Lampung Tengah 34176</small>
+            @if (session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
             <hr class="w-100 clearfix my-3" />
-            <form action="/pendaftaran-santri" method="POST">
+            <form action="/pendaftaran-santri/create" method="POST">
                 @csrf
                 <div class="form-floating mb-2 mt-3">
                     <input type="text" class="form-control rounded-top" name="nama" id="nama" placeholder="Nama" required value="{{ old('nama') }}">
@@ -90,7 +95,7 @@
                     <label for="email">Email</label>
                 </div>
                 <div class="form-floating mb-2 mt-3">
-                    <input type="text" class="form-control rounded-top" name="riwayatMedis" id="riwayatMedis" placeholder="Riwaya Medis" required value="{{ old('riwayatMedis') }}">
+                    <input type="text" class="form-control rounded-top" name="riwayatMedis" id="riwayatMedis" placeholder="Riwaya Medis"  value="{{ old('riwayatMedis') }}">
                     <label for="riwayatMedis">Riwayat Medis</label>
                 </div>
                 <h4 class="text-center mt-3">ORANG TUA</h4>
@@ -111,7 +116,7 @@
                     <input type="text" class="form-control rounded-top" name="krjIbu" id="krjIbu" placeholder="Pekerjaan Ibu" required value="{{ old('krjIbu') }}">
                     <label for="krjIbu">Pekerjaan Ibu</label>
                 </div>
-                <label class="px-2 mt-2">No Wahats App akan dimasukan kedalam grup informasi wali santri</label>
+                <label class="px-2 mt-2">No WhatsApp akan dimasukan kedalam grup informasi wali santri</label>
                 <div class="form-floating mb-2 mt-1">
                     <input type="number" class="form-control rounded-top" name="noHp" id="noHp" placeholder="Nomor Hp" required value="{{ old('noHp') }}">
                     <label for="noHp">Nomor HP/Whatsapp</label>
@@ -129,7 +134,7 @@
                 </div>
                 <label for="ijsTerakhir" class="mt-2 px-2">Ijazah Terakhir</label>
                 <div class="form-floating mb-2 mt-1">
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" name="ijazahTerakhir">
                         <option selected value="RA/TK">RA/TK</option>
                         <option value="MI/SD">MI/SD</option>
                         <option value="MTs/SMP">MTs/SMP</option>
@@ -151,7 +156,7 @@
                 <div class="form-floating mb-2 px-4">
                     <h4 class="fw-bold mb-2">PERNYATAAN</h4>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pernyataan" id="pernyataan" required value="Iya, Menyetujui">
+                        <input class="form-check-input" type="radio" name="pernyataan" id="pernyataan" required value="Iya">
                         <label class="form-check-label" for="pernyataan">
                           Iya, Menyetujui
                         </label>

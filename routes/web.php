@@ -29,10 +29,12 @@ Route::get('/', [BerandaController::class, 'index']);
 
 Route::get('/profil', [ProfilController::class, 'index']);
 
-Route::get('/pendaftaran-santri', [PendaftaranController::class, 'create']);
+// Route::get('/pendaftaran-santri', [PendaftaranController::class, 'create']);
+// Route::post('/pendaftaran-santri', [PendaftaranController::class, 'store']);
+Route::get('/pendaftaran-santri/create',[PendaftaranController::class, 'create']);
+Route::post('/pendaftaran-santri/create',[PendaftaranController::class, 'store']);
 
-Route::post('/pendaftaran-santri', [PendaftaranController::class, 'store']);
-//
+
 Route::get('/berita', [BeritaController::class, 'index']);
 
 Route::get('/berita/{berita:slug}', [BeritaController::class, 'show']);
