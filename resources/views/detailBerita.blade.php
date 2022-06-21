@@ -23,7 +23,12 @@ backdrop-filter: blur(7000px);">
 
                 </header>
                 <!-- Preview image figure-->
-                <figure class="mb-4"><img class="img-fluid rounded" src="https://source.unsplash.com/900x400?mosque " alt="..." /></figure>
+                @if ($detailBerita->image)
+                    <figure class="mb-4"><img class="img-fluid rounded" src="{{ asset('storage/'. $detailBerita->image) }}" alt="..." /></figure>
+                    @else
+                    <figure class="mb-4"><img class="img-fluid rounded" src="https://source.unsplash.com/900x400?mosque " alt="..." /></figure>
+                @endif
+
                 <!-- Post content-->
                 <section class="mb-5">
                     {!! $detailBerita->konten !!}
