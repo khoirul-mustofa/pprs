@@ -24,7 +24,12 @@
 
         @if($semuaBerita->count())
         <div class="card mb-3">
-            <img src="https://source.unsplash.com/1920x1080?mosque" class="center rounded" alt="...">
+            @if ($semuaBerita[0]->image)
+                <img src="{{ asset('storage/'. $semuaBerita[0]->image) }}" class="center rounded" alt="...">
+                @else
+                <img src="https://source.unsplash.com/1920x1080?mosque" class="center rounded" alt="...">
+            @endif
+
             <div class="card-body text-center">
               <h5 class="card-title">{{ $semuaBerita[0]->title }}</h5>
 
@@ -48,9 +53,13 @@
             <div class="py-1 px-1 py-md-2 px-md-3 position-absolute rounded" style="background-color: rgba(0, 0, 0, 0.7)">
                 <a href="/berita?kategori={{ $post->kategori->name }}" class="text-decoration-none text-light"> {{ $post->kategori->name }}</a>
             </div>
-          <img class="rounded-2" src="https://source.unsplash.com/1920x1080?mosque,muslim" alt="">
-          <div class="card-body">
+            @if ($post->image)
+                <img src="{{ asset('storage/'. $post->image) }}" class="center rounded" alt="...">
+                @else
+                <img class="rounded-2" src="https://source.unsplash.com/1920x1080?mosque,muslim" alt="">
+            @endif
 
+          <div class="card-body">
              {{-- <h5><a href="/berita/{{ $post->slug }}" class="card-text fw-semibold text-decoration-none text-dark">{{ $post->title }}</a></h5> --}}
              <h5 class="card-text fw-semibold text-decoration-none text-dark">{{ $post->title }}</h5>
 

@@ -18,7 +18,7 @@
                     <br>
                     <a href="/dashboard/berita" class="btn btn-success"><span data-feather="arrow-left" ></span>  Back</a>
                     <a href="/dashboard/berita/{{ $detailBerita->slug }}/edit" class="btn btn-warning"><span data-feather="edit" ></span>  Edit</a>
-                    
+
                     <form action="/dashboard/berita/{{ $detailBerita->slug }}" method="post" class="d-inline">
                         @csrf
                         @method('delete')
@@ -26,7 +26,13 @@
                     </form>
                 </header>
                 <!-- Preview image figure-->
-                <figure class="mb-4"><img class="img-fluid rounded" src="https://source.unsplash.com/900x400?mosque " alt="..." /></figure>
+                @if ($detailBerita->image)
+                <div style="max-heiht:400px; overflow:hidden;">
+                    <figure class="mb-4"><img class="img-fluid rounded" src="{{ asset('storage/'. $detailBerita->image) }}" alt="..." /></figure>
+                </div>
+                @else
+                    <figure class="mb-4"><img class="img-fluid rounded" src="https://source.unsplash.com/900x400?mosque " alt="..." /></figure>
+                @endif
                 <!-- Post content-->
                 <section class="mb-5">
                     {!! $detailBerita->konten !!}

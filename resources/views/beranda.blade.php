@@ -13,13 +13,13 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="https://source.unsplash.com/1920x1080?mosque" class="d-block w-100 rounded" alt="...">
+              <img src="https://source.unsplash.com/1920x700?mosque" class="d-block w-100 rounded" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://source.unsplash.com/1920x1080?mosque,muslim" class="d-block w-100 rounded" alt="...">
+              <img src="https://source.unsplash.com/1920x700?mosque,muslim" class="d-block w-100 rounded" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://source.unsplash.com/1920x1080?mosque,muslim" class="d-block w-100 rounded" alt="...">
+              <img src="https://source.unsplash.com/1920x700?mosque,muslim" class="d-block w-100 rounded" alt="...">
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -50,11 +50,18 @@
               {{-- card akan di looping atau sesuai isi dengan jumlah data --}}
                 @if($headLine->count())
                 <div class="col">
+
+                    {{-- Card 1 --}}
                     <div class="card shadow-lg">
                         <div class="py-1 px-md-1 py-md-2 px-md-3 position-absolute" style="background-color: rgba(0, 0, 0, 0.7)">
                             <a href="/berita?kategori={{ $headLine[0]->kategori->name }}" class="text-decoration-none text-light"> {{ $headLine[0]->kategori->name }}</a>
                         </div>
-                      <img class="rounded-2" src="https://source.unsplash.com/1920x1080?mosque,muslim" alt="">
+                        @if ($headLine[0]->image)
+                            <img class="rounded-2" src="{{ asset('storage/'. $headLine[0]->image) }}" alt="">
+                            @else
+                            <img class="rounded-2" src="https://source.unsplash.com/1920x1080?mosque,muslim" alt="">
+                        @endif
+
                       <div class="card-body">
 
                          <a href="/berita/{{ $headLine[0]->slug }}" class="text-decoration-none" style="font-family: Times New Roman, Times, serif;"><h5 class="card-text fw-semibold text-decoration-none text-dark">{{ $headLine[0]->title }}</h5></a>
@@ -73,12 +80,17 @@
                     </div>
                   </div>
 
+                  {{-- Card 2 --}}
                   <div class="col">
                     <div class="card shadow-lg">
                         <div class="py-1 px-1 py-md-2 px-md-3 position-absolute" style="background-color: rgba(0, 0, 0, 0.7)">
-                            <a href="/berita?kategori={{ $headLine[0]->kategori->name }}" class="text-decoration-none text-light"> {{ $headLine[1]->kategori->name }}</a>
+                            <a href="/berita?kategori={{ $headLine[1]->kategori->name }}" class="text-decoration-none text-light"> {{ $headLine[1]->kategori->name }}</a>
                         </div>
-                      <img class="rounded-2" src="https://source.unsplash.com/1920x1080?mosque,muslim" alt="">
+                        @if ($headLine[1]->image)
+                            <img class="rounded-2" src="{{ asset('storage/'. $headLine[1]->image) }}" alt="">
+                        @else
+                            <img class="rounded-2" src="https://source.unsplash.com/1920x1080?mosque,muslim" alt="">
+                        @endif
                       <div class="card-body">
 
                          <a href="/berita/{{ $headLine[1]->slug }}" class="text-decoration-none" style="font-family: Times New Roman, Times, serif;"><h5 class="card-text fw-semibold text-decoration-none text-dark">{{ $headLine[1]->title }}</h5></a>
@@ -97,17 +109,22 @@
                     </div>
                   </div>
 
+                  {{-- Card 3 --}}
                   <div class="col d-md-none d-lg-block">
                     <div class="card shadow-lg">
                         <div class="py-1 px-1 py-md-2 px-md-3 position-absolute" style="background-color: rgba(0, 0, 0, 0.7)">
-                            <a href="/berita?kategori={{ $headLine[0]->kategori->name }}" class="text-decoration-none text-light"> {{ $headLine[2]->kategori->name }}</a>
+                            <a href="/berita?kategori={{ $headLine[2]->kategori->name }}" class="text-decoration-none text-light"> {{ $headLine[2]->kategori->name }}</a>
                         </div>
-                      <img class="rounded-2" src="https://source.unsplash.com/1920x1080?mosque,muslim" alt="">
+                        @if ($headLine[2]->image)
+                            <img class="rounded-2" src="{{ asset('storage/'. $headLine[2]->image) }}" alt="">
+                        @else
+                            <img class="rounded-2" src="https://source.unsplash.com/1920x1080?mosque,muslim" alt="">
+                        @endif
                       <div class="card-body">
 
                          <a href="/berita/{{ $headLine[2]->slug }}" class="text-decoration-none" style="font-family: Times New Roman, Times, serif;"><h5 class="card-text fw-semibold text-decoration-none text-dark">{{ $headLine[2]->title }}</h5></a>
 
-                         <small class="fw-normal font-Roboto">Oleh: <a class="text-decoration-none" href="/berita?author={{ $headLine[0]->user->username }}">{{ $headLine[2]->user->name }}</a></small>
+                         <small class="fw-normal font-Roboto">Oleh: <a class="text-decoration-none" href="/berita?author={{ $headLine[2]->user->username }}">{{ $headLine[2]->user->name }}</a></small>
 
                          <hr class="w-100 clearfix mt-2" />
 
