@@ -68,8 +68,13 @@
                 </div>
                 <label class="px-2 mt-2">Nomor Induk keluarga</label>
                 <div class="form-floating mb-2 mt-1">
-                    <input type="number" class="form-control rounded-top" name="nik" id="nik" placeholder="NIK" required value="{{ old('nik') }}">
+                    <input type="number" class="form-control rounded-top @error('nik') is-invalid @enderror" name="nik" id="nik" placeholder="NIK" required value="{{ old('nik') }}">
                     <label for="NIK">NIK</label>
+                    @error('nik')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <h4 class="text-center mt-3">ALAMAT</h4>
                 <hr class="w-100 clearfix my-3" />

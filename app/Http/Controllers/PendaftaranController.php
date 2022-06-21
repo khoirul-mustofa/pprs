@@ -40,7 +40,12 @@ class PendaftaranController extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        Pendaftaran::create([
+        $this->validate($request,[
+            'nik' => 'required|unique:pendaftarans|max:16|min:16',
+            'email' => 'required|email:dns'
+        ]);
+
+         Pendaftaran::create([
             'nama' => $request->nama,
             'templahir' => $request->tempatLahir,
             'tgllahir' => $request->tglLahir,
@@ -63,9 +68,14 @@ class PendaftaranController extends Controller
             'ijazah' => $request->ijazahTerakhir,
             'menyetujui' => $request->pernyataan
          ]);
-
         return redirect('/pendaftaran-santri/create')->with('success','Selamat Berhasil Mendaftar!');
     }
+
+    public function detailUser()
+    {
+        return view('showPendaftaran');
+    }
+
 
     /**
      * Display the specified resource.
