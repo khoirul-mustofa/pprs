@@ -147,18 +147,18 @@
                       </select>
                 </div>
 
-                <div class="form-floating mb-2 mt-2 p-4">
+                <div class="form-floating mb-2 mt-2 p-md-4">
                    <h4 class="mb-2 fw-bold">PERSYARATAN PENDAFTARAN</h4>
                    <ol>
-                       <li>Membawa Fotocopy KK (Kartu Keluarga) x 2</li>
+                       <li>Membawa Fotocopy Kartu Keluarga x 2</li>
                        <li>Membawa Fotocopy Akte Kelahiran x 2</li>
                        <li>Membawa Fotocopy Ijazah Terakhir x 2</li>
-                       <li>Membawa Fotocopy SKHU (Surat Keterangan Hasil Ujian) x 2</li>
+                       <li>Membawa Fotocopy Surat Keterangan Hasil Ujian x 2</li>
                        <li>Persyaratan Wajib dibawa ke Pesantren</li>
                    </ol>
                 </div>
 
-                <div class="form-floating mb-2 px-4">
+                <div class="form-floating mb-2 px-md-4">
                     <h4 class="fw-bold mb-2">PERNYATAAN</h4>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="pernyataan" id="pernyataan" required value="Iya">
@@ -168,11 +168,13 @@
                       </div>
                  </div>
 
-                <button class=" btn btn-lg my-3 text-light" style="background-color: #0c9488;" type="submit">Kirim</button>
+                <button class=" btn btn-lg my-3 text-light" style="background-color: #0c9488;" type="submit" onclick="return confirm('Pastikan Data anda benar!')">Kirim</button>
+
             </form>
 
           </main>
     </div>
+
 </div>
 @endsection
 

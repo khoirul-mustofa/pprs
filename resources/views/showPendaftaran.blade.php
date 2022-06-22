@@ -1,13 +1,16 @@
 @extends('layouts.main')
 @section('konten')
-<div class="card" style="width: 18rem;">
-    <div class="card-header">
-      Featured
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-    </ul>
-  </div>
+<div class="container d-flex justify-content-md-center">
+    <div class="card col-md-6 ">
+        <div class="card-header">
+          Data anda
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"></li>
+        </ul>
+      </div>
+</div>
+
+
+
 @endsection

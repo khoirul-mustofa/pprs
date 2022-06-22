@@ -13,13 +13,13 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="https://source.unsplash.com/1920x700?mosque" class="d-block w-100 rounded" alt="...">
+              <img src="https://source.unsplash.com/1920x1080?mosque" class="d-block w-100 rounded" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://source.unsplash.com/1920x700?mosque,muslim" class="d-block w-100 rounded" alt="...">
+              <img src="https://source.unsplash.com/1920x1080?mosque,muslim" class="d-block w-100 rounded" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="https://source.unsplash.com/1920x700?mosque,muslim" class="d-block w-100 rounded" alt="...">
+              <img src="https://source.unsplash.com/1920x1080?mosque,muslim" class="d-block w-100 rounded" alt="...">
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

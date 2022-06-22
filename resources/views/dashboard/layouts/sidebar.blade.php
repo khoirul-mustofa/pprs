@@ -13,6 +13,27 @@
             Berita
           </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/pendaftaran-santri   *') ? 'active' : '' }}" href="/dashboard/pendaftaran-santri">
+              <span data-feather="file" class="align-text-bottom"></span>
+              Pendaftar
+            </a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link " href="/logout">
+              <span data-feather="file" class="align-text-bottom"></span>
+              Logout
+            </a>
+        </li>
+
+          {{-- <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+        <form action="">
+            @csrf
+            <a class="nav-link px-3" href="/logout">Logout</a>
+        </form>
+    </div>
+  </div> --}}
 
     </div>
   </nav>

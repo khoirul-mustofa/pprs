@@ -14,9 +14,9 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        // return view('pendaftaran',[
-        //     'title' => 'pendaftaran-santri'
-        // ]);
+        return view('dashboard.pendaftar.index',[
+            'pendaftaran' => Pendaftaran::all()
+        ]);
     }
 
     /**
@@ -68,12 +68,14 @@ class PendaftaranController extends Controller
             'ijazah' => $request->ijazahTerakhir,
             'menyetujui' => $request->pernyataan
          ]);
-        return redirect('/pendaftaran-santri/create')->with('success','Selamat Berhasil Mendaftar!');
+        return redirect('/pendaftaran-santri/detail')->with('success','Selamat Berhasil Mendaftar!');
     }
 
     public function detailUser()
     {
-        return view('showPendaftaran');
+        return view('showPendaftaran',[
+            'title' => 'detail pendaftaran'
+        ]);
     }
 
 
