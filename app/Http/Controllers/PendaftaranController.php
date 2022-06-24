@@ -92,11 +92,12 @@ class PendaftaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Pendaftaran $pendaftaran)
+    public function show($id)
     {
         return view('dashboard.pendaftar.show',[
             "title" => "Detail Pendaftar",
-            "detailPendaftar" => $pendaftaran
+            "detailPendaftar" => Pendaftaran::find($id)
+
         ]);
     }
 

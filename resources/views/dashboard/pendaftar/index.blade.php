@@ -35,10 +35,10 @@
             <td>{{ $b->hp }}</td>
             <td>{{ $b->email }}</td>
             <td>
-                <a href="/dashboard/pendaftaran-santri/{{ $b->nik }}" class="badge bg-info"><span data-feather="eye"></span></a>
-                <a href="/dashboard/berita/{{ $b->nik }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+                <a href="/dashboard/pendaftaran-santri/{{ $b->id }}" class="badge bg-info"><span data-feather="eye"></span></a>
+                <a href="/dashboard/pendaftaran-santri/{{ $b->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
 
-                <form action="/dashboard/berita/{{ $b->nik }}" method="post" class="d-inline">
+                <form action="/dashboard/pendaftaran-santri/{{ $b->id }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
                     <button class="badge bg-danger border-0" onclick="return confirm('Hapus data?')"><span data-feather="x-circle"></span></button>

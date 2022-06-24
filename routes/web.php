@@ -34,7 +34,7 @@ Route::get('/pendaftaran-santri/daftar',[PendaftaranController::class, 'daftar']
 Route::post('/pendaftaran-santri/daftar',[PendaftaranController::class, 'store']);
 Route::get('/pendaftaran-santri/detail',[PendaftaranController::class, 'detailUser']);
 Route::get('/dashboard/pendaftaran-santri',[PendaftaranController::class, 'index']);
-Route::get('/dashboard/pendaftaran-santri/{pendaftar:nik}',[PendaftaranController::class, 'show']);
+Route::get('/dashboard/pendaftaran-santri/{pendaftar:id}',[PendaftaranController::class, 'show']);
 Route::get('/dashboard/pendaftaran-santri/create',[PendaftaranController::class, 'create']);
 
 
