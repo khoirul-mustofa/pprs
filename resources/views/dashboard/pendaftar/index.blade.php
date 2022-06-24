@@ -12,7 +12,7 @@
 
 
 <div class="table-responsive col-lg-12">
-    <a href="/dashboard/berita/create" class="btn btn-primary mb-3">Tambah Pendaftar</a>
+    <a href="/dashboard/pendaftaran-santri/create" class="btn btn-primary mb-3">Tambah Pendaftar</a>
     <table class="table table-striped table-sm">
       <thead>
         <tr>
@@ -35,7 +35,7 @@
             <td>{{ $b->hp }}</td>
             <td>{{ $b->email }}</td>
             <td>
-                <a href="/dashboard/berita/{{ $b->nik }}" class="badge bg-info"><span data-feather="eye"></span></a>
+                <a href="/dashboard/pendaftaran-santri/{{ $b->nik }}" class="badge bg-info"><span data-feather="eye"></span></a>
                 <a href="/dashboard/berita/{{ $b->nik }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
 
                 <form action="/dashboard/berita/{{ $b->nik }}" method="post" class="d-inline">

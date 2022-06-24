@@ -15,7 +15,7 @@
           <a class="nav-link {{ ($title=== "profil") ? 'active border border-light border-top-0 border-start-0 border-end-0' : '' }}"  href="/profil">Profil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($title=== "pendaftaran-santri/create") ? 'active border border-light border-top-0 border-start-0 border-end-0' : '' }}"  href="/pendaftaran-santri/create">Pendaftaran</a>
+          <a class="nav-link {{ ($title=== "pendaftaran-santri/daftar") ? 'active border border-light border-top-0 border-start-0 border-end-0' : '' }}"  href="/pendaftaran-santri/daftar">Pendaftaran</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ ($title=== "Semua Berita") ? 'active border border-light border-top-0 border-start-0 border-end-0' : '' }}"  href="/berita">Berita</a>

@@ -26,6 +26,13 @@ class PendaftaranController extends Controller
      */
     public function create(Request $request)
     {
+        return view('dashboard.pendaftar.create',[
+            'title' => 'pendaftaran-santri'
+        ]);
+    }
+
+    public function daftar(Request $request)
+    {
         return view('pendaftaran',[
             'title' => 'pendaftaran-santri'
         ]);
@@ -85,9 +92,12 @@ class PendaftaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pendaftaran $pendaftaran)
     {
-        //
+        return view('dashboard.pendaftar.show',[
+            "title" => "Detail Pendaftar",
+            "detailPendaftar" => $pendaftaran
+        ]);
     }
 
     /**

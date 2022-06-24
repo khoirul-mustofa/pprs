@@ -16,7 +16,7 @@
                 </div>
             @endif
             <hr class="w-100 clearfix my-3" />
-            <form action="/pendaftaran-santri/create" method="POST">
+            <form action="/pendaftaran-santri/daftar" method="POST">
                 @csrf
                 <div class="form-floating mb-2 mt-3">
                     <input type="text" class="form-control rounded-top" name="nama" id="nama" placeholder="Nama" required value="{{ old('nama') }}">

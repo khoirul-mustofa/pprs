@@ -30,11 +30,13 @@ Route::get('/', [BerandaController::class, 'index']);
 Route::get('/profil', [ProfilController::class, 'index']);
 
 
-Route::get('/pendaftaran-santri/create',[PendaftaranController::class, 'create']);
-Route::post('/pendaftaran-santri/create',[PendaftaranController::class, 'store']);
+Route::get('/pendaftaran-santri/daftar',[PendaftaranController::class, 'daftar']);
+Route::post('/pendaftaran-santri/daftar',[PendaftaranController::class, 'store']);
 Route::get('/pendaftaran-santri/detail',[PendaftaranController::class, 'detailUser']);
 Route::get('/dashboard/pendaftaran-santri',[PendaftaranController::class, 'index']);
 Route::get('/dashboard/pendaftaran-santri/{pendaftar:nik}',[PendaftaranController::class, 'show']);
+Route::get('/dashboard/pendaftaran-santri/create',[PendaftaranController::class, 'create']);
+
 
 Route::get('/berita', [BeritaController::class, 'index']);
 
