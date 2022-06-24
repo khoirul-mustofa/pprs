@@ -12,7 +12,7 @@ use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PengurusController;
 use App\Http\Controllers\RegisterController;
-
+use App\Models\Pendaftaran;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +33,10 @@ Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/pendaftaran-santri/daftar',[PendaftaranController::class, 'daftar']);
 Route::post('/pendaftaran-santri/daftar',[PendaftaranController::class, 'store']);
 Route::get('/pendaftaran-santri/detail',[PendaftaranController::class, 'detailUser']);
-Route::get('/dashboard/pendaftaran-santri',[PendaftaranController::class, 'index']);
-Route::get('/dashboard/pendaftaran-santri/{pendaftar:id}',[PendaftaranController::class, 'show']);
-Route::get('/dashboard/pendaftaran-santri/create',[PendaftaranController::class, 'create']);
+Route::get('/dashboard/pendaftaran-santri',[PendaftaranController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/pendaftaran-santri/{pendaftar:id}',[PendaftaranController::class, 'show'])->middleware('auth');
+Route::get('/dashboard/pendaftaran-santri/create',[PendaftaranController::class, 'create'])->middleware('auth');
+Route::delete('/dashboard/pendaftaran-santri/{pendaftar:id}',[PendaftaranController::class, 'destroy'])->middleware('auth');
 
 
 Route::get('/berita', [BeritaController::class, 'index']);

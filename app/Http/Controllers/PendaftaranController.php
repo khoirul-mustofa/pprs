@@ -132,6 +132,8 @@ class PendaftaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pendaftaran::destroy($id);
+
+        return redirect('/dashboard/pendaftaran-santri')->with('success','Data berhasil dihapus!');
     }
 }
