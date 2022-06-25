@@ -88,10 +88,12 @@ class PendaftaranController extends Controller
 
     public function detailUser()
     {
+
         return view('showPendaftaran',[
             'title' => 'Detail Pendaftar',
-            'detailPendaftar' => Pendaftaran::all()
+            'detailPendaftar' => Pendaftaran::latest()->first()
         ]);
+
     }
 
 
