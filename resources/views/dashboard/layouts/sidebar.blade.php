@@ -18,7 +18,13 @@
               <span data-feather="file" class="align-text-bottom"></span>
               Pendaftar
             </a>
-          </li>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/kategori   *') ? 'active' : '' }}" href="/dashboard/kategori">
+              <span data-feather="file" class="align-text-bottom"></span>
+              Kategori
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link " href="/logout">
               <span data-feather="file" class="align-text-bottom"></span>

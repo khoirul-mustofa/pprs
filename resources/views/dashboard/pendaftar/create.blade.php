@@ -155,7 +155,7 @@
                 <div class="form-floating mb-2 px-md-4">
                     <h4 class="fw-bold mb-2">PERNYATAAN</h4>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pernyataan" id="pernyataan" required value="Iya">
+                        <input class="form-check-input" type="radio" name="pernyataan" id="pernyataan" required value="Menyutujui">
                         <label class="form-check-label" for="pernyataan">
                           Iya, Menyetujui
                         </label>

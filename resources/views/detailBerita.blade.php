@@ -16,7 +16,7 @@ backdrop-filter: blur(7000px);">
                     <!-- Post title-->
                     <h1 class="fw-bolder mb-1 mt-3">{{ $detailBerita->title }}</h1>
                     <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">Oleh : <a class="text-decoration-none" href="/berita?author={{ $detailBerita->user->name }}">{{ $detailBerita->user->name }} </a><br>
+                    <div class="text-muted fst-italic mb-2">Oleh : <a class="text-decoration-none" href="/berita?author={{ $detailBerita->user->username }}">{{ $detailBerita->user->name }} </a><br>
                         diposting : {{ $detailBerita->created_at->diffForHumans() }}</div>
                     <!-- Post categories-->
                     <a class="badge bg-secondary text-decoration-none link-light" href="/berita?kategori={{ $detailBerita->kategori->slug }}">{{ $detailBerita->kategori->name }}</a>

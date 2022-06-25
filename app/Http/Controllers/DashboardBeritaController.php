@@ -67,7 +67,7 @@ class DashboardBeritaController extends Controller
      */
     public function show(Berita $berita)
     {
-        dd($berita);
+        // dd($berita);
         return view('dashboard.berita.show',[
             // Detail Berita
             "title"=> "Detail Berita",

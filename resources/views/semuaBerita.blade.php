@@ -84,7 +84,7 @@
     @endif
   </div>
 <div class="d-flex justify-content-end">
-  {{ $semuaBerita->links() }}
+ 
 </div>
 </div>
 
