@@ -16,7 +16,7 @@
                 </div>
             @endif
 
-            <form action="/dashboard/pendaftaran-santri/{{ $pendaftar->id }}/edit" method="POST">
+            <form action="/dashboard/pendaftaran-santri/{{ $pendaftar->id }}" method="POST">
                 @method('PUT')
                 @csrf
                 <div class="form-floating mb-2 mt-3">
@@ -31,45 +31,31 @@
                     <input type="date" class="form-control rounded-top " name="tglLahir" id="tglLahir" placeholder="Tanggal Lahir" required value="{{ old('tglLahir', $pendaftar->tgllahir) }}">
                     <label for="tglLahir">Tanggal Lahir</label>
                 </div>
-                <div class="mb-2 rounded bg-white p-3 border">
-                    <label for="jnk" class="mb-2">Jenis Kelamin</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jenisKelamin" id="jkel1" value="laki-laki" @if($pendaftar->jkl == "laki-laki")
-                            checked
-                        @endif>
-                        <label class="form-check-label" for="laki">
-                          laki-Laki
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jenisKelamin" value="perempuan" id="jkel2" @if($pendaftar->jkl == "perempuan")
-                        checked
-                        @endif>
-                        <label class="form-check-label" for="perempuan">
-                          Perempuan
-                        </label>
-                    </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Jenis Kelamin</label>
+                    <select class="form-select" name="jenisKelamin">
+                        @foreach ($jenisKelamin as $jkl)
+                        @if(old('jenisKelamin', $pendaftar->jkl) == $jkl)
+                            <option value="{{ $jkl }}" selected>{{ $jkl }}</option>
+                        @else
+                            <option value="{{ $jkl }}">{{ $jkl }}</option>
+                        @endif
+                    @endforeach
+                    </select>
                 </div>
                 <div class="mb-2 rounded bg-white p-3 border">
                     <label class="mb-2">Status Anak</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="statusAnak" id="kandung" value="kandung">
-                        <label class="form-check-label" for="kandung">
-                          Kandung
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="statusAnak" id="tiri" value="tiri">
-                        <label class="form-check-label" for="tiri">
-                          Tiri
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="statusAnak" id="asuh" checked value="asuh">
-                        <label class="form-check-label" for="asuh">
-                          Asuh
-                        </label>
-                      </div>
+                    <div class="mb-3">
+                        <select class="form-select" name="statusa">
+                            @foreach ($statusAnak as $s)
+                            @if(old('statusa', $pendaftar->statusa) == $s)
+                                <option value="{{ $s }}" selected>{{ $s }}</option>
+                            @else
+                                <option value="{{ $s }}">{{ $s }}</option>
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <label class="px-2 mt-2">Nomor Induk keluarga</label>
                 <div class="form-floating mb-2 mt-1">
@@ -105,50 +91,53 @@
                     <label for="email">Email</label>
                 </div>
                 <div class="form-floating mb-2 mt-3">
-                    <input type="text" class="form-control rounded-top" name="riwayatMedis" id="riwayatMedis" placeholder="Riwaya Medis"  value="{{ old('riwayatMedis') }}">
+                    <input type="text" class="form-control rounded-top" name="riwayatMedis" id="riwayatMedis" placeholder="Riwaya Medis"  value="{{ old('riwayatMedis',$pendaftar->riwayat) }}">
                     <label for="riwayatMedis">Riwayat Medis</label>
                 </div>
                 <h4 class="text-center mt-3">ORANG TUA</h4>
                 <hr class="w-100 clearfix my-3" />
                 <div class="form-floating mb-2 mt-3">
-                    <input type="text" class="form-control rounded-top" name="nmaAyah" id="nmaAyah" placeholder="Nama Ayah" required value="{{ old('nmaAyah') }}">
+                    <input type="text" class="form-control rounded-top" name="nmaAyah" id="nmaAyah" placeholder="Nama Ayah" required value="{{ old('nmaAyah',$pendaftar->ayah) }}">
                     <label for="nmaAyah">Nama Ayah</label>
                 </div>
                 <div class="form-floating mb-2 mt-3">
-                    <input type="text" class="form-control rounded-top" name="krjAyah" id="krjAyah" placeholder="Pekerjaan Ayah" required value="{{ old('krjAyah') }}">
+                    <input type="text" class="form-control rounded-top" name="krjAyah" id="krjAyah" placeholder="Pekerjaan Ayah" required value="{{ old('krjAyah', $pendaftar->pekerjaanA) }}">
                     <label for="krjAyah">Pekerjaan Ayah</label>
                 </div>
                 <div class="form-floating mb-2 mt-3">
-                    <input type="text" class="form-control rounded-top" name="nmaIbu" id="nmaIbu" placeholder="Nama Ibu" required value="{{ old('nmaIbu') }}">
+                    <input type="text" class="form-control rounded-top" name="nmaIbu" id="nmaIbu" placeholder="Nama Ibu" required value="{{ old('nmaIbu', $pendaftar->ibu) }}">
                     <label for="nmaIbu">Nama Ibu</label>
                 </div>
                 <div class="form-floating mb-2 mt-3">
-                    <input type="text" class="form-control rounded-top" name="krjIbu" id="krjIbu" placeholder="Pekerjaan Ibu" required value="{{ old('krjIbu') }}">
+                    <input type="text" class="form-control rounded-top" name="krjIbu" id="krjIbu" placeholder="Pekerjaan Ibu" required value="{{ old('krjIbu', $pendaftar->pekerjaanI) }}">
                     <label for="krjIbu">Pekerjaan Ibu</label>
                 </div>
                 <label class="px-2 mt-2">No WhatsApp akan dimasukan kedalam grup informasi wali santri</label>
                 <div class="form-floating mb-2 mt-1">
-                    <input type="number" class="form-control rounded-top" name="noHp" id="noHp" placeholder="Nomor Hp" required value="{{ old('noHp') }}">
+                    <input type="number" class="form-control rounded-top" name="noHp" id="noHp" placeholder="Nomor Hp" required value="{{ old('noHp',$pendaftar->hp) }}">
                     <label for="noHp">Nomor HP/Whatsapp</label>
                 </div>
-                <h4 class="text-center my-3">ASAL SEKOLAH</h4>
+                <h4 class="text-center my-3">ASAL SEKOLSMPAH</h4>
                 <label class="mt-2 px-2">Sesuai Ijazah Terakhir</label>
                 <hr class="w-100 clearfix my-3" />
                 <div class="form-floating mb-2 mt-3">
-                    <input type="text" class="form-control rounded-top" name="nmSekolah" id="nmSekolah" placeholder="Nama Sekolah" required value="{{ old('nmSekolah') }}">
+                    <input type="text" class="form-control rounded-top" name="nmSekolah" id="nmSekolah" placeholder="Nama Sekolah" required value="{{ old('nmSekolah',$pendaftar->sekolah) }}">
                     <label for="nmSekolah">Nama Sekolah</label>
                 </div>
                 <div class="form-floating mb-2 mt-3">
-                    <input type="text" class="form-control rounded-top" name="almtSekolah" id="almtSekolah" placeholder="Alamat Sekolah" required value="{{ old('almtSekolah') }}">
+                    <input type="text" class="form-control rounded-top" name="almtSekolah" id="almtSekolah" placeholder="Alamat Sekolah" required value="{{ old('almtSekolah',$pendaftar->alamat) }}">
                     <label for="almtSekolah">Alamat Sekolah</label>
                 </div>
                 <label for="ijsTerakhir" class="mt-2 px-2">Ijazah Terakhir</label>
                 <div class="form-floating mb-2 mt-1">
                     <select class="form-select" aria-label="Default select example" name="ijazahTerakhir">
-                        <option selected value="RA/TK">RA/TK</option>
-                        <option value="MI/SD">MI/SD</option>
-                        <option value="MTs/SMP">MTs/SMP</option>
-                        <option value="MA/SMK/SMA">MA/SMK/SMA</option>
+                        @foreach ($ijazah as $ij)
+                        @if(old('jenisKelamin', $pendaftar->ijazah) == $ij)
+                            <option value="{{ $ij }}" selected>{{ $ij }}</option>
+                        @else
+                            <option value="{{ $ij }}">{{ $ij }}</option>
+                        @endif
+                    @endforeach
                       </select>
                 </div>
 

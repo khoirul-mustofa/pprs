@@ -22,6 +22,7 @@
           <th scope="col">Jenis Kelamin</th>
           <th scope="col">No.Hp</th>
           <th scope="col">Email</th>
+          <th scope="col">Setatus Anak</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -34,6 +35,7 @@
             <td>{{ $b->jkl }}</td>
             <td>{{ $b->hp }}</td>
             <td>{{ $b->email }}</td>
+            <td>{{ $b->statusa }}</td>
             <td>
                 <a href="/dashboard/pendaftaran-santri/{{ $b->id }}" class="badge bg-info"><span data-feather="eye"></span></a>
                 <a href="/dashboard/pendaftaran-santri/{{ $b->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>

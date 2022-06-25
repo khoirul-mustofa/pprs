@@ -138,7 +138,7 @@
                     </div>
                   </div>
                   @else
-                  <h1 class="text-center">Tidak Ada Berita</h1>
+                  {{-- Jika tidak ada berita maka pesan akan muncul dari sini --}}
                 @endif
             </div>
         </div>
