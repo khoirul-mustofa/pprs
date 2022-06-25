@@ -28,6 +28,7 @@ class PendaftaranController extends Controller
     {
         return view('dashboard.pendaftar.create',[
             'title' => 'pendaftaran-santri'
+
         ]);
     }
 
@@ -109,7 +110,10 @@ class PendaftaranController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        return view('dashboard.pendaftar.edit',[
+            'pendaftar' => Pendaftaran::find($id)
+        ]);
     }
 
     /**
@@ -119,9 +123,33 @@ class PendaftaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $validateData = [
+            'nama' => 'required|max:200',
+            'templahir' => 'required|max:200',
+            'tgllahir' => 'required|max:200',
+            'jkl' => 'required|max:200',
+            'statusa' => 'required|max:200',
+            'nik' => 'required|max:200|unique:pendaftarans|max:16|min:16',
+            'desa' => 'required|max:200',
+            'kecamatan' => 'required|max:200',
+            'kabupaten' => 'required|max:200',
+            'provinsi' => 'required|max:200',
+            'email' => 'required|max:200|email:dns',
+            'riwayat' => 'max:200',
+            'ayah' => 'required|max:200',
+            'pekerjaanA' => 'required|max:200',
+            'ibu' => 'required|max:200',
+            'pekerjaanI' => 'required|max:200',
+            'hp' => 'required|max:200',
+            'sekolah' => 'required|max:200',
+            'alamat' => 'required|max:200',
+            'ijazah' => 'required|max:200',
+            'menyetujui' => 'required|max:200'
+        ];
+        Pendaftaran::where('id', $id)->update($validateData);
+        return redirect('/dashboard/pendaftaran-santri')->with('success','Data Berhasil DiUpdate!');
     }
 
     /**

@@ -34,9 +34,11 @@ Route::get('/pendaftaran-santri/daftar',[PendaftaranController::class, 'daftar']
 Route::post('/pendaftaran-santri/daftar',[PendaftaranController::class, 'store']);
 Route::get('/pendaftaran-santri/detail',[PendaftaranController::class, 'detailUser']);
 Route::get('/dashboard/pendaftaran-santri',[PendaftaranController::class, 'index'])->middleware('auth');
-Route::get('/dashboard/pendaftaran-santri/{pendaftar:id}',[PendaftaranController::class, 'show'])->middleware('auth');
 Route::get('/dashboard/pendaftaran-santri/create',[PendaftaranController::class, 'create'])->middleware('auth');
+Route::get('/dashboard/pendaftaran-santri/{pendaftar:id}',[PendaftaranController::class, 'show'])->middleware('auth');
 Route::delete('/dashboard/pendaftaran-santri/{pendaftar:id}',[PendaftaranController::class, 'destroy'])->middleware('auth');
+Route::get('/dashboard/pendaftaran-santri/{pendaftar:id}/edit',[PendaftaranController::class, 'edit'])->middleware('auth');
+Route::put('/dashboard/pendaftaran-santri/{pendaftar:id}',[PendaftaranController::class, 'update'])->middleware('auth');
 
 
 Route::get('/berita', [BeritaController::class, 'index']);
