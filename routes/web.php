@@ -34,6 +34,9 @@ Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/pendaftaran-santri/daftar',[PendaftaranController::class, 'daftar']);
 Route::post('/pendaftaran-santri/daftar',[PendaftaranController::class, 'store']);
 Route::get('/pendaftaran-santri/detail',[PendaftaranController::class, 'detailUser']);
+
+
+// Dashboard Pendaftaran Santri
 Route::get('/dashboard/pendaftaran-santri',[PendaftaranController::class, 'index'])->middleware('auth');
 Route::get('/dashboard/pendaftaran-santri/create',[PendaftaranController::class, 'create'])->middleware('auth');
 Route::get('/dashboard/pendaftaran-santri/{pendaftar:id}',[PendaftaranController::class, 'show'])->middleware('auth');

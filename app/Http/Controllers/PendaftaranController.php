@@ -86,11 +86,11 @@ class PendaftaranController extends Controller
         return $redirect;
     }
 
-    public function detailUser($id)
+    public function detailUser()
     {
         return view('showPendaftaran',[
-            'title' => 'detail pendaftaran',
-            'detailPendaftar' => Pendaftaran::find($id)
+            'title' => 'Detail Pendaftar',
+            'detailPendaftar' => Pendaftaran::all()
         ]);
     }
 
