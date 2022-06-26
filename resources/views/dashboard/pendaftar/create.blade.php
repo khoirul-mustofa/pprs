@@ -8,7 +8,7 @@
     <h1 class="h2 pt-3 pb-2 text-md-start text-center">Tambah Data Pendaftar</h1>
     <hr class="w-100 clearfix my-3" />
     <div class="col-md-6">
-        <main class="form-register w-100 m-auto container bg-light rounded">
+        <main class="form-register w-100 m-auto container p-3 bg-light rounded">
 
             @if (session()->has('success'))
                 <div class="alert alert-success" role="alert">
@@ -32,8 +32,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="category" class="form-label">Jenis Kelamin</label>
-                    <select class="form-select" name="jenisKelamin">
+                    <label for="category" class="form-label px-2">Jenis Kelamin</label>
+                    <select class="form-select " name="jenisKelamin">
                         @foreach ($jenisKelamin as $jkl)
                             <option value="{{ $jkl }}" selected>{{ $jkl }}</option>
                         @endforeach
@@ -131,8 +131,9 @@
                     <input type="text" class="form-control rounded-top" name="almtSekolah" id="almtSekolah" placeholder="Alamat Sekolah" required value="{{ old('almtSekolah') }}">
                     <label for="almtSekolah">Alamat Sekolah</label>
                 </div>
-                <label for="ijsTerakhir" class="mt-2 px-2">Ijazah Terakhir</label>
-                <div class="form-floating mb-2 mt-1">
+
+                <div class="mb-3">
+                    <label for="ijsTerakhir" class="form-label px-2">Ijazah Terakhir</label>
                     <select class="form-select" aria-label="Default select example" name="ijazahTerakhir">
                         <option selected value="RA/TK">RA/TK</option>
                         <option value="MI/SD">MI/SD</option>
@@ -140,7 +141,6 @@
                         <option value="MA/SMK/SMA">MA/SMK/SMA</option>
                       </select>
                 </div>
-
                 <div class="form-floating mb-2 mt-2 p-md-4">
                    <h4 class="mb-2 fw-bold">PERSYARATAN PENDAFTARAN</h4>
                    <ol>

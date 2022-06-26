@@ -42,6 +42,7 @@ class DashboardBeritaController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validateData = $request->validate([
             'title' => 'required',
             'slug' => 'required|unique:beritas',

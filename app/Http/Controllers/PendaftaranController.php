@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pendaftaran;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class PendaftaranController extends Controller
@@ -56,6 +57,7 @@ class PendaftaranController extends Controller
         ]);
 
          Pendaftaran::create([
+            'status_id' => $request->status,
             'nama' => $request->nama,
             'templahir' => $request->tempatLahir,
             'tgllahir' => $request->tglLahir,
@@ -125,7 +127,8 @@ class PendaftaranController extends Controller
             'pendaftar' => Pendaftaran::find($id),
             'jenisKelamin' => ['laki-laki','perempuan'],
             'statusAnak' => ['asuh','kandung','tiri'],
-            'ijazah' => ['RA/TK','MI/SD','MTS/SMP','MA/SMK/SMA']
+            'ijazah' => ['RA/TK','MI/SD','MTS/SMP','MA/SMK/SMA'],
+            'status' => Status::all()
         ]);
     }
 
@@ -163,6 +166,7 @@ class PendaftaranController extends Controller
         //     'pernyataan' => 'required|max:200'
         // ]);
         $data = [
+            'status_id' => $request->status,
             'nama' => $request->nama,
             'templahir' => $request->tempatLahir,
             'tgllahir' => $request->tglLahir,
