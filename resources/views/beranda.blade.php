@@ -47,7 +47,7 @@
       </div>
         <div class="album py-4 py-md-5">
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3">
-              {{-- card akan di looping atau sesuai isi dengan jumlah data --}}
+
                 @if($headLine->count())
                 <div class="col">
 

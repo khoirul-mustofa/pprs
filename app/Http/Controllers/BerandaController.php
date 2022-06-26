@@ -14,10 +14,16 @@ class BerandaController extends Controller
      */
     public function index()
     {
+        // return view('beranda',[
+        //     "title" => "beranda",
+        //     "headLine" => Berita::all(),
+        // ]);
+
         return view('beranda',[
             "title" => "beranda",
-            "headLine" => Berita::all(),
+            "headLine" => Berita::latest()->take(3)->get()
         ]);
+
     }
 
     /**

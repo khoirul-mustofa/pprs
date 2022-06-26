@@ -6,6 +6,7 @@ use App\Models\Berita;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardBeritaController extends Controller
 {
@@ -100,10 +101,12 @@ class DashboardBeritaController extends Controller
      */
     public function update(Request $request, Berita $berita)
     {
+        // dd($request);
         $rules = [
             'title' => 'required',
             'kategori_id' => 'required',
-            'konten' => 'required'
+            'image' => 'image|file|max:1024',
+            'konten' => 'required',
          ];
 
          if ($request->slug != $berita->slug) {
@@ -111,8 +114,20 @@ class DashboardBeritaController extends Controller
          }
 
          $validateData = $request->validate($rules);
+
+        //  Jika ada gambar baru
+         if($request->file('image')) {
+            // jika gambar lamanya ada, maka hapus gambar
+            if ($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            // jika tidak ada gambar lama, lakukan penyimpanan kestorage folder "berita-image"
+            $validateData['image'] = $request->file('image')->store('berita-images');
+        }
+
          $validateData['user_id'] = auth()->user()->id;
-         $validateData['excerpt'] = Str::limit(strip_tags ($request->konten), 200, '...');
+         $validateData['excerpt'] = Str::limit(strip_tags ($request->konten), 100, '...');
+
          Berita::where('id', $berita->id)
                 ->update($validateData);
          return redirect('/dashboard/berita')->with('success', 'Berita berhasil diupdate!');
@@ -126,6 +141,10 @@ class DashboardBeritaController extends Controller
      */
     public function destroy(Berita $berita)
     {
+        // hapus gambar dengan nama yang sesuai di tabel berita field image
+        if ($berita->image){
+            Storage::delete($berita->image);
+        }
         Berita::destroy($berita->id);
         return redirect('/dashboard/berita')->with('success', 'Berita berhasil dihapus!');
     }

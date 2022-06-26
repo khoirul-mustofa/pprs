@@ -4,7 +4,7 @@
     <h1 class="h2">Edit Berita</h1>
 </div>
 <div class="col-lg-8">
-    <form method="POST" action="/dashboard/berita/{{ $berita->slug }}">
+    <form method="POST" action="/dashboard/berita/{{ $berita->slug }}" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="mb-3">
@@ -43,7 +43,23 @@
                 @endforeach
             </select>
         </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Gambar Berita</label>
+            <input type="hidden" name="oldImage" value="{{ $berita->image }}">
+            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="preview()">
 
+            @if ($berita->image)
+                <img id="frame" src="{{ asset('storage/' . $berita->image) }}" class="img-fluid col-sm-5 mt-3 " />
+                @else
+                <img id="frame" src="" class="img-fluid col-sm-5 mt-3 " />
+            @endif
+
+            @error('image')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
         <div class="mb-3">
             <label for="konten" class="form-label">Konten</label>
             <input id="konten" type="hidden" name="konten" value="{{ old('konten', $berita->konten) }}">
@@ -59,5 +75,14 @@
     document.addEventListener('trix-file-accept', function(e){
         e.preventDefault();
     })
+
+    // Function untuk Perview gambar
+    function preview() {
+                frame.src = URL.createObjectURL(event.target.files[0]);
+            }
+    function clearImage() {
+        document.getElementById('image').value = null;
+        frame.src = "";
+    }
 </script>
 @endsection
