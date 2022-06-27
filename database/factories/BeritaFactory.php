@@ -17,7 +17,7 @@ class BeritaFactory extends Factory
     public function definition()
     {
         return [
-            // mt_rand untuk mengeneret bilangan random
+            // mt_rand untuk menggeneret bilangan random
             'title' => $this->faker->sentence(mt_rand(2,8)),
             'slug' => $this->faker->unique()->slug(),
             'excerpt' => $this->faker->paragraph(1,2),

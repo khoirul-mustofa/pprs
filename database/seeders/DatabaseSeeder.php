@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(5)->create();
+
         Berita::factory(100)->create();
 
         DB::table('users')->insert([
@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'khoirul@gmail.com',
             'password'=> Hash::make('password'),
         ]);
+        
+        User::factory(5)->create();
         // DB::table('users')->insert([
         //     'name' => 'mustofa',
         //     'email' => 'mustofa@gmail.com',

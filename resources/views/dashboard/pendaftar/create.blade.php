@@ -18,6 +18,7 @@
 
             <form action="/pendaftaran-santri/daftar" method="POST">
                 @csrf
+                <input type="hidden" name="status" value="1">
                 <div class="form-floating mb-2 mt-3">
                     <input type="text" class="form-control rounded-top" name="nama" id="nama" placeholder="Nama" required value="{{ old('nama') }}">
                     <label for="nama">Nama Lengkap Sesuai Ijazah</label>

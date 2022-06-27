@@ -37,7 +37,7 @@
             <td>{{ $b->hp }}</td>
             <td>{{ $b->email }}</td>
             <td>{{ $b->statusa }}</td>
-            @if($b->status->name == 'Menunggu')
+            @if($b->status->name == 'Diproses')
                 <td><small class="rounded-pill bg-warning px-3 py-1 fw-semibold">{{ $b->status->name }}</small></td>
                 @else
                 <td><small class="rounded-pill bg-success px-3 py-1 text-light fw-semibold">{{ $b->status->name }}</small></td>
