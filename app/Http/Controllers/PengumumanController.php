@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePengumumanRequest;
+use App\Http\Requests\UpdatePengumumanRequest;
 use App\Models\Pengumuman;
-use Illuminate\Http\Request;
 
 class PengumumanController extends Controller
 {
@@ -12,12 +13,12 @@ class PengumumanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Pengumuman $pengumuman)
+    public function index()
     {
-        // dd($pengumuman);
+        // dd(Pengumuman::find('1'));
         return view('pengumuman',[
             "title" => "pengumuman",
-            "pengumuman" => $pengumuman->image
+            "pengumuman" => Pengumuman::find('1')
         ]);
     }
 
@@ -34,10 +35,10 @@ class PengumumanController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StorePengumumanRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePengumumanRequest $request)
     {
         //
     }
@@ -45,10 +46,10 @@ class PengumumanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pengumuman  $pengumuman
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pengumuman $pengumuman)
     {
         //
     }
@@ -56,10 +57,10 @@ class PengumumanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pengumuman  $pengumuman
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pengumuman $pengumuman)
     {
         //
     }
@@ -67,11 +68,11 @@ class PengumumanController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\UpdatePengumumanRequest  $request
+     * @param  \App\Models\Pengumuman  $pengumuman
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePengumumanRequest $request, Pengumuman $pengumuman)
     {
         //
     }
@@ -79,10 +80,10 @@ class PengumumanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pengumuman  $pengumuman
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pengumuman $pengumuman)
     {
         //
     }
