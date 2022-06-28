@@ -16,6 +16,7 @@
                 </div>
             @endif
 
+            <input type="hidden" value="1" name="status" id="status">
             <form action="/pendaftaran-santri/daftar" method="POST">
                 @csrf
                 <input type="hidden" name="status" value="1">

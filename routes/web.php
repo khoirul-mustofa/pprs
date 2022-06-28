@@ -90,7 +90,4 @@ Route::post('/register',[RegisterController::class, 'store'])->middleware('guest
 
 Route::get('/pprs/pengurus',[PengurusController::class, 'index']);
 
-
-
-
-
+Route::get('/whatsapp', function(){return view('whatsapp');});
