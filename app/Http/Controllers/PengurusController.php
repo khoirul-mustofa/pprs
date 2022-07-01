@@ -13,8 +13,8 @@ class PengurusController extends Controller
      */
     public function index()
     {
-        return view('pengurus.index',[
-            'title'=>'pengurus'
+        return view('pengurus.index1', [
+            'title' => 'pengurus'
         ]);
     }
 
