@@ -2,7 +2,7 @@
 @section("konten")
 <div class="container">
 <div class="album py-4 py-md-5">
-    <h2 class="text-light py-2" style="font-family: Bookman, serif;;">Berita pada kategori {{ $beritaKategori }}</h2>
+    <h2 class="text-light py-2" style="font-family: Bookman, serif;">Berita pada kategori {{ $beritaKategori }}</h2>
     <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3">
       {{-- card akan di looping atau sesuai isi dengan jumlah data --}}
       @foreach ($berita as $post)
