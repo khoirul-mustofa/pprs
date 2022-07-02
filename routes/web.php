@@ -14,6 +14,7 @@ use App\Http\Controllers\PengurusController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Kategori;
 use App\Models\Pendaftaran;
+use App\Models\Pengurus;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,6 @@ use App\Models\Pendaftaran;
 */
 
 Route::get('/', [BerandaController::class, 'index']);
-
 Route::get('/profil', [ProfilController::class, 'index']);
 
 // Pendaftaran Santri
@@ -46,14 +46,9 @@ Route::put('/dashboard/pendaftaran-santri/{pendaftar:id}', [PendaftaranControlle
 // Akhri Pendaftaran Santri
 
 Route::get('/berita', [BeritaController::class, 'index']);
-
 Route::get('/berita/{berita:slug}', [BeritaController::class, 'show']);
-
 Route::get('/pengumuman', [PengumumanController::class, 'index']);
-
 Route::get('/kontak', [KontakController::class, 'index']);
-
-
 Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'kategoriShow']);
 
 //Dashboard Kategori
@@ -91,18 +86,18 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 // Akhir Register
 
 // Dashbord Pengurus
-Route::get('/dashboard/pengurus',[PengurusController@index]);
-Route::get('/dashboard/pengurus/create', [PengurusController@create]);
-Route::post('/dashboard/pengurus/create',[PengurusController@store]);
-Route::get('/dashboard/pengurus/{pengurus:id}',[PengurusController@show]);
-Route::get('/dashboard/pengurus/edit',[PengurusController@edit]);
-Route::put('/dashboard/pengurus/{pengurus:id}',[PengurusController@update]);
-Route::delete('/dashboard/pengurus/{pengurus:id}',[PengurusController@destroy]);
-
+Route::post('/dashboard/pengurus',[PengurusController::class,'store']);
+Route::get('/dashboard/pengurus',[PengurusController::class, 'index']);
+Route::get('/dashboard/pengurus/create', [PengurusController::class, 'create']);
+Route::get('/dashboard/pengurus/{pengurus:id}',[PengurusController::class,'show']);
+Route::get('/dashboard/pengurus/{pengurus:id}/edit',[PengurusController::class,'edit']);
+Route::put('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'update']);
+Route::delete('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'destroy']);
 // Akhri Dashbord Pengurus
 
 Route::get('/pengurus', function () {
     return view('pengurus.index', [
-        'title' => 'Pengurus Pondok Pesantren'
+        'title' => 'Pengurus Pondok Pesantren',
+        'semuaPengurus' => Pengurus::all()
     ]);
 });

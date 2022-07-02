@@ -18,7 +18,8 @@ class DashboardBeritaController extends Controller
     public function index()
     {
         return view('dashboard.berita.index', [
-            'semuaBerita' => Berita::all()
+            'semuaBerita' => Berita::all(),
+            'jumlahData' => Berita::get('id')->count()
         ]);
     }
 

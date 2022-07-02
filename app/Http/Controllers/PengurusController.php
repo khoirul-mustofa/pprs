@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Devisi;
+use App\Models\Pengurus;
 use Illuminate\Http\Request;
+
 
 class PengurusController extends Controller
 {
@@ -27,7 +30,8 @@ class PengurusController extends Controller
     public function create()
     {
         return view('dashboard.pengurus.create',[
-            'title' => 'Tambah Pengurus'
+            'title' => 'Tambah Pengurus',
+            'devisi' => Devisi::all()
         ]);
     }
 
@@ -39,13 +43,9 @@ class PengurusController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name' => 'required',
-            'devisi' => 'required'
-        ]);
         Pengurus::create([
             'name' => $request->name,
-            'devisi' => $request->devisi
+            'devisi_id' => $request->devisi
         ]);
         return redirect('/dashboard/pengurus')->with('success','Data berhasil ditambah!');
     }
@@ -60,7 +60,8 @@ class PengurusController extends Controller
     {
         return view('dashboard.pengurus.show',[
             'title' => 'Detail Pengurus',
-            'detailPengurus' => Pengurus::find($id)
+            'detailPengurus' => Pengurus::find($id),
+            'devisi' => Devisi::all()
         ]);
     }
 
@@ -73,7 +74,8 @@ class PengurusController extends Controller
     public function edit($id)
     {
         return view('dashboard.pengurus.edit',[
-            'pengurus' => Pengurus::find($id)
+            'pengurus' => Pengurus::find($id),
+            'devisi' => Devisi::all()
         ]);
     }
 
@@ -86,11 +88,11 @@ class PengurusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'name' => 'required',
-            'devisi' => 'required'
+        $validate = [
+            'name' => $request->name,
+            'devisi_id' => $request->devisi
         ];
-        Pengurus::where('id', $id)->update($rules);
+        Pengurus::where('id',$id)->update($validate);
 
         return redirect('/dashboard/pengurus')->with('success','Data berhasil diupdate!');
     }

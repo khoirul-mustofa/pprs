@@ -44,92 +44,23 @@
         {{-- Akhir side List --}}
 
         <div class="col-lg-5 col-12" id="pondok-putra">
-            <h1 class="py-lg-4 text-center text-lg-start mb-3">Pengurus Pondok Putra</h1>
-            <div class="row">
+            <h1 class="py-lg-4 text-center  mb-3">Pengurus Pondok Putra</h1>
+            @foreach ($semuaPengurus as $pengurus)
+            <div class="row mx-1">
                 <div class="card mb-3">
                     <div class="row">
                         <div class="col-lg-4 ms-lg-3 p-lg-3 p-5">
                             <img src="https://source.unsplash.com/1080x1080?head" class="rounded-circle img-fluid " alt="">
                         </div>
                         <div class="col pe-lg-5 pt-lg-2">
-                            <h4 class="text-center mt-lg-4 pt-lg-3">Ketua Pondok Pesantren</h4>
+                            <h4 class="text-center mt-lg-4 pt-lg-3">{{ $pengurus->devisi->name}}</h4>
                             <hr class="w-100 clearfix" />
-                            <h5 class="text-center mb-lg-3 mb-4">Ust. M. HASANUDIN,S.Pd.</h5>
+                            <h5 class="text-center mb-lg-3 mb-4">{{ $pengurus->name }}</h5>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="card mb-3">
-                    <div class="row">
-                        <div class="col-lg-4 ms-lg-3 p-lg-3 p-5">
-                            <img src="https://source.unsplash.com/1080x1080?head" class="rounded-circle img-fluid " alt="">
-                        </div>
-                        <div class="col pe-lg-5 pt-lg-2">
-                            <h4 class="text-center mt-lg-4 pt-lg-3">Ketua Pondok Pesantren</h4>
-                            <hr class="w-100 clearfix" />
-                            <h5 class="text-center mb-lg-3 mb-4">Ust. M. HASANUDIN,S.Pd.</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card mb-3">
-                    <div class="row">
-                        <div class="col-lg-4 ms-lg-3 p-lg-3 p-5">
-                            <img src="https://source.unsplash.com/1080x1080?head" class="rounded-circle img-fluid " alt="">
-                        </div>
-                        <div class="col pe-lg-5 pt-lg-2">
-                            <h4 class="text-center mt-lg-4 pt-lg-3">Ketua Pondok Pesantren</h4>
-                            <hr class="w-100 clearfix" />
-                            <h5 class="text-center mb-lg-3 mb-4">Ust. M. HASANUDIN,S.Pd.</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h1 class="py-lg-4 text-center text-lg-start mb-3">Pengurus Pondok Putri</h1>
-            <div class="row">
-                <div class="card mb-3" id="pondok-putri">
-                    <div class="row">
-                        <div class="col-lg-4 ms-lg-3 p-lg-3 p-5">
-                            <img src="https://source.unsplash.com/1080x1080?head" class="rounded-circle img-fluid " alt="">
-                        </div>
-                        <div class="col pe-lg-5 pt-lg-2">
-                            <h4 class="text-center mt-lg-4 pt-lg-3">Ketua Pondok Pesantren</h4>
-                            <hr class="w-100 clearfix" />
-                            <h5 class="text-center mb-lg-3 mb-4">Ust. M. HASANUDIN,S.Pd.</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card mb-3">
-                    <div class="row">
-                        <div class="col-lg-4 ms-lg-3 p-lg-3 p-5">
-                            <img src="https://source.unsplash.com/1080x1080?head" class="rounded-circle img-fluid " alt="">
-                        </div>
-                        <div class="col pe-lg-5 pt-lg-2">
-                            <h4 class="text-center mt-lg-4 pt-lg-3">Ketua Pondok Pesantren</h4>
-                            <hr class="w-100 clearfix" />
-                            <h5 class="text-center mb-lg-3 mb-4">Ust. M. HASANUDIN,S.Pd.</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card mb-3">
-                    <div class="row">
-                        <div class="col-lg-4 ms-lg-3 p-lg-3 p-5">
-                            <img src="https://source.unsplash.com/1080x1080?head" class="rounded-circle img-fluid " alt="">
-                        </div>
-                        <div class="col pe-lg-5 pt-lg-2">
-                            <h4 class="text-center mt-lg-4 pt-lg-3">Ketua Pondok Pesantren</h4>
-                            <hr class="w-100 clearfix" />
-                            <h5 class="text-center mb-lg-3 mb-4">Ust. M. HASANUDIN,S.Pd.</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
