@@ -10,7 +10,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <span data-feather="cloud-rain" class="align-text-bottom"></span>
+                    <span data-feather="upload-cloud" class="align-text-bottom"></span>
                     Postingan
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDarkDropdownMenuLink">
@@ -29,7 +29,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard/pendaftaran-santri   *') ? 'active' : '' }}"
                     href="/dashboard/pendaftaran-santri">
-                    <span data-feather="file" class="align-text-bottom"></span>
+                    <span data-feather="users" class="align-text-bottom"></span>
                     Pendaftar
                 </a>
             </li>

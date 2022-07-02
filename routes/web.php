@@ -1,20 +1,21 @@
 <?php
 
+use App\Models\Berita;
+use App\Models\Kategori;
+use App\Models\Pengurus;
+use App\Models\Pendaftaran;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BerandaController;
-use App\Http\Controllers\DashboardBeritaController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\PengumumanController;
-use App\Http\Controllers\PendaftaranController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PengurusController;
 use App\Http\Controllers\RegisterController;
-use App\Models\Kategori;
-use App\Models\Pendaftaran;
-use App\Models\Pengurus;
+use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\DashboardBeritaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,7 +68,11 @@ Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 // Dashboard
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
+    return view('dashboard.index',[
+        'berita' => Berita::get('id')->count(),
+        'pengurus' => Pengurus::get('id')->count(),
+        'pendaftar' => Pendaftaran::get('id')->count(),
+    ]);
 })->middleware('auth');
 
 // Dashboard Berita
@@ -86,13 +91,13 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 // Akhir Register
 
 // Dashbord Pengurus
-Route::post('/dashboard/pengurus',[PengurusController::class,'store']);
-Route::get('/dashboard/pengurus',[PengurusController::class, 'index']);
-Route::get('/dashboard/pengurus/create', [PengurusController::class, 'create']);
-Route::get('/dashboard/pengurus/{pengurus:id}',[PengurusController::class,'show']);
-Route::get('/dashboard/pengurus/{pengurus:id}/edit',[PengurusController::class,'edit']);
-Route::put('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'update']);
-Route::delete('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'destroy']);
+Route::post('/dashboard/pengurus',[PengurusController::class,'store'])->middleware('auth');
+Route::get('/dashboard/pengurus',[PengurusController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/pengurus/create', [PengurusController::class, 'create'])->middleware('auth');
+Route::get('/dashboard/pengurus/{pengurus:id}',[PengurusController::class,'show'])->middleware('auth');
+Route::get('/dashboard/pengurus/{pengurus:id}/edit',[PengurusController::class,'edit'])->middleware('auth');
+Route::put('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'update'])->middleware('auth');
+Route::delete('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'destroy'])->middleware('auth');
 // Akhri Dashbord Pengurus
 
 Route::get('/pengurus', function () {
