@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Devisi;
 use App\Models\Pengurus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class PengurusController extends Controller
@@ -43,10 +44,18 @@ class PengurusController extends Controller
      */
     public function store(Request $request)
     {
-        Pengurus::create([
-            'name' => $request->name,
-            'devisi_id' => $request->devisi
+        // dd($request);
+        $validateData = $request->validate([
+            'name' => 'required',
+            'devisi_id' => 'required',
+            'image' => 'image|file|max:1024'
         ]);
+
+        if ($request->file('image')){
+            $validateData['image'] = $request->file('image')->store('pengurus-images');
+        }
+
+        Pengurus::create($validateData);
         return redirect('/dashboard/pengurus')->with('success','Data berhasil ditambah!');
     }
 
@@ -88,11 +97,24 @@ class PengurusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validate = [
-            'name' => $request->name,
-            'devisi_id' => $request->devisi
+
+        $rules = [
+            'name' => 'required',
+            'devisi_id' => 'required',
+            'image' => 'image|file|max:1024'
         ];
-        Pengurus::where('id',$id)->update($validate);
+        $validateData = $request->validate($rules);
+
+        if ($request->file('image')){
+            if ($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validateData['image'] = $request->file('image')->store('pengurus-images');
+        }
+
+
+
+        Pengurus::where('id',$id)->update($validateData);
 
         return redirect('/dashboard/pengurus')->with('success','Data berhasil diupdate!');
     }
@@ -105,6 +127,10 @@ class PengurusController extends Controller
      */
     public function destroy($id)
     {
+        if (Pengurus::find($id)->image){
+            Storage::delete(Pengurus::find($id)->image);
+        }
+
         Pengurus::destroy($id);
         return redirect('/dashboard/pengurus')->with('success','Data berhasil dihapus!');
     }

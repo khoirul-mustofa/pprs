@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('devisi_id')->unique();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
