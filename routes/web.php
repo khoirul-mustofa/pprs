@@ -90,10 +90,19 @@ Route::get('/register', [RegisterController::class, 'create'])->middleware('gues
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 // Akhir Register
 
-Route::get('/pprs/pengurus', [PengurusController::class, 'index']);
+// Dashbord Pengurus
+Route::get('/dashboard/pengurus',[PengurusController@index]);
+Route::get('/dashboard/pengurus/create', [PengurusController@create]);
+Route::post('/dashboard/pengurus/create',[PengurusController@store]);
+Route::get('/dashboard/pengurus/{pengurus:id}',[PengurusController@show]);
+Route::get('/dashboard/pengurus/edit',[PengurusController@edit]);
+Route::put('/dashboard/pengurus/{pengurus:id}',[PengurusController@update]);
+Route::delete('/dashboard/pengurus/{pengurus:id}',[PengurusController@destroy]);
 
-Route::get('/pprs/pengurus/Ndalem-KH-M-Jamaludin-HB-ALM', function () {
-    return view('pengurus.index1', [
-        'title' => 'Pengurus Ndalem KH. M. Jamaludin HB. ALM'
+// Akhri Dashbord Pengurus
+
+Route::get('/pengurus', function () {
+    return view('pengurus.index', [
+        'title' => 'Pengurus Pondok Pesantren'
     ]);
 });

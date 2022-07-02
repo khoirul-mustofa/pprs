@@ -13,8 +13,9 @@ class PengurusController extends Controller
      */
     public function index()
     {
-        return view('pengurus.index1', [
-            'title' => 'pengurus'
+        return view('dashboard.pengurus.index', [
+            'title' => 'Data Pengurus',
+            'semuaPengurus' => Pengurus::all()
         ]);
     }
 
@@ -25,7 +26,9 @@ class PengurusController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.pengurus.create',[
+            'title' => 'Tambah Pengurus'
+        ]);
     }
 
     /**
@@ -36,7 +39,15 @@ class PengurusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required',
+            'devisi' => 'required'
+        ]);
+        Pengurus::create([
+            'name' => $request->name,
+            'devisi' => $request->devisi
+        ]);
+        return redirect('/dashboard/pengurus')->with('success','Data berhasil ditambah!');
     }
 
     /**
@@ -47,7 +58,10 @@ class PengurusController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('dashboard.pengurus.show',[
+            'title' => 'Detail Pengurus',
+            'detailPengurus' => Pengurus::find($id)
+        ]);
     }
 
     /**
@@ -58,7 +72,9 @@ class PengurusController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('dashboard.pengurus.edit',[
+            'pengurus' => Pengurus::find($id)
+        ]);
     }
 
     /**
@@ -70,7 +86,13 @@ class PengurusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'name' => 'required',
+            'devisi' => 'required'
+        ];
+        Pengurus::where('id', $id)->update($rules);
+
+        return redirect('/dashboard/pengurus')->with('success','Data berhasil diupdate!');
     }
 
     /**
@@ -81,6 +103,7 @@ class PengurusController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pengurus::destroy($id);
+        return redirect('/dashboard/pengurus')->with('success','Data berhasil dihapus!');
     }
 }

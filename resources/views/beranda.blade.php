@@ -195,7 +195,7 @@
     </div>
     <div class="row">
         <div class="d-flex justify-content-center">
-            <a href="/pprs/pengurus"><button type="button" class="btn btn-light">Semua Pengurus</button></a>
+            <a href="/pengurus"><button type="button" class="btn btn-light">Semua Pengurus</button></a>
         </div>
     </div>
 
