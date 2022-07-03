@@ -16,7 +16,7 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://source.unsplash.com/1920x1000?mosque" class="d-block w-100 rounded"
+                        <img src="{{ asset('storage/banner/bannerpprs.png') }}" class="d-block w-100 rounded"
                             alt="...">
                     </div>
                     <div class="carousel-item">
@@ -42,7 +42,43 @@
 
         </div>
 
-        <div class="row pt-5">
+        {{-- Sambutan Roisul Ma'had --}}
+        <div class="row my-5 p-3">
+            <div class="col border border-info rounded" style="background-color:rgba(9, 104, 96, 0.623);">
+                <div class="row" style="overflow: hidden">
+                    <div class="col">
+                        <h4 class="text-center mt-3 text-light">Sambutan <br> Roisul Ma'had Pesantren</h4>
+                        <div class="row d-flex justify-content-around mt-1">
+                            <div class="col-6 bg-warning mx-2" style="padding: 2px"></div>
+                        </div>
+                        <div class="row d-flex justify-content-around mb-2">
+                            <div style="max-width: 300px">
+                                <img src="{{ asset('storage/banner/placeholder-user.png') }}" alt=""
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md py-5 px-3 pe-md-5 ">
+                        <p class="text-light">Assamu’alaikum wr wb</p>
+                        <p class="text-light">Puji syukur kami panjatkan ke hadirat Allah SWT atas karunia dan hidayah-Nya,
+                            sehingga kita semua
+                            dapat membaktikan segala hal yang kita miliki untuk kemajuan dunia pendidikan khususnya
+                            Pesantren.
+                        </p>
+                        <p class="text-light">
+                            Shalawat beserta Salam semoga tetap tercurahkan kepada Baginda Nabi Agung Muhammad SAW yang
+                            sangat kita harapkan syafa’atnya, dan mudah-mudahan kita diakui sebagai ummatnya serta mendapat
+                            syafaat beliau di Yaumil Mahsyar kelak. Amin.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {{-- Akhir sambutan --}}
+
+        <div class="row pt-3">
             <div class="col-12">
                 <div class="row">
                     <h2 class="fs-2 fw-bold text-center text-light">Untuk Anda Hari ini</h2>
@@ -182,50 +218,53 @@
                 @endif
             </div>
         </div>
-        <div class="row pt-5">
-            <div class="col-12">
-                <div class="row">
-                    <h2 class="fs-2 fw-bold text-center text-light">Pengurus Pesantren</h2>
-                    <div class="row d-flex justify-content-center mt-1 mx-auto">
-                        <div class="col-1 bg-warning mx-2" style="padding: 2px"></div>
-                        <div class="col-1 bg-warning" style="padding: 2px"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-3 py-5 ms-md-auto">
-            @foreach ($pengurus as $p)
-                <div class="col">
-                    <div class="card card-cover h-100 overflow-hidden text-white rounded-4 shadow-lg"
-                        style="background-color:rgba(0, 0, 0, 0.10);">
-                        <div class="d-flex flex-column h-100 p-3 pb-3 text-white text-shadow-1">
-                            @if ($p->image)
-                                <img src="{{ asset('storage/' . $p->image) }}"
-                                    class="w-70 h-75 img-fluid rounded rounded-circle mx-auto shadow-lg img-thumbnail"
-                                    alt="...">
-                            @else
-                                <img src="https://source.unsplash.com/500x500?person"
-                                    class="w-70 h-75 img-fluid rounded rounded-circle mx-auto shadow-lg img-thumbnail"
-                                    alt="...">
-                            @endif
-
-                            <div class="h-50 w-100 mt-4 mb-2">
-                                <p class="fs-6 text-center pt-3 fw-bold" style="text-color: rgb(220, 229, 237)">
-                                    {{ $p->devisi->name }}</p>
-                                <hr class="w-100 clearfix my-3" />
-                                <p class="fs-4 text-center fw-bold" style="text-color: rgb(220, 229, 237)">
-                                    {{ $p->name }}</p>
-                            </div>
+        <section>
+            <div class="row pt-5">
+                <div class="col-12">
+                    <div class="row">
+                        <h2 class="fs-2 fw-bold text-center text-light">Pengurus Pesantren</h2>
+                        <div class="row d-flex justify-content-center mt-1 mx-auto">
+                            <div class="col-1 bg-warning mx-2" style="padding: 2px"></div>
+                            <div class="col-1 bg-warning" style="padding: 2px"></div>
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
-        <div class="row">
-            <div class="d-flex justify-content-center">
-                <a href="/pengurus"><button type="button" class="btn btn-light">Semua Pengurus</button></a>
             </div>
-        </div>
+
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-3 py-5 ms-md-auto">
+                @foreach ($pengurus as $p)
+                    <div class="col">
+                        <div class="card card-cover h-100 overflow-hidden text-white rounded-4 shadow-lg"
+                            style="background-color:rgba(0, 0, 0, 0.10);">
+                            <div class="d-flex flex-column h-100 p-3 pb-3 text-white text-shadow-1">
+                                @if ($p->image)
+                                    <img src="{{ asset('storage/' . $p->image) }}"
+                                        class="w-70 h-75 img-fluid rounded rounded-circle mx-auto shadow-lg img-thumbnail"
+                                        alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/500x500?person"
+                                        class="w-70 h-75 img-fluid rounded rounded-circle mx-auto shadow-lg img-thumbnail"
+                                        alt="...">
+                                @endif
+
+                                <div class="h-50 w-100 mt-4 mb-2">
+                                    <p class="fs-6 text-center pt-3 fw-bold" style="text-color: rgb(220, 229, 237)">
+                                        {{ $p->devisi->name }}</p>
+                                    <hr class="w-100 clearfix my-3" />
+                                    <p class="fs-4 text-center fw-bold" style="text-color: rgb(220, 229, 237)">
+                                        {{ $p->name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <a href="/pengurus"><button type="button" class="btn btn-light">Semua Pengurus</button></a>
+                </div>
+            </div>
+        </section>
+        <hr class="text-light border-3 my-4">
 
     @endsection
