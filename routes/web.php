@@ -103,6 +103,6 @@ Route::delete('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'd
 Route::get('/pengurus', function () {
     return view('pengurus.index', [
         'title' => 'Pengurus Pondok Pesantren',
-        'semuaPengurus' => Pengurus::all()
+        'semuaPengurus' => Pengurus::first()->get()
     ]);
 });
