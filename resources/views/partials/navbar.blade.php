@@ -1,8 +1,12 @@
-<nav class="navbar navbar-expand-xl navbar-dark shadow sticky-top"
-    style="background-image: url('/img/AnimatedShape.svg');">
-    <div class="container-fluid">
+<marquee class=" fw-bolder d-none d-md-block" direction="" style="background-color: rgba(233, 240, 241, 0.877);">
+    Pondok Pesantren
+    Roudlotussholihin Jl.KH.Bustomil Karim
+    Purwosari Kec. Padang Ratu Kab. Lampung Tengah Kode Pos: 34176</marquee>
+<nav class="navbar navbar-expand-xl navbar-dark shadow sticky-top" {{-- style="background-image: url('/img/AnimatedShape.svg');" --}}
+    style="background-color: #163328e5;  margin-top: -1px;">
+    <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="/img/20210301_220849.png" alt="" width="100" height="40">
+            <img src="/img/Logo.png" alt="" width="40" height="40">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

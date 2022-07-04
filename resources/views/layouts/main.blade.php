@@ -18,7 +18,7 @@
     <title>PPRS | {{ $title }}</title>
 </head>
 
-<body style="background-color: #10a67f;">
+<body style="background-color: #2dcaa0;">
     {{-- @include('partials.navbar')  disini akan tersimpan atatu terdapat halaman navbar --}}
     @include('partials.navbar')
     @yield('konten')

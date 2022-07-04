@@ -1,8 +1,6 @@
 @extends('layouts.main')
 @section('konten')
-    <marquee class=" fw-bolder" direction="" style="background-color: rgba(233, 240, 241, 0.877)">Pondok Pesantren
-        Roudlotussholihin Jl.KH.Bustomil Karim
-        Purwosari Kec. Padang Ratu Kab. Lampung Tengah Kode Pos: 34176</marquee>
+
     <div class="container">
         <div class="row mt-1">
             {{-- <img src="https://i.ytimg.com/vi/r8DMHagemHI/maxresdefault.jpg" class="img-fluid h-50 w-100 shadow-lg mt_-1" alt="..."> --}}
@@ -21,11 +19,11 @@
                             alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://source.unsplash.com/1920x1000?mosque,muslim" class="d-block w-100 rounded"
+                        <img src="https://source.unsplash.com/1920x1080?mosque,muslim" class="d-block w-100 rounded"
                             alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://source.unsplash.com/1920x1000?mosque,muslim" class="d-block w-100 rounded"
+                        <img src="https://source.unsplash.com/1920x1080?mosque,muslim" class="d-block w-100 rounded"
                             alt="...">
                     </div>
                 </div>
@@ -48,14 +46,14 @@
             <div class="col border border-info rounded" style="background-color:rgba(9, 104, 96, 0.623);">
                 <div class="row" style="overflow: hidden">
                     <div class="col">
-                        <h4 class="text-center mt-3 text-light">Sambutan <br> Roisul Ma'had Pesantren</h4>
+                        <h4 class="text-center mt-3 text-light">{{ $sambutan[0]->title }}</h4>
                         <div class="row d-flex justify-content-around mt-1">
-                            <div class="col-6 bg-warning mx-2" style="padding: 2px"></div>
+                            <div class="col-7 bg-warning mx-2" style="padding: 2px"></div>
                         </div>
+                        <h6 class="text-center mt-1 text-light fw-semibold">{{ $sambutan[0]->name }}</h6>
                         <div class="row d-flex justify-content-around mb-2">
                             <div style="max-width: 300px">
-                                <img src="{{ asset('storage/banner/placeholder-user.png') }}" alt=""
-                                    class="img-fluid">
+                                <img src="{{ asset('storage/' . $sambutan[0]->image) }}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -249,11 +247,11 @@
                                 @endif
 
                                 <div class="h-50 w-100 mt-4 mb-2">
-                                    <p class="fs-6 text-center pt-3 fw-bold" style="text-color: rgb(220, 229, 237)">
-                                        {{ $p->devisi->name }}</p>
-                                    <hr class="w-100 clearfix my-3" />
                                     <p class="fs-4 text-center fw-bold" style="text-color: rgb(220, 229, 237)">
                                         {{ $p->name }}</p>
+                                    <hr class="w-100 clearfix my-2" />
+                                    <p class="fs-6 text-center pt-1 fw-bold" style="text-color: rgb(220, 229, 237)">
+                                        {{ $p->devisi->name }}</p>
                                 </div>
                             </div>
                         </div>

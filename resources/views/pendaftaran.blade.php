@@ -4,9 +4,9 @@
         href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <link href="pendaftaran/css/main.css" rel="stylesheet" media="all">
+    {{-- <link href="public\pendaftaran\css\main.css" rel="stylesheet" media="all"> --}}
 
-    <div class="row justify-content-center font">
+    <div class="row justify-content-center font mt-1">
         <div class="col-md-9">
             <main class="form-register w-100 m-auto container bg-light rounded">
                 <h2 class="text-center pt-3">Formulir Pendaftaran Santri 2022/2023</h2>
