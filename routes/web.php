@@ -106,3 +106,5 @@ Route::get('/pengurus', function () {
         'semuaPengurus' => Pengurus::first()->get()
     ]);
 });
+
+

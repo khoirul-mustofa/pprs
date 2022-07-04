@@ -1,11 +1,12 @@
 @extends('layouts.main')
 @section('konten')
-
+    <marquee class=" fw-bolder" direction="" style="background-color: rgba(233, 240, 241, 0.877)">Pondok Pesantren
+        Roudlotussholihin Jl.KH.Bustomil Karim
+        Purwosari Kec. Padang Ratu Kab. Lampung Tengah Kode Pos: 34176</marquee>
     <div class="container">
-
         <div class="row mt-1">
             {{-- <img src="https://i.ytimg.com/vi/r8DMHagemHI/maxresdefault.jpg" class="img-fluid h-50 w-100 shadow-lg mt_-1" alt="..."> --}}
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" style="overflow: hidden">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
@@ -16,7 +17,7 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('storage/banner/bannerpprs.png') }}" class="d-block w-100 rounded"
+                        <img src="{{ asset('storage/banner/bannerpprs.png') }}" class="d-block w-100 h-50 rounded"
                             alt="...">
                     </div>
                     <div class="carousel-item">
