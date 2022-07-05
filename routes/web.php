@@ -13,6 +13,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengurusController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SambutanController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\DashboardBeritaController;
@@ -99,6 +100,11 @@ Route::get('/dashboard/pengurus/{pengurus:id}/edit',[PengurusController::class,'
 Route::put('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'update'])->middleware('auth');
 Route::delete('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'destroy'])->middleware('auth');
 // Akhri Dashbord Pengurus
+
+// Sambutan
+Route::resource('/dashboard/sambutan', SambutanController::class)->middleware('auth')->except('show','destroy','create','store');
+// Akhir Sambutan
+
 
 Route::get('/pengurus', function () {
     return view('pengurus.index', [

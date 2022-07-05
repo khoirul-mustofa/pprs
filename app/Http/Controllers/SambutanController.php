@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sambutan;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreSambutanRequest;
 use App\Http\Requests\UpdateSambutanRequest;
 
@@ -15,7 +16,9 @@ class SambutanController extends Controller
      */
     public function index()
     {
-        
+        return view('dashboard.sambutan.show',[
+            'sambutan' => Sambutan::all()
+        ]);
     }
 
     /**
@@ -58,7 +61,9 @@ class SambutanController extends Controller
      */
     public function edit(Sambutan $sambutan)
     {
-        //
+        return view('dashboard.sambutan.edit',[
+            'sambutan' => $sambutan
+        ]);
     }
 
     /**
@@ -70,7 +75,27 @@ class SambutanController extends Controller
      */
     public function update(UpdateSambutanRequest $request, Sambutan $sambutan)
     {
-        //
+        $rules = [
+            'title' => 'required',
+            'name' => 'required',
+            'image' => 'image|file|max:5024',
+            'konten' => 'required',
+        ];
+
+        $validateData = $request->validate($rules);
+
+        //  Jika ada gambar baru
+        if ($request->file('image')) {
+            // jika gambar lamanya ada, maka hapus gambar
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            // jika tidak ada gambar lama, lakukan penyimpanan kestorage folder "berita-image"
+            $validateData['image'] = $request->file('image')->store('sambutan-image');
+        }
+        Sambutan::where('id', $sambutan->id)
+        ->update($validateData);
+    return redirect('/dashboard/sambutan')->with('success', 'Sambutan berhasil diupdate!');
     }
 
     /**
@@ -81,6 +106,6 @@ class SambutanController extends Controller
      */
     public function destroy(Sambutan $sambutan)
     {
-        //
+
     }
 }

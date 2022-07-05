@@ -2,8 +2,8 @@
     Pondok Pesantren
     Roudlotussholihin Jl.KH.Bustomil Karim
     Purwosari Kec. Padang Ratu Kab. Lampung Tengah Kode Pos: 34176</marquee>
-<nav class="navbar navbar-expand-xl navbar-dark shadow sticky-top" {{-- style="background-image: url('/img/AnimatedShape.svg');" --}}
-    style="background-color: #163328e5;  margin-top: -1px;">
+<nav class="navbar navbar-expand-xl navbar-dark shadow sticky-top"
+    style="background-image: url('/img/AnimatedShape.svg');">
     <div class="container">
         <a class="navbar-brand" href="/">
             <img src="/img/Logo.png" alt="" width="40" height="40">

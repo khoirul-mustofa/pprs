@@ -17,6 +17,7 @@
                     <li><a class="dropdown-item" href="/dashboard/berita">Berita</a></li>
                     <li><a class="dropdown-item" href="/dashboard/kategori">Kategori</a></li>
                     <li><a class="dropdown-item" href="/dashboard/pengurus">Pengurus</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/sambutan">Sambutan</a></li>
                 </ul>
             </li>
 
@@ -33,6 +34,7 @@
                     Pendaftar
                 </a>
             </li>
+
             {{-- <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/kategori   *') ? 'active' : '' }}" href="/dashboard/kategori">
               <span data-feather="file" class="align-text-bottom"></span>
