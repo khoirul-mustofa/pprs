@@ -6,6 +6,7 @@ use App\Models\Pengurus;
 use App\Models\Pendaftaran;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ProfilController;
@@ -105,6 +106,9 @@ Route::delete('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'd
 Route::resource('/dashboard/sambutan', SambutanController::class)->middleware('auth')->except('show','destroy','create','store');
 // Akhir Sambutan
 
+// Awal Banner
+Route::resource('/dashboard/banner', BannerController::class)->middleware('auth')->except('destroy','show','store','create');
+// Akhir Banner
 
 Route::get('/pengurus', function () {
     return view('pengurus.index', [

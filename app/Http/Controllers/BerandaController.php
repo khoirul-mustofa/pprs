@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Berita;
 use App\Models\Pengurus;
 use App\Models\Sambutan;
@@ -25,7 +26,8 @@ class BerandaController extends Controller
             "title" => "beranda",
             "headLine" => Berita::latest()->take(3)->get(),
             "pengurus" => Pengurus::first()->take(3)->get(),
-            "sambutan" => Sambutan::all()
+            "sambutan" => Sambutan::all(),
+            "banner" => Banner::all()
         ]);
 
     }

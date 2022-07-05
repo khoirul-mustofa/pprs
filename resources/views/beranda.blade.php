@@ -15,19 +15,19 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('storage/banner/bannerpprs.png') }}" class="d-block w-100 h-50 rounded"
+                        <img src="{{ asset('storage/' . $banner[0]->image) }}" class="d-block w-100 rounded-2"
                             alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://source.unsplash.com/1920x1080?mosque,muslim" class="d-block w-100 rounded"
-                            alt="...">
+                        <img src="{{ asset('storage/' . $banner[1]->image) }}" alt="..."
+                            class="d-block w-100 rounded-2">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://source.unsplash.com/1920x1080?mosque,muslim" class="d-block w-100 rounded"
+                        <img src="{{ asset('storage/' . $banner[2]->image) }}"class="d-block w-100 rounded-2"
                             alt="...">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                <button class="carousel-control-prev" type="button" banner-bs-target="#carouselExampleIndicators"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>

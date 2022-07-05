@@ -4,10 +4,11 @@
     <h4 class="h4">Selamat Datang, {{ auth()->user()->name }}</h4>
 
   </div> --}}
+
     <div class="row mt-5">
         <div class="col-md-3 mt-3">
             <a href="/dashboard/berita" class="text-decoration-none">
-                <div class="card bg-danger p-3" id="1">
+                <div class="card bg-danger p-3">
                     <label class="text-light">Total Berita</label>
                     <div class="row">
                         <div class="col">
