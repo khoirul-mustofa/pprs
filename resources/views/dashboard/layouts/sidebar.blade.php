@@ -50,9 +50,16 @@
               Kategori
             </a>
         </li> --}}
-            <hr class="w-100 clearfix" style="margin-bottom: 3px" />
+            <hr class="w-100 clearfix" style="margin-bottom: 2px" />
             <h6 class="mx-auto">Non Data</h6>
-            <hr class="w-100 clearfix" style="margin-top: 3px" />
+            <hr class="w-100 clearfix" style="margin-top: 1px" />
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/banner*') ? 'active' : '' }}" href="/dashboard/banner">
+                    <span data-feather="users" class="align-text-bottom"></span>
+                    Banner
+                </a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('/dashboard/sambutan*') ? 'active' : '' }}"
@@ -63,9 +70,10 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('/dashboard/banner*') ? 'active' : '' }}" href="/dashboard/banner">
+                <a class="nav-link {{ Request::is('/dashboard/pengumuman*') ? 'active' : '' }}"
+                    href="/dashboard/pengumuman">
                     <span data-feather="users" class="align-text-bottom"></span>
-                    Banner
+                    Pengumuman
                 </a>
             </li>
 

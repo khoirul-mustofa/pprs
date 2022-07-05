@@ -3,6 +3,7 @@
 use App\Models\Berita;
 use App\Models\Kategori;
 use App\Models\Pengurus;
+use App\Models\Pengumuman;
 use App\Models\Pendaftaran;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -50,7 +51,6 @@ Route::put('/dashboard/pendaftaran-santri/{pendaftar:id}', [PendaftaranControlle
 
 Route::get('/berita', [BeritaController::class, 'index']);
 Route::get('/berita/{berita:slug}', [BeritaController::class, 'show']);
-Route::get('/pengumuman', [PengumumanController::class, 'index']);
 Route::get('/kontak', [KontakController::class, 'index']);
 Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'kategoriShow']);
 
@@ -106,9 +106,13 @@ Route::delete('/dashboard/pengurus/{pengurus:id}',[PengurusController::class, 'd
 Route::resource('/dashboard/sambutan', SambutanController::class)->middleware('auth')->except('show','destroy','create','store');
 // Akhir Sambutan
 
-// Awal Banner
+// Awal Dashboard Banner
 Route::resource('/dashboard/banner', BannerController::class)->middleware('auth')->except('destroy','show','store','create');
-// Akhir Banner
+// Akhir
+
+// Awal Dashboard Pengumuman
+Route::resource('/dashboard/pengumuman', PengumumanController::class)->middleware('auth');
+// Akhir
 
 Route::get('/pengurus', function () {
     return view('pengurus.index', [
@@ -117,4 +121,10 @@ Route::get('/pengurus', function () {
     ]);
 });
 
+Route::get('/pengumuman', function () {
+    return view('pengumuman',[
+        "title" => "pengumuman",
+        "pengumuman" => Pengumuman::latest()->paginate(2)
+    ]);
+});
 

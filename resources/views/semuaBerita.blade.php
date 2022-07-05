@@ -97,9 +97,9 @@
                 <p class="text-center fs-4">Tidak ada berita ditemukan</p>
             @endif
         </div>
-        <div class="d-flex justify-content-end">
 
-        </div>
+        {{-- {{ $pengumuman->links() }} --}}
+
     </div>
 
 

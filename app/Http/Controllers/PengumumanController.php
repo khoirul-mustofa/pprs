@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengumuman;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePengumumanRequest;
 use App\Http\Requests\UpdatePengumumanRequest;
-use App\Models\Pengumuman;
 
 class PengumumanController extends Controller
 {
@@ -15,10 +16,9 @@ class PengumumanController extends Controller
      */
     public function index()
     {
-        // dd(Pengumuman::find('1'));
-        return view('pengumuman',[
+        return view('dashboard.pengumuman.index',[
             "title" => "pengumuman",
-            "pengumuman" => Pengumuman::find('1')
+            "pengumuman" => Pengumuman::latest()->get()
         ]);
     }
 
@@ -29,7 +29,7 @@ class PengumumanController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.pengumuman.create');
     }
 
     /**
@@ -40,7 +40,17 @@ class PengumumanController extends Controller
      */
     public function store(StorePengumumanRequest $request)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required',
+            'image' => 'image|file'
+        ]);
+
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('pengumuman-images');
+        }
+
+        Pengumuman::create($validateData);
+        return redirect('/dashboard/pengumuman')->with('success', 'Pengumuman Baru Telah Ditambakhan!');
     }
 
     /**
@@ -62,7 +72,9 @@ class PengumumanController extends Controller
      */
     public function edit(Pengumuman $pengumuman)
     {
-        //
+        return view('dashboard.pengumuman.edit', [
+            'pengumuman' => $pengumuman
+        ]);
     }
 
     /**
@@ -74,7 +86,20 @@ class PengumumanController extends Controller
      */
     public function update(UpdatePengumumanRequest $request, Pengumuman $pengumuman)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required',
+            'image' => 'image|file'
+        ]);
+
+        if ($request->file('image')){
+            if ($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validateData['image'] = $request->file('image')->store('pengumuman-images');
+        }
+
+        Pengumuman::where('id', $pengumuman->id)->update($validateData);
+        return redirect('/dashboard/pengumuman')->with('success','Pengumuman Berhasil Diupdate!');
     }
 
     /**
@@ -85,6 +110,10 @@ class PengumumanController extends Controller
      */
     public function destroy(Pengumuman $pengumuman)
     {
-        //
+        if ($pengumuman->image) {
+            Storage::delete($pengumuman->image);
+        }
+        Pengumuman::destroy($pengumuman->id);
+        return redirect('/dashboard/pengumuman')->with('success','Pengumuman berhasil dihapus!');
     }
 }
