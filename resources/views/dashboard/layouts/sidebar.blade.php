@@ -40,7 +40,7 @@
                 <a class="nav-link {{ Request::is('dashboard/pendaftaran-santri*') ? 'active' : '' }}"
                     href="/dashboard/pendaftaran-santri">
                     <span data-feather="users" class="align-text-bottom"></span>
-                    Pendaftar
+                    Santri
                 </a>
             </li>
 
@@ -56,7 +56,7 @@
 
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('/dashboard/banner*') ? 'active' : '' }}" href="/dashboard/banner">
-                    <span data-feather="users" class="align-text-bottom"></span>
+                    <span data-feather="image" class="align-text-bottom"></span>
                     Banner
                 </a>
             </li>
@@ -72,7 +72,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('/dashboard/pengumuman*') ? 'active' : '' }}"
                     href="/dashboard/pengumuman">
-                    <span data-feather="users" class="align-text-bottom"></span>
+                    <span data-feather="bell" class="align-text-bottom"></span>
                     Pengumuman
                 </a>
             </li>

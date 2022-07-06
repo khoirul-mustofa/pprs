@@ -12,7 +12,7 @@
             font-family: Iceberg;
         }
 
-        .container {
+        .bg-my-style {
             background-color: #E9F5F2
         }
 
@@ -20,7 +20,7 @@
             font-size: 26px;
         }
     </style>
-    <div class="container">
+    <div class="container bg-my-style">
 
         {{-- Awal Drop Down --}}
         <div class="dropdown-center d-lg-none px-4">

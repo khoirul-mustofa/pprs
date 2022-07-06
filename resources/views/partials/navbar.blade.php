@@ -1,7 +1,9 @@
 <marquee class=" fw-bolder d-none d-md-block" direction="" style="background-color: rgba(233, 240, 241, 0.877);">
-    Pondok Pesantren
-    Roudlotussholihin Jl.KH.Bustomil Karim
-    Purwosari Kec. Padang Ratu Kab. Lampung Tengah Kode Pos: 34176</marquee>
+    Jl.
+    KH.Busthomil Karim Yayasan Pondok Pesantren Roudlotussholihin Purwosari Kec. Padangratu Kab. Lampung Tengah 34176.
+</marquee>
+
+
 <nav class="navbar navbar-expand-xl navbar-dark shadow sticky-top"
     style="background-image: url('/img/AnimatedShape.svg');">
     <div class="container">
@@ -81,7 +83,7 @@
             <ul class="navbar-nav d-none d-md-block">
                 <li class="nav-item">
                     <div class="btn-group dropstart">
-                        <button type="button" class="btn text-light dropdown-toggle shadow-none "
+                        <button type="button" class="btn text-white fw-bolder dropdown-toggle shadow-none "
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Ikuti Kami
                         </button>
