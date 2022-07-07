@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePengumumanRequest;
-use App\Http\Requests\UpdatePengumumanRequest;
-use App\Models\Pengumuman;
+use App\Http\Requests\StorestatusRequest;
+use App\Http\Requests\UpdatestatusRequest;
+use App\Models\status;
 
-class PengumumanController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,7 @@ class PengumumanController extends Controller
      */
     public function index()
     {
-        // dd(Pengumuman::find('1'));
-        return view('pengumuman',[
-            "title" => "pengumuman",
-            "pengumuman" => Pengumuman::find('1')
-        ]);
+        //
     }
 
     /**
@@ -35,10 +31,10 @@ class PengumumanController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePengumumanRequest  $request
+     * @param  \App\Http\Requests\StorestatusRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePengumumanRequest $request)
+    public function store(StorestatusRequest $request)
     {
         //
     }
@@ -46,10 +42,10 @@ class PengumumanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pengumuman  $pengumuman
+     * @param  \App\Models\status  $status
      * @return \Illuminate\Http\Response
      */
-    public function show(Pengumuman $pengumuman)
+    public function show(status $status)
     {
         //
     }
@@ -57,10 +53,10 @@ class PengumumanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pengumuman  $pengumuman
+     * @param  \App\Models\status  $status
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pengumuman $pengumuman)
+    public function edit(status $status)
     {
         //
     }
@@ -68,11 +64,11 @@ class PengumumanController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePengumumanRequest  $request
-     * @param  \App\Models\Pengumuman  $pengumuman
+     * @param  \App\Http\Requests\UpdatestatusRequest  $request
+     * @param  \App\Models\status  $status
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePengumumanRequest $request, Pengumuman $pengumuman)
+    public function update(UpdatestatusRequest $request, status $status)
     {
         //
     }
@@ -80,10 +76,10 @@ class PengumumanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pengumuman  $pengumuman
+     * @param  \App\Models\status  $status
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pengumuman $pengumuman)
+    public function destroy(status $status)
     {
         //
     }

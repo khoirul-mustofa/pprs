@@ -9,7 +9,7 @@
     <div class="col-md-6">
         <main class="form-register w-100 m-auto container bg-light rounded">
             <h2 class="text-center pt-3">Formulir Pendaftaran Santri 2022/2023</h2>
-            <small>Sekretariat : JL. KH. Busthomil Karim Purwosari Kec. Padang Ratu Kab. Lampung Tengah 34176</small>
+            <h6 class="text-center fw-light">Sekretariat : JL. KH. Busthomil Karim Purwosari Kec. Padang Ratu Kab. Lampung Tengah 34176</h6>
             @if (session()->has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ session('success') }}
@@ -18,6 +18,7 @@
             <hr class="w-100 clearfix my-3" />
             <form action="/pendaftaran-santri/daftar" method="POST">
                 @csrf
+                <input type="hidden" value="1" name="status" id="status">
                 <div class="form-floating mb-2 mt-3">
                     <input type="text" class="form-control rounded-top" name="nama" id="nama" placeholder="Nama" required value="{{ old('nama') }}">
                     <label for="nama">Nama Lengkap Sesuai Ijazah</label>

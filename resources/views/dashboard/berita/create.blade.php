@@ -4,7 +4,7 @@
     <h1 class="h2">Buat Berita Baru</h1>
 </div>
 <div class="col-lg-8">
-    <form method="POST" action="/dashboard/berita/create" enctype="multipart/form-data"> 
+    <form method="POST" action="/dashboard/berita/create" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
@@ -45,7 +45,8 @@
 
         <div class="mb-3">
             <label for="formFile" class="form-label">Gambar Berita</label>
-            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="preview()">
+            <img id="frame" src="" class="img-fluid col-sm-5 mt-3 " />
             @error('image')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -68,5 +69,17 @@
     document.addEventListener('trix-file-accept', function(e){
         e.preventDefault();
     })
+
+    // Function untuk Perview gambar
+    function preview() {
+                frame.src = URL.createObjectURL(event.target.files[0]);
+            }
+    function clearImage() {
+        document.getElementById('image').value = null;
+        frame.src = "";
+    }
+
+
+
 </script>
 @endsection

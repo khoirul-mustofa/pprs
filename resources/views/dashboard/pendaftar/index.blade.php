@@ -22,6 +22,8 @@
           <th scope="col">Jenis Kelamin</th>
           <th scope="col">No.Hp</th>
           <th scope="col">Email</th>
+          <th scope="col">Status Anak</th>
+          <th scope="col">Status</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -34,6 +36,13 @@
             <td>{{ $b->jkl }}</td>
             <td>{{ $b->hp }}</td>
             <td>{{ $b->email }}</td>
+            <td>{{ $b->statusa }}</td>
+            @if($b->status->name == 'Diproses')
+                <td><small class="rounded-pill bg-warning px-3 py-1 fw-semibold">{{ $b->status->name }}</small></td>
+                @else
+                <td><small class="rounded-pill bg-success px-3 py-1 text-light fw-semibold">{{ $b->status->name }}</small></td>
+            @endif
+
             <td>
                 <a href="/dashboard/pendaftaran-santri/{{ $b->id }}" class="badge bg-info"><span data-feather="eye"></span></a>
                 <a href="/dashboard/pendaftaran-santri/{{ $b->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>

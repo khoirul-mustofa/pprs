@@ -12,9 +12,9 @@ class KategoriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($semuaKategori)
+    public function index()
     {
-        return view('semuaKategori',[
+        return view('dashboard.kategori.index',[
             "title" => "Kategori",
             "semuaKategori" => Kategori::all()
         ]);
@@ -27,7 +27,9 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.kategori.create',[
+            'title' => 'kategori create'
+        ]);
     }
 
     /**
@@ -38,7 +40,16 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|unique:kategoris|min:2',
+            'slug' => 'required|unique:kategoris|min:2'
+        ]);
+        Kategori::create([
+            'name' => $request->name,
+            'slug' => $request->slug
+        ]);
+        return redirect('/dashboard/kategori')->with('success','Data kategori berhasil ditambah!');
+
     }
 
     /**
@@ -49,6 +60,12 @@ class KategoriController extends Controller
      */
     public function show(Kategori $kategori)
     {
+
+    }
+
+    public function kategoriShow(Kategori $kategori)
+    {
+        
         return view('semuaBerita',[
             'title' => "Semua Berita Berdasarkan Kategori : $kategori->name",
             'semuaBerita' => $kategori->semuaBerita->load('user','kategori')
@@ -63,7 +80,9 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('dashboard.kategori.edit',[
+            'kategori' => Kategori::find($id)
+        ]);
     }
 
     /**
@@ -75,7 +94,12 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data =[
+            'name' => $request->name,
+            'slug' => $request->slug
+        ];
+        Kategori::whereId($id)->update($data);
+        return redirect('/dashboard/kategori')->with('success','Data Berhasil DiUpdate!');
     }
 
     /**
@@ -86,6 +110,7 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kategori::destroy($id);
+        return redirect('/dashboard/kategori')->with('success','Data berhasil dihapus!');
     }
 }

@@ -14,5 +14,11 @@ class Pendaftaran extends Model
     // {
     // return 'nik';
     // }
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
+
 }
 

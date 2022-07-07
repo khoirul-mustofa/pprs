@@ -8,7 +8,7 @@
     <h1 class="h2 pt-3 pb-2 text-md-start text-center">Tambah Data Pendaftar</h1>
     <hr class="w-100 clearfix my-3" />
     <div class="col-md-6">
-        <main class="form-register w-100 m-auto container bg-light rounded">
+        <main class="form-register w-100 m-auto container p-3 bg-light rounded">
 
             @if (session()->has('success'))
                 <div class="alert alert-success" role="alert">
@@ -18,6 +18,7 @@
 
             <form action="/pendaftaran-santri/daftar" method="POST">
                 @csrf
+                <input type="hidden" name="status" value="1">
                 <div class="form-floating mb-2 mt-3">
                     <input type="text" class="form-control rounded-top" name="nama" id="nama" placeholder="Nama" required value="{{ old('nama') }}">
                     <label for="nama">Nama Lengkap Sesuai Ijazah</label>
@@ -27,23 +28,17 @@
                     <label for="tempatLahir">Tempat Lahir</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="date" class="form-control rounded-top " name="tglLahir" id="tglLahir" placeholder="Tanggal Lahir" required value="{{ old('tglLahir') }}">
+                    <input type="date" class="form-control rounded-top " format="dd-mm-yyyy" name="tglLahir" id="tglLahir" placeholder="Tanggal Lahir" required value="{{ old('tglLahir') }}">
                     <label for="tglLahir">Tanggal Lahir</label>
                 </div>
-                <div class="mb-2 rounded bg-white p-3 border">
-                    <label for="jnk" class="mb-2">Jenis Kelamin</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jenisKelamin" id="jkel1" value="laki-laki">
-                        <label class="form-check-label" for="laki">
-                          laki-Laki
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jenisKelamin" value="perempuan" id="jkel2" checked>
-                        <label class="form-check-label" for="perempuan">
-                          Perempuan
-                        </label>
-                      </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label px-2">Jenis Kelamin</label>
+                    <select class="form-select " name="jenisKelamin">
+                        @foreach ($jenisKelamin as $jkl)
+                            <option value="{{ $jkl }}" selected>{{ $jkl }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="mb-2 rounded bg-white p-3 border">
                     <label class="mb-2">Status Anak</label>
@@ -100,7 +95,7 @@
                     <label for="email">Email</label>
                 </div>
                 <div class="form-floating mb-2 mt-3">
-                    <input type="text" class="form-control rounded-top" name="riwayatMedis" id="riwayatMedis" placeholder="Riwaya Medis"  value="{{ old('riwayatMedis') }}">
+                    <input type="text" class="form-control rounded-top" name="riwayatMedis" id="riwayatMedis" placeholder="Riwaya Medis" value="{{ old('riwayatMedis','-') }}">
                     <label for="riwayatMedis">Riwayat Medis</label>
                 </div>
                 <h4 class="text-center mt-3">ORANG TUA</h4>
@@ -137,8 +132,9 @@
                     <input type="text" class="form-control rounded-top" name="almtSekolah" id="almtSekolah" placeholder="Alamat Sekolah" required value="{{ old('almtSekolah') }}">
                     <label for="almtSekolah">Alamat Sekolah</label>
                 </div>
-                <label for="ijsTerakhir" class="mt-2 px-2">Ijazah Terakhir</label>
-                <div class="form-floating mb-2 mt-1">
+
+                <div class="mb-3">
+                    <label for="ijsTerakhir" class="form-label px-2">Ijazah Terakhir</label>
                     <select class="form-select" aria-label="Default select example" name="ijazahTerakhir">
                         <option selected value="RA/TK">RA/TK</option>
                         <option value="MI/SD">MI/SD</option>
@@ -146,7 +142,6 @@
                         <option value="MA/SMK/SMA">MA/SMK/SMA</option>
                       </select>
                 </div>
-
                 <div class="form-floating mb-2 mt-2 p-md-4">
                    <h4 class="mb-2 fw-bold">PERSYARATAN PENDAFTARAN</h4>
                    <ol>
@@ -161,14 +156,14 @@
                 <div class="form-floating mb-2 px-md-4">
                     <h4 class="fw-bold mb-2">PERNYATAAN</h4>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pernyataan" id="pernyataan" required value="Iya">
+                        <input class="form-check-input" type="radio" name="pernyataan" id="pernyataan" required value="Menyutujui">
                         <label class="form-check-label" for="pernyataan">
                           Iya, Menyetujui
                         </label>
                       </div>
                  </div>
 
-                <button class=" btn btn-lg my-3 text-light" style="background-color: #0c9488;" type="submit" onclick="return confirm('Pastikan Data anda benar!')">Kirim</button>
+                <button class=" btn btn-lg my-3 text-light" style="background-color: #0c9488;" type="submit" >Kirim</button>
 
             </form>
 
