@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('profils', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug')->Unique();
+            // $table->string('slug')->Unique();
+            $table->text('konten_first')->nullable();
             $table->string('image')->nullable();
-            $table->text('body');
+            $table->text('konten')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-5 col-12 my-2 ml-3 p-md-5">
                 <div class="d-flex justify-content-center">
-                    <img src="https://source.unsplash.com/300x300?mosque"
+                    <img src="{{ asset('storage/lain-lain/LG.jpg') }}"
                         class=" img-fluid rounded rounded-circle  shadow-lg img-thumbnail my-3" alt="roudlotussholihin">
                 </div>
                 <h3 class="text-center p-md-3 fw-bold">ROUDLOTUSSHOLIHIN</h3>
@@ -29,60 +29,44 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8 bg-light rounded px-3">
+            <div class="container col-lg-8 rounded px-3">
                 <!-- Post content-->
                 <article>
                     <!-- Post header-->
-                    <header class="mb-4">
-                        <!-- Post title-->
-                        <h1 class="fw-bolder mb-1 mt-3">Lorem Ipsum</h1>
-                        <!-- Post meta content-->
-                    </header>
-                    <!-- Preview image figure-->
-                    <figure class="mb-4"><img class="img-fluid rounded" src="https://source.unsplash.com/900x400?mosque "
-                            alt="..." /></figure>
-                    <!-- Post content-->
-                    <section class="mb-5">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, itaque quis. Ratione voluptatem
-                            dolore laborum? Quis nobis fugiat assumenda atque?Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit. Earum, et. Atque ut molestias temporibus? A doloremque nihil impedit
-                            accusantium nobis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum quaerat
-                            aspernatur totam perspiciatis nisi, hic consectetur nulla deserunt atque.</p>
-                    </section>
-                </article>
-            </div>
-            <!-- Side widgets-->
-            <div class="col-lg-4">
-                <!-- Categories widget-->
-                <div class="card mb-4">
-                    <div class="card-header">Lorem ipsum</div>
-                    <div class="card-body">
-                        <div class="row">
+                    @foreach ($profil as $p)
+                        <header class="mb-3 ms-2">
+                            <!-- Post title-->
 
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a class="text-decoration-none" href="#">Lorem ipsum</a></li>
-                                    <li><a class="text-decoration-none" href="#">Lorem ipsum</a></li>
-                                    <li><a class="text-decoration-none" href="#">Lorem ipsum</a></li>
-                                    <li><a class="text-decoration-none" href="#">Lorem ipsum</a></li>
-                                    <li><a class="text-decoration-none" href="#">Lorem ipsum</a></li>
-                                    <li><a class="text-decoration-none" href="#">Lorem ipsum</a></li>
-                                </ul>
+                            <div class="row col-md-7">
+                                <div class="border border-info border-2 p-1">
+                                    <div class="border border-info border-1 p-1">
+                                        <h2 class="fw-bolder ms-2">{{ $p->title }}</h2>
+                                    </div>
+                                </div>
                             </div>
 
-                        </div>
-                    </div>
-                </div>
+
+                            <!-- Post meta content-->
+                        </header>
+                        <section class="mb-3">
+                            {!! $p->konten_first !!}
+                        </section>
+                        <!-- Preview image figure-->
+                        @if ($p->image)
+                            <figure class="mb-3"><img class="img-fluid rounded"
+                                    src="{{ asset('storage/' . $p->image) }}" alt="..." /></figure>
+                        @else
+                            <figure class="mb-3"><img class="img-fluid rounded"
+                                    src="https://source.unsplash.com/900x400?mosque " alt="..." /></figure>
+                        @endif
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            {!! $p->konten !!}
+                        </section>
+                    @endforeach
+
+                </article>
             </div>
         </div>
-    </div>
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    {{-- <script src="js/scripts.js"></script> --}}
-    </body>
-
-    </html>
     </div>
 @endsection

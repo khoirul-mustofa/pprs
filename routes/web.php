@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Berita;
+use App\Models\Profil;
 use App\Models\Kategori;
 use App\Models\Pengurus;
 use App\Models\Pengumuman;
@@ -114,7 +115,13 @@ Route::resource('/dashboard/pengumuman', PengumumanController::class)->middlewar
 // Akhir
 
 
-Route::resource('/dashboard/profil', ProfilController::class)->middleware('auth');
+Route::resource('/dashboard/profil', ProfilController::class)->middleware('auth')->except('show');
+Route::get('/dashboard/profil/preview', function(){
+    return view('dashboard.profil.show',[
+        'title' => 'Detail Profil',
+        'profil' => Profil::latest()->get()
+    ]);
+})->middleware('auth');
 
 
 Route::get('/pengurus', function () {
@@ -133,6 +140,7 @@ Route::get('/pengumuman', function () {
 
 Route::get('/profil', function (){
     return view('profil',[
-        "title" => "profil"
+        "title" => "profil",
+        "profil" => Profil::latest()->get()
     ]);
 });

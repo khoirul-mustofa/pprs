@@ -64,14 +64,14 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('/dashboard/sambutan*') ? 'active' : '' }}"
                     href="/dashboard/sambutan">
-                    <span data-feather="users" class="align-text-bottom"></span>
+                    <span data-feather="clipboard" class="align-text-bottom"></span>
                     Sambutan
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('/dashboard/profil*') ? 'active' : '' }}" href="/dashboard/profil">
-                    <span data-feather="image" class="align-text-bottom"></span>
+                    <span data-feather="circle" class="align-text-bottom"></span>
                     Profil
                 </a>
             </li>

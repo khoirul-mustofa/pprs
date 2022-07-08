@@ -4,7 +4,7 @@
         <h1 class="h2">Buat Profil Baru</h1>
     </div>
     <div class="col-lg-8">
-        <form method="POST" action="/dashboard/profil/create" enctype="multipart/form-data">
+        <form method="POST" action="/dashboard/profil" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -15,6 +15,12 @@
                         {{ $message }}
                     </div>
                 @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="konten_first" class="form-label">Konten Pertama</label>
+                <input id="konten_first" type="hidden" name="konten_first" value="{{ old('konten_first') }}">
+                <trix-editor input="konten_first"></trix-editor>
             </div>
 
             <div class="mb-3">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilController extends Controller
 {
@@ -16,7 +17,7 @@ class ProfilController extends Controller
     {
         return view('dashboard.profil.index',[
             'title' => 'Profil',
-            'profil' => Profil::all()
+            'profil' => Profil::latest()->get()
         ]);
     }
 
@@ -40,18 +41,20 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validateData = $request->validate([
             'title' => 'required',
             // 'slug' => 'required|unique:profils',
+            'konten_first' => '',
+            'konten'=> '',
             'image' => 'image|file',
-            'body' => 'rquired'
         ]);
 
         if ($request->file('image')){
             $validateData['image'] = $request->file('image')->store('profil-images');
         }
         Profil::create($validateData);
-        return Route::redirect('/dashboard/profil')->with('success', 'Profil berhasil ditambah!');
+        return redirect('/dashboard/profil')->with('success', 'Profil berhasil ditambah!');
     }
 
     /**
@@ -62,10 +65,7 @@ class ProfilController extends Controller
      */
     public function show($id)
     {
-        return view('dashboard.profil.show',[
-            'title' => 'Detail Profil',
-            'profil' => $id
-        ]);
+
     }
 
     /**
@@ -77,7 +77,7 @@ class ProfilController extends Controller
     public function edit($id)
     {
         return view('dashboard.profil.edit',[
-            'profil' => $id
+            'profil' => Profil::find($id)
         ]);
     }
 
@@ -90,14 +90,13 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
+        $validateData = $request->validate([
             'title' => 'required',
             // 'slug' => 'required|unique:profils',
             'image' => 'image|file',
-            'body' => 'required'
-        ];
-
-        $validateData = $request->validate($rules);
+            'konten_first' => 'required',
+            'konten' => 'required'
+        ]);
 
         if($request->file('image')){
             if($request->oldImage){
