@@ -37,6 +37,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('ijazah');
             $table->string('menyetujui');
+            $table->string('status_pendidikan');
             $table->timestamps();
         });
     }

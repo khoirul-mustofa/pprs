@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profil;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller
@@ -13,8 +14,9 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        return view('profil',[
-            "title" => "profil"
+        return view('dashboard.profil.index',[
+            'title' => 'Profil',
+            'profil' => Profil::all()
         ]);
     }
 
@@ -25,7 +27,9 @@ class ProfilController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.profil.create',[
+            'title' => 'Tambah Profil'
+        ]);
     }
 
     /**
@@ -36,7 +40,18 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'title' => 'required',
+            // 'slug' => 'required|unique:profils',
+            'image' => 'image|file',
+            'body' => 'rquired'
+        ]);
+
+        if ($request->file('image')){
+            $validateData['image'] = $request->file('image')->store('profil-images');
+        }
+        Profil::create($validateData);
+        return Route::redirect('/dashboard/profil')->with('success', 'Profil berhasil ditambah!');
     }
 
     /**
@@ -47,7 +62,10 @@ class ProfilController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('dashboard.profil.show',[
+            'title' => 'Detail Profil',
+            'profil' => $id
+        ]);
     }
 
     /**
@@ -58,7 +76,9 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('dashboard.profil.edit',[
+            'profil' => $id
+        ]);
     }
 
     /**
@@ -70,7 +90,24 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'title' => 'required',
+            // 'slug' => 'required|unique:profils',
+            'image' => 'image|file',
+            'body' => 'required'
+        ];
+
+        $validateData = $request->validate($rules);
+
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validateData['image'] = $request->file('image')->store('profil-images');
+        }
+
+        Profil::where('id', $id)->update($validateData);
+        return redirect('/dashboard/profil')->with('success','Profil berhasil diupdate!');
     }
 
     /**
@@ -79,8 +116,12 @@ class ProfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Profil $profil)
     {
-        //
+        if($profil->image){
+            Storage::delete($profil->image);
+        }
+        Profil::destroy($profil->id);
+        return redirect('/dashboard/profil')->with('success','Profil berhasil dihapus!');
     }
 }

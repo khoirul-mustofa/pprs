@@ -32,7 +32,6 @@ use App\Http\Controllers\DashboardBeritaController;
 */
 
 Route::get('/', [BerandaController::class, 'index']);
-Route::get('/profil', [ProfilController::class, 'index']);
 
 // Pendaftaran Santri
 Route::get('/pendaftaran-santri/daftar', [PendaftaranController::class, 'daftar']);
@@ -114,6 +113,10 @@ Route::resource('/dashboard/banner', BannerController::class)->middleware('auth'
 Route::resource('/dashboard/pengumuman', PengumumanController::class)->middleware('auth');
 // Akhir
 
+
+Route::resource('/dashboard/profil', ProfilController::class)->middleware('auth');
+
+
 Route::get('/pengurus', function () {
     return view('pengurus.index', [
         'title' => 'Pengurus Pondok Pesantren',
@@ -128,3 +131,8 @@ Route::get('/pengumuman', function () {
     ]);
 });
 
+Route::get('/profil', function (){
+    return view('profil',[
+        "title" => "profil"
+    ]);
+});

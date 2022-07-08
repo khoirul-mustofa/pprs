@@ -70,6 +70,13 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/profil*') ? 'active' : '' }}" href="/dashboard/profil">
+                    <span data-feather="image" class="align-text-bottom"></span>
+                    Profil
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link {{ Request::is('/dashboard/pengumuman*') ? 'active' : '' }}"
                     href="/dashboard/pengumuman">
                     <span data-feather="bell" class="align-text-bottom"></span>

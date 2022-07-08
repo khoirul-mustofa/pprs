@@ -43,8 +43,16 @@
                             <td><small class="rounded-pill bg-warning px-3 py-1 fw-semibold"><span data-feather="user-minus"
                                         class="me-1"></span> {{ $b->status->name }}</small>
                             </td>
-                        @else
+                        @elseif ($b->status->name == 'Aktif')
                             <td><small class="rounded-pill bg-success px-3 py-1 text-light fw-semibold"><span
+                                        data-feather="user-check" class="me-1"></span> {{ $b->status->name }}</small>
+                            </td>
+                        @elseif ($b->status->name == 'Ngalong')
+                            <td><small class="rounded-pill bg-secondary px-3 py-1 text-light fw-semibold"><span
+                                        data-feather="user-check" class="me-1"></span> {{ $b->status->name }}</small>
+                            </td>
+                        @else
+                            <td><small class="rounded-pill bg-danger px-3 py-1 text-light fw-semibold"><span
                                         data-feather="user-check" class="me-1"></span> {{ $b->status->name }}</small>
                             </td>
                         @endif
