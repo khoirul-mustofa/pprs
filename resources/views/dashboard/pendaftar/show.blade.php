@@ -1,7 +1,8 @@
 @extends('dashboard.layouts.main')
 @section('container')
-    <div class="col-12 col-sm-6 col-lg-8">
-        <table class="table table-light table-striped" >
+    <div class="container col-lg-9">
+        <h3 class="border-bottom mb-5 py-3">Detail data {{ $detailPendaftar->nama }}</h3>
+        <table class="table table-light table-striped">
             <tbody>
                 <tr>
                     <td>Nama</td>
@@ -95,6 +96,4 @@
             </tbody>
         </table>
     </div>
-
-
 @endsection

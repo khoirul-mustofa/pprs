@@ -1,6 +1,7 @@
 @extends('dashboard.layouts.main')
 @section('container')
-    <div class="row mt-5 col-lg-9 ms-lg-1">
+    <h3 class="border-bottom py-3 col-lg-9">Sambutan</h3>
+    <div class="row mt-3 col-lg-9 ms-lg-1">
         @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong class="text-center">{{ session('success') }}</strong>

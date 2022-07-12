@@ -61,15 +61,15 @@
 
                         <li><a class="dropdown-item"
                                 href="https://api.whatsapp.com/send?phone=6289509788529&text=Assalamualaikum%20Ustadz%20Mohon%20Maaf%20Minta%20Waktunya%20Sebentar">MTs
-                                Roudolotul Huda</a></li>
+                                Roudlotul Huda</a></li>
 
                         <li><a class="dropdown-item"
                                 href="https://api.whatsapp.com/send?phone=6289509788529&text=Assalamualaikum%20Ustadz%20Mohon%20Maaf%20Minta%20Waktunya%20Sebentar">MI
-                                Roudolotul Huda</a></li>
+                                Roudlotul Huda</a></li>
 
                         <li><a class="dropdown-item"
                                 href="https://api.whatsapp.com/send?phone=6289509788529&text=Assalamualaikum%20Ustadz%20Mohon%20Maaf%20Minta%20Waktunya%20Sebentar">RA
-                                Roudolotul Huda</a></li>
+                                Roudlotul Huda</a></li>
 
                     </ul>
                 </li>

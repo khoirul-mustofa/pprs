@@ -5,11 +5,10 @@
         rel="stylesheet">
 
     {{-- <link href="/public/pendaftaran/css/main.css" rel="stylesheet" media="all"> --}}
-
-    <div class="row justify-content-center font">
-        <h1 class="h2 pt-3 pb-2 text-md-start text-center">Tambah Data Pendaftar</h1>
-        <hr class="w-100 clearfix my-3" />
-        <div class="col-md-6">
+    <div class="container col-lg-9">
+        <div class="row justify-content-center font">
+            <h1 class="h2 pt-3 pb-2 text-md-start text-center">Tambah Data Pendaftar</h1>
+            <hr class="w-100 clearfix my-3" />
             <main class="form-register w-100 m-auto container p-3 bg-light rounded">
 
                 @if (session()->has('success'))

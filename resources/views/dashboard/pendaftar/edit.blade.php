@@ -5,11 +5,10 @@
         rel="stylesheet">
 
     {{-- <link href="/public/pendaftaran/css/main.css" rel="stylesheet" media="all"> --}}
-
-    <div class="row justify-content-center font">
-        <h1 class="h2 pt-3 pb-2 text-md-start text-center">Ubah Data Santri</h1>
-        <hr class="w-100 clearfix my-3" />
-        <div class="col-md-8">
+    <div class="container col-lg-9">
+        <div class="row justify-content-center font">
+            <h1 class="h2 pt-3 pb-2 text-md-start text-center">Ubah Data Santri</h1>
+            <hr class="w-100 clearfix my-3" />
             <main class="form-register w-100 m-auto container p-3 bg-light rounded">
 
                 @if (session()->has('success'))
@@ -169,7 +168,8 @@
                         <hr class="w-100 clearfix my-3" />
                         <div class="form-floating mb-3 mt-3">
                             <input type="text" class="form-control rounded-top" name="nmSekolah" id="nmSekolah"
-                                placeholder="Nama Sekolah" required value="{{ old('nmSekolah', $pendaftar->sekolah) }}">
+                                placeholder="Nama Sekolah" required
+                                value="{{ old('nmSekolah', $pendaftar->sekolah) }}">
                             <label for="nmSekolah">Nama Sekolah</label>
                         </div>
                         <div class="form-floating mb-3 mt-3">

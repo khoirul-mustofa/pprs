@@ -1,8 +1,8 @@
 @extends('dashboard.layouts.main')
 @section('container')
-    <div class="container">
+    <div class="container col-lg-9">
         <div class="row">
-            <div class="col-md-8 pt-3 pb-2 mb-2 border-bottom">
+            <div class="pt-3 pb-2 mb-2 border-bottom">
                 <h1 class="h2">Daftar Profil </h1>
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -14,7 +14,7 @@
 
             {{-- <h5 class="p-3">Total Profil : {{ $jumlahData }}</h5> --}}
 
-            <div class="table-responsive col-md-8">
+            <div class="table-responsive">
                 <div class="d-flex d-flex justify-content-between my-3">
                     <div>
                         <a href="/dashboard/profil/create" class="btn btn-primary"><span data-feather="plus"></span>
@@ -29,10 +29,10 @@
                 </div>
                 <table class="table table-striped table-sm">
                     <thead>
-                        <tr class="bg-dark">
-                            <th scope="col" class="text-light text-center">No</th>
-                            <th scope="col" class="text-light text-center">Judul</th>
-                            <th scope="col" class="text-light text-center">Action</th>
+                        <tr class="text-light text-center bg-dark">
+                            <th class="border" scope="col">No</th>
+                            <th class="border" scope="col">Judul</th>
+                            <th class="border" scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody class="border">

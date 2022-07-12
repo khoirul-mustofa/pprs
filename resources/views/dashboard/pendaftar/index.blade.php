@@ -11,53 +11,58 @@
     @endif
 
 
-    <div class="table-responsive col-lg-12">
-        <a href="/dashboard/pendaftaran-santri/create" class="btn btn-primary mb-3"><span data-feather="plus"></span> Tambah
+    <div class="table-responsive">
+        <a href="/dashboard/pendaftaran-santri/create" class="btn btn-primary mb-3 ms-1 mt-1"><span data-feather="plus"></span>
+            Tambah
             Santri Baru</a>
         <table class="table table-striped table-sm">
             <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">NIK</th>
-                    <th scope="col">Jenis Kelamin</th>
-                    <th scope="col">No.Hp</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Status Anak</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
+                <tr class="bg-dark text-light text-center">
+                    <th class="border" scope="col">No</th>
+                    <th class="border" scope="col">Nama</th>
+                    <th class="border" scope="col">NIK</th>
+                    <th class="border" scope="col">Jenis Kelamin</th>
+                    <th class="border" scope="col">No.Hp</th>
+                    <th class="border" scope="col">Email</th>
+                    <th class="border" scope="col">Status Anak</th>
+                    <th class="border" scope="col">Status</th>
+                    <th class="border" scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($pendaftaran as $b)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $b->nama }}</td>
-                        <td>{{ $b->nik }}</td>
-                        <td>{{ $b->jkl }}</td>
-                        <td>{{ $b->hp }}</td>
-                        <td>{{ $b->email }}</td>
-                        <td>{{ $b->statusa }}</td>
+                        <td class="text-center border">{{ $loop->iteration }}</td>
+                        <td class="border">{{ $b->nama }}</td>
+                        <td class="border">{{ $b->nik }}</td>
+                        <td class="border text-center">{{ $b->jkl }}</td>
+                        <td class="border text-center">{{ $b->hp }}</td>
+                        <td class="border">{{ $b->email }}</td>
+                        <td class="border text-center">{{ $b->statusa }}</td>
 
                         @if ($b->status->name == 'Diproses')
-                            <td><small class="rounded-pill bg-warning px-3 py-1 fw-semibold"><span data-feather="user-minus"
+                            <td class="text-center border"><small
+                                    class="rounded-pill bg-warning px-3 py-1 fw-semibold"><span data-feather="user-minus"
                                         class="me-1"></span> {{ $b->status->name }}</small>
                             </td>
                         @elseif ($b->status->name == 'Aktif')
-                            <td><small class="rounded-pill bg-success px-3 py-1 text-light fw-semibold"><span
+                            <td class="text-center border"><small
+                                    class="rounded-pill bg-success px-3 py-1 text-light fw-semibold"><span
                                         data-feather="user-check" class="me-1"></span> {{ $b->status->name }}</small>
                             </td>
                         @elseif ($b->status->name == 'Ngalong')
-                            <td><small class="rounded-pill bg-secondary px-3 py-1 text-light fw-semibold"><span
+                            <td class="text-center border"><small
+                                    class="rounded-pill bg-secondary px-3 py-1 text-light fw-semibold"><span
                                         data-feather="user-check" class="me-1"></span> {{ $b->status->name }}</small>
                             </td>
                         @else
-                            <td><small class="rounded-pill bg-danger px-3 py-1 text-light fw-semibold"><span
+                            <td class="text-center border"><small
+                                    class="rounded-pill bg-danger px-3 py-1 text-light fw-semibold"><span
                                         data-feather="user-check" class="me-1"></span> {{ $b->status->name }}</small>
                             </td>
                         @endif
 
-                        <td>
+                        <td class="text-center border">
                             <a href="/dashboard/pendaftaran-santri/{{ $b->id }}" class="badge bg-info"><span
                                     data-feather="eye"></span></a>
                             <a href="/dashboard/pendaftaran-santri/{{ $b->id }}/edit" class="badge bg-warning"><span

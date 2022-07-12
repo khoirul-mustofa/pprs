@@ -1,8 +1,9 @@
 @extends('dashboard.layouts.main')
 @section('container')
-    @foreach ($data as $d)
-        <div class="container">
-            <div class="row col-lg-6 ms-lg-5">
+    <div class="container col-lg-6">
+        <h3 class="border-bottom mb-3 py-3">Banner</h3>
+        @foreach ($data as $d)
+            <div class="row">
                 <div class="col g-2">
                     <div style="max-width: 800px">
                         <img src="{{ asset('storage/' . $d->image) }}" alt="" class="img-fluid rounded-2">
@@ -12,6 +13,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    @endforeach
+        @endforeach
+    </div>
 @endsection
