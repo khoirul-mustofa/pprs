@@ -4,6 +4,7 @@ use App\Models\Berita;
 use App\Models\Profil;
 use App\Models\Kategori;
 use App\Models\Pengurus;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Pengumuman;
 use App\Models\Pendaftaran;
 use Illuminate\Support\Facades\Route;
@@ -73,7 +74,11 @@ Route::get('/dashboard', function () {
     return view('dashboard.index',[
         'berita' => Berita::get('id')->count(),
         'pengurus' => Pengurus::get('id')->count(),
-        'pendaftar' => Pendaftaran::get('id')->count(),
+        'pengumuman' => Pengumuman::get('id')->count(),
+        'santriDiproses' => Pendaftaran::where('status_id', '1')->count(),
+        'santriAktif' => Pendaftaran::where('status_id', '2')->count(),
+        'santriNonAktif' => Pendaftaran::where('status_id', '4')->count(),
+        'ngalong' => Pendaftaran::where('status_id', '3')->count(),
     ]);
 })->middleware('auth');
 
@@ -144,3 +149,20 @@ Route::get('/profil', function (){
         "profil" => Profil::latest()->get()
     ]);
 });
+
+
+// Testing Print PDF
+// Route::get('/pdf', function(){
+//     return view('pdf.biayaPendaftaran');
+// });
+
+Route::get('/pdf/download', function(){
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadView('pdf.biayaPendaftaran');
+    // $pdf->loadHTML('ini hanya test');
+    return $pdf->stream();
+    // $pdf = Pdf::loadView('pdf.biayaPendaftaran');
+    // return $pdf->download('invoice.pdf');
+});
+
+// Akhir Testing
