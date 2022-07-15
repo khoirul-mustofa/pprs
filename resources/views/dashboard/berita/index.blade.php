@@ -13,7 +13,28 @@
             <a href="/dashboard/berita/create" class="btn btn-primary mb-3 mt-1 mx-1"><span data-feather="plus"></span> Tambah
                 berita
                 baru</a>
-            <h6 class="ms-2 mb-3">Data {{ $jumlahData }}</h6>
+            <div class="row">
+                <div class="col">
+                    <h6 class="ms-2 mb-2 mt-2">Data {{ $jumlahData }}</h6>
+                </div>
+                <div class="col-12 col-md-6">
+                    <form action="/dashboard/berita" method="GET">
+                        @if (request('kategori'))
+                            <input type="hidden" name="kategori" value="{{ request('kategori') }}">
+                        @endif
+                        @if (request('author'))
+                            <input type="hidden" name="author" value="{{ request('author') }}">
+                        @endif
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search.." name="search"
+                                value="{{ request('search') }}">
+                            <button class="btn btn-outline-dark" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
             <table class="table table-striped table-sm">
                 <thead>
                     <tr class="bg-dark">

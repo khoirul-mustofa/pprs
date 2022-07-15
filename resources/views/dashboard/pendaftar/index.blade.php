@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Santri</h1>
+        <h1 class="h2">{{ $title }}</h1>
     </div>
 
     @if (session()->has('success'))
@@ -12,9 +12,23 @@
 
 
     <div class="table-responsive">
-        <a href="/dashboard/pendaftaran-santri/create" class="btn btn-primary mb-3 ms-1 mt-1"><span data-feather="plus"></span>
-            Tambah
-            Santri Baru</a>
+        <div class="row">
+            <div class="col">
+                <a href="/dashboard/pendaftaran-santri/create" class="btn btn-primary mb-3 ms-1 mt-1"><span
+                        data-feather="plus"></span>
+                    Tambah
+                    Santri Baru</a>
+            </div>
+            <div class="col">
+                <form action="/dashboard/pendaftaran-santri" method="GET">
+                    <div class="input-group mb-3 mt-1">
+                        <input type="text" class="form-control" placeholder="Search.." name="search"
+                            value="{{ request('search') }}">
+                        <button class="btn btn-outline-dark" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <table class="table table-striped table-sm">
             <thead>
                 <tr class="bg-dark text-light text-center">

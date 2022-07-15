@@ -1,6 +1,6 @@
 <nav id="sidebarMenu" class="col-md-3 ps-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="position-sticky mt-md-3">
-        <ul class="nav flex-column">
+        <ul class="nav flex-column ">
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page" href="/dashboard">
                     <span data-feather="home" class="align-text-bottom"></span>
@@ -10,15 +10,14 @@
 
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('/dashboard/kategori*') ? 'active' : '' }}"
-                    href="/dashboard/pengurus">
+                    href="/dashboard/kategori">
                     <span data-feather="divide-square" class="align-text-bottom"></span>
                     Kategori
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('/dashboard/berita*') ? 'active' : '' }}"
-                    href="/dashboard/pengurus">
+                <a class="nav-link {{ Request::is('/dashboard/berita*') ? 'active' : '' }}" href="/dashboard/berita">
                     <span data-feather="file" class="align-text-bottom"></span>
                     Berita
                 </a>

@@ -139,7 +139,7 @@ Route::get('/pengurus', function () {
 Route::get('/pengumuman', function () {
     return view('pengumuman',[
         "title" => "pengumuman",
-        "pengumuman" => Pengumuman::latest()->paginate(2)
+        "pengumuman" => Pengumuman::latest()->paginate(5)
     ]);
 });
 
@@ -152,9 +152,9 @@ Route::get('/profil', function (){
 
 
 // Testing Print PDF
-// Route::get('/pdf', function(){
-//     return view('pdf.biayaPendaftaran');
-// });
+Route::get('/pdf', function(){
+    return view('pdf.biayaPendaftaran');
+});
 
 Route::get('/pdf/download', function(){
     $pdf = App::make('dompdf.wrapper');

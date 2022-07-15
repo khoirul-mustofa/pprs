@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-5 col-12 my-2 ml-3 p-md-5">
                 <div class="d-flex justify-content-center">
-                    <img src="{{ asset('storage/lain-lain/LG.jpg') }}"
+                    <img src="{{ asset('storage/lain-lain/pprs_logo_profil500.png') }}"
                         class=" img-fluid rounded rounded-circle  shadow-lg img-thumbnail my-3" alt="roudlotussholihin">
                 </div>
                 <h3 class="text-center p-md-3 fw-bold">ROUDLOTUSSHOLIHIN</h3>

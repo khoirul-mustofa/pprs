@@ -7,8 +7,10 @@
         <div class="row">
             <div class="col-md-5 col-12 my-2 ml-3 p-md-5">
                 <div class="d-flex justify-content-center">
-                    <img src="{{ asset('storage/lain-lain/LG.jpg') }}"
-                        class=" img-fluid rounded rounded-circle  shadow-lg img-thumbnail my-3" alt="roudlotussholihin">
+                    <img src="{{ asset('storage/lain-lain/pprs_logo_profil500.png') }}"
+                        class=" img-fluid rounded rounded-circle  shadow-lg img-thumbnail my-3" alt="roudlotussholihin"
+                        style="
+                        background-color:rgba(238, 252, 246, 0);">
                 </div>
                 <h3 class="text-center p-md-3 fw-bold">ROUDLOTUSSHOLIHIN</h3>
             </div>
@@ -34,12 +36,12 @@
                 <article>
                     <!-- Post header-->
                     @foreach ($profil as $p)
-                        <header class="mb-3 ms-2">
+                        <header class="mb-2 ms-2">
                             <!-- Post title-->
 
                             <div class="row col-md-7">
-                                <div class="border border-info border-2 p-1">
-                                    <div class="border border-info border-1 p-1">
+                                <div class="border rounded border-light  border-1 p-1">
+                                    <div class="border border-light rounded border-1 p-1">
                                         <h2 class="fw-bolder ms-2">{{ $p->title }}</h2>
                                     </div>
                                 </div>
@@ -53,8 +55,9 @@
                         </section>
                         <!-- Preview image figure-->
                         @if ($p->image)
-                            <figure class="mb-3"><img class="img-fluid rounded"
-                                    src="{{ asset('storage/' . $p->image) }}" alt="..." /></figure>
+                            <figure class="mb-3">
+                                <img class="img-fluid rounded" src="{{ asset('storage/' . $p->image) }}" alt="..." />
+                            </figure>
                         @else
                             <figure class="mb-3"><img class="img-fluid rounded"
                                     src="https://source.unsplash.com/900x400?mosque " alt="..." /></figure>

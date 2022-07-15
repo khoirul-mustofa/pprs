@@ -13,10 +13,16 @@ class PendaftaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+
         return view('dashboard.pendaftar.index',[
-            'pendaftaran' => Pendaftaran::all()
+            'title' => 'Santri',
+            // 'pendaftaran' => Pendaftaran::all(),
+            // menampilkan semau berita dari yang terakhir di uploud
+            // jika ada reques yang berisi search kalok ada ambil isinya dari model Berita method filter
+            "pendaftaran"=> Pendaftaran::latest()->filter(request(['search','status']))->paginate()->withQueryString()
         ]);
     }
 

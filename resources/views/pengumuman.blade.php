@@ -16,6 +16,7 @@
                             alt="">
                     @endif
                 @endforeach
+                {{ $pengumuman->links() }}
             @else
                 <h3>Tidak ada pengumuman terkini</h3>
             @endif

@@ -10,13 +10,27 @@
 
     {{-- <form class="d-flex mb-2 mb-md-0" role="search">
         <input class="form-control me-2 form-control-dark border-0" type="search"aria-label="Search">
-        <button class="btn btn-secondary btn-sm" type="submit"><span data-feather="search" class="align-text-bottom"></span></button>
+        <button class="btn btn-secondary btn-sm" type="submit"><span data-feather="search"
+                class="align-text-bottom"></span></button>
     </form> --}}
-    <div class="input-group">
+
+    {{-- <div class="input-group">
         <input type="text" class="form-control form-control-dark rounded-0 border-0 shadow-none"
             placeholder="Search">
         <button class="btn btn-secondary btn-lg rounded-0 border-0 shadow-none" type="button"><span
                 data-feather="search" class="align-text-bottom"></span></button>
-        <div class="input-group-append">
+    </div> --}}
+
+    {{-- <div class="input-group">
+            <form action="/dashboard/pendaftaran-santri" method="GET" class="w-100">
+                <div class="input-group">
+                    <input type="text" class="form-control form-control-dark rounded-0 border-0 shadow-none"
+                        placeholder="Search.." name="search" value="{{ request('search') }}">
+                    <button class="btn btn-secondary btn-lg rounded-0 border-0 shadow-none" type="button"><span
+                            data-feather="search" class="align-text-bottom"></span></button>
+                </div>
+            </form>
+        </div> --}}
+
 
 </header>
