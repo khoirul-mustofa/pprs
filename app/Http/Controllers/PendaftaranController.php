@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pendaftaran;
 use App\Models\Status;
+use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PendaftaranController extends Controller
 {
@@ -17,12 +18,22 @@ class PendaftaranController extends Controller
     {
 
 
+        //    Pendaftaran::latest()->filter(request(['search']))->paginate(20)->withQueryString();
+
+        if($request->status == ''){
+          $data = Pendaftaran::latest()->filter(request(['search']))->paginate(20)->withQueryString();
+        }else{
+            $data = Pendaftaran::where('status_id', $request->status)->paginate();
+         }
+
+
         return view('dashboard.pendaftar.index',[
             'title' => 'Santri',
             // 'pendaftaran' => Pendaftaran::all(),
             // menampilkan semau berita dari yang terakhir di uploud
             // jika ada reques yang berisi search kalok ada ambil isinya dari model Berita method filter
-            "pendaftaran"=> Pendaftaran::latest()->filter(request(['search','status']))->paginate()->withQueryString()
+            "pendaftaran"=> $data,
+            'status' => Status::all(),
         ]);
     }
 

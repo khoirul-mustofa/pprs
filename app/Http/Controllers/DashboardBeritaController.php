@@ -108,7 +108,7 @@ class DashboardBeritaController extends Controller
         $rules = [
             'title' => 'required',
             'kategori_id' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file',
             'konten' => 'required',
         ];
 

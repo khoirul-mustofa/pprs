@@ -11,20 +11,35 @@
     @endif
 
 
-    <div class="table-responsive">
-        <div class="row">
-            <div class="col">
-                <a href="/dashboard/pendaftaran-santri/create" class="btn btn-primary mb-3 ms-1 mt-1"><span
-                        data-feather="plus"></span>
+    <div class="table-responsive mb-3">
+        <div class="row p-1 my-2">
+            <div class="col-md-4 col-7">
+                <a href="/dashboard/pendaftaran-santri/create" class="btn btn-primary"><span data-feather="plus"></span>
                     Tambah
-                    Santri Baru</a>
+                    Santri</a>
             </div>
-            <div class="col">
+
+            <div class="col-md-2 mt-md-0 col-12 mt-2">
                 <form action="/dashboard/pendaftaran-santri" method="GET">
-                    <div class="input-group mb-3 mt-1">
+                    <div class="input-group">
+                        {{-- <input type="hidden" name="" id="" value="{{ old('status') }}"> --}}
+                        <select class="form-select" name="status">
+                            <option value="">Semua</option>
+                            @foreach ($status as $s)
+                                <option value="{{ $s->id }}">{{ $s->name }}</option>
+                            @endforeach
+                        </select>
+                        <button class="btn btn-outline-dark" type="submit">Terapkan</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-6 mt-md-0 col-12 mt-2">
+                <form action="/dashboard/pendaftaran-santri" method="GET">
+                    <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search.." name="search"
                             value="{{ request('search') }}">
-                        <button class="btn btn-outline-dark" type="submit">Search</button>
+                        <button class="btn btn-outline-dark" type="submit">Cari</button>
                     </div>
                 </form>
             </div>
@@ -95,5 +110,7 @@
 
             </tbody>
         </table>
+
     </div>
+    {{ $pendaftaran->links() }}
 @endsection

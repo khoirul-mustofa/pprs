@@ -2,7 +2,10 @@
 @section('container')
     <div class="container col-lg-9">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Edit Pengurus</h1>
+            <h1 class="h2">Edit Pengumuman</h1>
+        </div>
+        <div class="">
+            <a href="/dashboard/pengumuman" class="btn btn-success my-3"><span data-feather="chevron-left"></span> Kembali</a>
         </div>
         <form method="POST" action="/dashboard/pengumuman/{{ $pengumuman->id }}" enctype="multipart/form-data">
             @method('PUT')

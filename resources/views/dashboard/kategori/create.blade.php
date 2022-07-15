@@ -1,9 +1,14 @@
 @extends('dashboard.layouts.main')
 @section('container')
-    <div class="container col-lg-9">
+    <div class="container col-lg-6">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Tambah Data Kategori</h1>
         </div>
+
+        <div class="">
+            <a href="/dashboard/kategori/" class="btn btn-success my-3"><span data-feather="chevron-left"></span> Kembali</a>
+        </div>
+
         <form method="POST" action="/dashboard/kategori/create" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">

@@ -18,7 +18,7 @@ class PengumumanController extends Controller
     {
         return view('dashboard.pengumuman.index',[
             "title" => "pengumuman",
-            "pengumuman" => Pengumuman::latest()->get()
+            "pengumuman" => Pengumuman::latest()->paginate(10)
         ]);
     }
 

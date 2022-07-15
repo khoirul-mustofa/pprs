@@ -13,7 +13,7 @@
                             <img src="{{ asset('storage/favicon/icons8-users-40.png') }}" />
                         </div>
                         <div class="col">
-                            <h5 class="text-dark mt-2 text-start">Pendaftar Proses</h5>
+                            <h5 class="text-dark mt-2 text-start">Pendaftar Dalam Proses</h5>
                             <h5 class="text-dark mt-1 me-3 text-start">{{ $santriDiproses }}</h5>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
         </div>
 
         <div class="col-md-12 col-lg-4 col-xxl-3 mt-3">
-            <a href="/dashboard/pendaftaran-santri" class="text-decoration-none">
+            <a href="/dashboard/pengumuman" class="text-decoration-none">
                 <div class="card shadow-lg p-1">
                     <div class="row">
                         <div class="col-3 col-md-2 col-lg-3  col-xxl-3 bg-info rounded-2 ms-3 my-1 p-3">

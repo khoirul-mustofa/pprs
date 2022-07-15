@@ -139,7 +139,7 @@ Route::get('/pengurus', function () {
 Route::get('/pengumuman', function () {
     return view('pengumuman',[
         "title" => "pengumuman",
-        "pengumuman" => Pengumuman::latest()->paginate(5)
+        "pengumuman" => Pengumuman::latest()->paginate(2)
     ]);
 });
 

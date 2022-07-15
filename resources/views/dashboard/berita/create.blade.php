@@ -4,12 +4,17 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Buat Berita Baru</h1>
         </div>
+
+        <div class="">
+            <a href="/dashboard/berita" class="btn btn-success my-3"><span data-feather="chevron-left"></span> Kembali</a>
+        </div>
+
         <form method="POST" action="/dashboard/berita/create" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                    required value="{{ old('title') }}">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                    name="title" required value="{{ old('title') }}">
                 @error('title')
                     <div class="invalid-feedback">
                         {{ $message }}

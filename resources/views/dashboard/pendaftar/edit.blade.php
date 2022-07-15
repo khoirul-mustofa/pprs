@@ -9,6 +9,11 @@
         <div class="row justify-content-center font">
             <h1 class="h2 pt-3 pb-2 text-md-start text-center">Ubah Data Santri</h1>
             <hr class="w-100 clearfix my-3" />
+
+            <div class="">
+                <a href="/dashboard/pendaftaran-santri" class="btn btn-success my-3"><span data-feather="chevron-left"></span>
+                    Kembali</a>
+            </div>
             <main class="form-register w-100 m-auto container p-3 bg-light rounded">
 
                 @if (session()->has('success'))

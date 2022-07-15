@@ -4,6 +4,9 @@
         <div class="row pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Edit Profile</h1>
         </div>
+        <div class="">
+            <a href="/dashboard/profil" class="btn btn-success my-3"><span data-feather="chevron-left"></span> Kembali</a>
+        </div>
         <div class="row">
             <form method="POST" action="/dashboard/profil/{{ $profil->id }}" enctype="multipart/form-data">
                 @method('PUT')

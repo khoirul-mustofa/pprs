@@ -9,7 +9,7 @@
                 {{ session('success') }}
             </div>
         @endif
-        <div class="table-responsive">
+        <div class="table-responsive mb-3">
             <a href="/dashboard/berita/create" class="btn btn-primary mb-3 mt-1 mx-1"><span data-feather="plus"></span> Tambah
                 berita
                 baru</a>
@@ -67,7 +67,9 @@
                     @endforeach
 
                 </tbody>
+
             </table>
         </div>
+        {{ $semuaBerita->links() }}
     </div>
 @endsection

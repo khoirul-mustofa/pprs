@@ -11,10 +11,12 @@
             </div>
         @endif
     </div>
+
     <div class="row-col-lg-2 mt-2 mb-2">
-        <a href="/dashboard/pengumuman/create" class="btn btn-primary mb-3">Tambah Pengumuman Baru</a>
+        <a href="/dashboard/pengumuman/create" class="btn btn-primary mb-3"><span data-feather="plus"></span> Tambah
+            Pengumuman Baru</a>
     </div>
-    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3 ">
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3 mb-3">
         @if ($pengumuman->count())
             {{-- card akan di looping atau sesuai isi dengan jumlah data --}}
             @foreach ($pengumuman as $p)
@@ -46,4 +48,5 @@
             <p class="text-center fs-4">Tidak Ada Pengumuman Yang diposting</p>
         @endif
     </div>
+    {{ $pengumuman->links() }}
 @endsection

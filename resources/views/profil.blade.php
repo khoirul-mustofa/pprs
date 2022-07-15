@@ -40,8 +40,8 @@
                             <!-- Post title-->
 
                             <div class="row col-md-7">
-                                <div class="border rounded border-light  border-1 p-1">
-                                    <div class="border border-light rounded border-1 p-1">
+                                <div class="border rounded border-success  border-1 p-1">
+                                    <div class="border border-success rounded border-1 p-1">
                                         <h2 class="fw-bolder ms-2">{{ $p->title }}</h2>
                                     </div>
                                 </div>

@@ -13,7 +13,8 @@
 
 
         <div class="table-responsive">
-            <a href="/dashboard/kategori/create" class="btn btn-primary mb-3 ms-1 mt-1">Tambah Kategori</a>
+            <a href="/dashboard/kategori/create" class="btn btn-primary mb-3 ms-1 mt-1"><span data-feather="plus"></span>
+                Tambah Kategori</a>
             <table class="table table-striped table-sm">
                 <thead>
                     <tr class="bg-dark text-light text-center">

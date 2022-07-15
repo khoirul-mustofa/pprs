@@ -13,7 +13,8 @@
 
 
         <div class="table-responsive">
-            <a href="/dashboard/pengurus/create" class="btn btn-primary mb-3 ms-1 mt-1">Tambah Pengurus Baru</a>
+            <a href="/dashboard/pengurus/create" class="btn btn-primary mb-3 ms-1 mt-1"><span data-feather="plus"></span>
+                Tambah Pengurus Baru</a>
             <table class="table table-striped table-sm">
                 <thead>
                     <tr class="bg-dark text-light text-center">

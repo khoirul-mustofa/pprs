@@ -26,7 +26,8 @@
             @if ($semuaBerita->count())
                 <div class="card mb-3">
                     @if ($semuaBerita[0]->image)
-                        <img src="{{ asset('storage/' . $semuaBerita[0]->image) }}" class="center rounded" alt="...">
+                        <img src="{{ asset('storage/' . $semuaBerita[0]->image) }}" class="center rounded img-fluid"
+                            style="max-height: 600px;" alt="...">
                     @else
                         <img src="https://source.unsplash.com/1920x1080?mosque" class="center rounded" alt="...">
                     @endif
@@ -93,6 +94,7 @@
                         </div>
                     @endforeach
                 </div>
+                {{ $semuaBerita->links() }}
             @else
                 <p class="text-center fs-4">Tidak ada berita ditemukan</p>
             @endif
