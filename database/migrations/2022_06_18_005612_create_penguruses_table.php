@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('penguruses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('devisi_id')->unique();
+            $table->foreignId('devisi_id');
+            $table->string('gener');
             $table->string('image')->nullable();
-            $table->string('level');
             $table->timestamps();
         });
     }

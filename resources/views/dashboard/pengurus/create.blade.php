@@ -23,6 +23,19 @@
             </div>
 
             <div class="mb-3">
+                <label for="genre" class="form-label">Pengurus</label>
+                <select class="form-select" name="genre">
+                    @foreach ($pengurus as $d)
+                        @if (old('genre') == $d)
+                            <option value="{{ $d }}" selected>{{ $d }}</option>
+                        @else
+                            <option value="{{ $d }}">{{ $d }}</option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <label for="devisi_id" class="form-label">Devisi</label>
                 <select class="form-select" name="devisi_id">
                     @foreach ($devisi as $d)

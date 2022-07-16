@@ -24,6 +24,13 @@
             </li>
 
             <li class="nav-item ">
+                <a class="nav-link {{ Request::is('/dashboard/devisi*') ? 'active' : '' }}" href="/dashboard/devisi">
+                    <span data-feather="git-merge" class="align-text-bottom"></span>
+                    Devisi
+                </a>
+            </li>
+
+            <li class="nav-item ">
                 <a class="nav-link {{ Request::is('/dashboard/pengurus*') ? 'active' : '' }}"
                     href="/dashboard/pengurus">
                     <span data-feather="users" class="align-text-bottom"></span>

@@ -15,7 +15,9 @@ class DevisiController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.devisi.index',[
+            'data' => Devisi::all()
+        ]);
     }
 
     /**
@@ -25,7 +27,7 @@ class DevisiController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.devisi.create');
     }
 
     /**
@@ -36,7 +38,13 @@ class DevisiController extends Controller
      */
     public function store(StoreDevisiRequest $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|unique:devisis|min:2'
+        ]);
+        Devisi::create([
+            'name' => $request->name
+        ]);
+        return redirect('/dashboard/devisi')->with('success','Data kategori berhasil ditambah!');
     }
 
     /**
@@ -47,7 +55,7 @@ class DevisiController extends Controller
      */
     public function show(Devisi $devisi)
     {
-        //
+
     }
 
     /**
@@ -58,7 +66,12 @@ class DevisiController extends Controller
      */
     public function edit(Devisi $devisi)
     {
-        //
+
+        return view('dashboard.devisi.edit',[
+            'data' => Devisi::find($devisi->id)
+        ]);
+
+
     }
 
     /**
@@ -70,7 +83,11 @@ class DevisiController extends Controller
      */
     public function update(UpdateDevisiRequest $request, Devisi $devisi)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|unique:devisis|min:2'
+        ]);
+        Devisi::whereId($devisi->id)->update($validateData);
+        return redirect('/dashboard/devisi')->with('success','Data Berhasil DiUpdate!');
     }
 
     /**
@@ -81,6 +98,7 @@ class DevisiController extends Controller
      */
     public function destroy(Devisi $devisi)
     {
-        //
+        Devisi::destroy($devisi->id);
+        return redirect('/dashboard/devisi')->with('success','Data berhasil dihapus!');
     }
 }

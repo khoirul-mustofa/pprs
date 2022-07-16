@@ -32,7 +32,11 @@ class PengurusController extends Controller
     {
         return view('dashboard.pengurus.create',[
             'title' => 'Tambah Pengurus',
-            'devisi' => Devisi::all()
+            'devisi' => Devisi::all(),
+            'pengurus' => [
+                'Putra',
+                'Putri'
+            ]
         ]);
     }
 
@@ -48,12 +52,14 @@ class PengurusController extends Controller
         $validateData = $request->validate([
             'name' => 'required',
             'devisi_id' => 'required',
-            'image' => 'image|file|max:1024'
+            'genre' => 'required',
+            'image' => 'image|file'
         ]);
 
         if ($request->file('image')){
             $validateData['image'] = $request->file('image')->store('pengurus-images');
         }
+        // dd($validateData);
 
         Pengurus::create($validateData);
         return redirect('/dashboard/pengurus')->with('success','Data berhasil ditambah!');
@@ -84,7 +90,11 @@ class PengurusController extends Controller
     {
         return view('dashboard.pengurus.edit',[
             'pengurus' => Pengurus::find($id),
-            'devisi' => Devisi::all()
+            'devisi' => Devisi::all(),
+            'pengurusGenre' => [
+                'Putra',
+                'Putri'
+            ]
         ]);
     }
 

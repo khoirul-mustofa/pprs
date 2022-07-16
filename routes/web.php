@@ -4,13 +4,14 @@ use App\Models\Berita;
 use App\Models\Profil;
 use App\Models\Kategori;
 use App\Models\Pengurus;
-use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Pengumuman;
 use App\Models\Pendaftaran;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DevisiController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BerandaController;
@@ -32,6 +33,11 @@ use App\Http\Controllers\DashboardBeritaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Awal Devisi
+Route::resource('/dashboard/devisi', DevisiController::class)->middleware('auth')->except('show');
+Route::post('/dashboard/devisi/create', [DevisiController::class, 'store'])->middleware('auth');
+// Akhir Devisi
+
 
 Route::get('/', [BerandaController::class, 'index']);
 
@@ -39,6 +45,7 @@ Route::get('/', [BerandaController::class, 'index']);
 Route::get('/pendaftaran-santri/daftar', [PendaftaranController::class, 'daftar']);
 Route::post('/pendaftaran-santri/daftar', [PendaftaranController::class, 'store']);
 Route::get('/pendaftaran-santri/detail', [PendaftaranController::class, 'detailUser']);
+
 
 
 // Dashboard Pendaftaran Santri
@@ -93,8 +100,8 @@ Route::put('/dashboard/berita/{berita:slug}', [DashboardBeritaController::class,
 // Akhir Dashboard Berita
 
 // Register
-Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+// Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
+// Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 // Akhir Register
 
 // Dashbord Pengurus
@@ -119,7 +126,6 @@ Route::resource('/dashboard/banner', BannerController::class)->middleware('auth'
 Route::resource('/dashboard/pengumuman', PengumumanController::class)->middleware('auth');
 // Akhir
 
-
 Route::resource('/dashboard/profil', ProfilController::class)->middleware('auth')->except('show');
 Route::get('/dashboard/profil/preview', function(){
     return view('dashboard.profil.show',[
@@ -131,8 +137,14 @@ Route::get('/dashboard/profil/preview', function(){
 
 Route::get('/pengurus', function () {
     return view('pengurus.index', [
-        'title' => 'Pengurus Pondok Pesantren',
-        'semuaPengurus' => Pengurus::first()->get()
+        'title' => 'Pengurus Pondok Putra',
+        'semuaPengurus' => Pengurus::first()->where('gener','putra')->get()
+    ]);
+});
+Route::get('/pengurus-putri', function () {
+    return view('pengurus.index', [
+        'title' => 'Pengurus Pondok Putri',
+        'semuaPengurus' => Pengurus::first()->where('gener','putri')->get()
     ]);
 });
 
@@ -149,6 +161,15 @@ Route::get('/profil', function (){
         "profil" => Profil::latest()->get()
     ]);
 });
+
+
+
+
+
+
+
+
+
 
 
 // Testing Print PDF

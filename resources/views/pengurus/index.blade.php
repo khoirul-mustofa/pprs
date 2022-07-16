@@ -23,7 +23,7 @@
     <div class="container bg-my-style">
 
         {{-- Awal Drop Down --}}
-        <div class="dropdown-center d-lg-none px-4">
+        {{-- <div class="dropdown-center d-lg-none px-4">
             <button class="btn dropdown-toggle shadow-none ms-5" type="button" id="dropdownCenterBtn"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 Pengurus Pondok Pesantren
@@ -32,7 +32,7 @@
                 <li><a class="dropdown-item" href="#pondok-putra">Pengurus Pondok Putra</a></li>
                 <li><a class="dropdown-item" href="#pondok-putri">Pengurus Pondok Putri</a></li>
             </ul>
-        </div>
+        </div> --}}
         {{-- Akhir drop down --}}
 
 
@@ -41,14 +41,18 @@
             <div class="col-lg-4 ms-lg-5 d-none d-lg-block">
                 <h2 class="mt-lg-5">Pengurus Pondok</h2>
                 <ul class="list-unstyled ms-lg-5 mt-lg-3">
-                    <li><a href="#pondok-putra" class="text-decoration-none text-success">Pengurus Pondok Putra</a></li>
-                    <li><a href="#pondok-putri" class="text-decoration-none text-success">Pengurus Pondok Putri</a></li>
+                    <li><a href="/pengurus"
+                            class="text-decoration-none  {{ Request::is('/pengurus') ? 'text-dark' : '' }}">Pengurus
+                            Pondok Putra</a></li>
+                    <li><a href="/pengurus-putri"
+                            class="text-decoration-none  {{ Request::is('/pengurus-putri') ? 'text-dark' : '' }}">Pengurus
+                            Pondok Putri</a></li>
                 </ul>
             </div>
             {{-- Akhir side List --}}
 
             <div class="col-lg-5 col-12" id="pondok-putra">
-                <h1 class="py-lg-4 text-center  mb-3">Pengurus Pondok Putra</h1>
+                <h1 class="py-lg-4 text-center  mb-3">{{ $title }}</h1>
                 @foreach ($semuaPengurus as $pengurus)
                     <div class="row mx-1">
                         <div class="card mb-3">

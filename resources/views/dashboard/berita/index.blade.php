@@ -10,14 +10,16 @@
             </div>
         @endif
         <div class="table-responsive mb-3">
-            <a href="/dashboard/berita/create" class="btn btn-primary mb-3 mt-1 mx-1"><span data-feather="plus"></span> Tambah
-                berita
-                baru</a>
             <div class="row">
-                <div class="col">
-                    <h6 class="ms-2 mb-2 mt-2">Data {{ $jumlahData }}</h6>
+                <div class="col col-md-6">
+                    <div class="row col-md-5 mx-2">
+                        <a href="/dashboard/berita/create" class="btn btn-primary mb-3"><span data-feather="plus"></span>
+                            Tambah
+                            berita
+                            baru</a>
+                    </div>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 ">
                     <form action="/dashboard/berita" method="GET">
                         @if (request('kategori'))
                             <input type="hidden" name="kategori" value="{{ request('kategori') }}">
@@ -36,6 +38,9 @@
 
             </div>
             <table class="table table-striped table-sm">
+
+
+
                 <thead>
                     <tr class="bg-dark">
                         <th class="text-light border text-center" scope="col">No</th>
