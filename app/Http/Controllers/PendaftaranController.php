@@ -14,25 +14,21 @@ class PendaftaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index( Request $request)
     {
 
+            // $query = Pendaftaran::where([
+            // ['status_id', $request->status],
+            // ['nama', $request->search]
+            // ])->paginate(20);
 
-        //    Pendaftaran::latest()->filter(request(['search']))->paginate(20)->withQueryString();
-
-        if($request->status == ''){
-          $data = Pendaftaran::latest()->filter(request(['search']))->paginate(20)->withQueryString();
-        }else{
-            $data = Pendaftaran::where('status_id', $request->status)->paginate();
-         }
-
+        // if ($request->search != '') {
+        //     $query = Pendaftaran::latest()->filter(request(['search']))->paginate(20)->withQueryString();
+        // }
 
         return view('dashboard.pendaftar.index',[
             'title' => 'Santri',
-            // 'pendaftaran' => Pendaftaran::all(),
-            // menampilkan semau berita dari yang terakhir di uploud
-            // jika ada reques yang berisi search kalok ada ambil isinya dari model Berita method filter
-            "pendaftaran"=> $data,
+            "pendaftaran"=> Pendaftaran::latest()->filter(request(['search']))->paginate(20)->withQueryString(),
             'status' => Status::all(),
         ]);
     }

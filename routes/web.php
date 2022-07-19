@@ -138,13 +138,13 @@ Route::get('/dashboard/profil/preview', function(){
 Route::get('/pengurus', function () {
     return view('pengurus.index', [
         'title' => 'Pengurus Pondok Putra',
-        'semuaPengurus' => Pengurus::first()->where('gener','putra')->get()
+        'semuaPengurus' => Pengurus::first()->where('genre','putra')->get()
     ]);
 });
 Route::get('/pengurus-putri', function () {
     return view('pengurus.index', [
         'title' => 'Pengurus Pondok Putri',
-        'semuaPengurus' => Pengurus::first()->where('gener','putri')->get()
+        'semuaPengurus' => Pengurus::first()->where('genre','putri')->get()
     ]);
 });
 
@@ -162,7 +162,9 @@ Route::get('/profil', function (){
     ]);
 });
 
-
+Route::get('/dashboar/informasi', function (){
+    return view('dashboard.informasiApp.index');
+});
 
 
 
