@@ -18,13 +18,15 @@ class PendaftaranController extends Controller
     {
 
             // $query = Pendaftaran::where([
-            // ['status_id', $request->status],
-            // ['nama', $request->search]
+            // ['status_id', 1],
+            // ['nama', 'Nadito Fadilah Hutomo']
             // ])->paginate(20);
 
-        // if ($request->search != '') {
-        //     $query = Pendaftaran::latest()->filter(request(['search']))->paginate(20)->withQueryString();
-        // }
+        //     $query->when($filters['search'] ?? false, function($query, $search){
+        //     return $query->where('nama', 'like', '%' .$search. '%')
+        //                 ->orWhere('nik', 'like', '%' .$search. '%')
+        //                 ->orWhere('jkl', 'like', '%' .$search. '%');
+        // });
 
         return view('dashboard.pendaftar.index',[
             'title' => 'Santri',

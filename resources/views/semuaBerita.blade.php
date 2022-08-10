@@ -43,7 +43,7 @@
                             {{ $semuaBerita[0]->created_at->diffForHumans() }}
                         </small>
 
-                        <p class="card-text">{{ $semuaBerita[0]->excerpt }}</p>
+                        <p class="card-text">{!! $semuaBerita[0]->excerpt !!}</p>
                         <a href="/berita/{{ $semuaBerita[0]->slug }}"
                             class="btn text-decoration-none btn-primary">Selengkapnya..</a>
                     </div>
@@ -83,7 +83,7 @@
 
                                     <hr class="w-100 clearfix mt-2" />
 
-                                    <p class="card-text">{{ $post->excerpt }}</p>
+                                    <p class="card-text">{!! $post->excerpt !!}</p>
                                     {{-- <div class="d-flex justify-content-between align-items-center">
 
             </div> --}}

@@ -58,7 +58,7 @@ class DashboardBeritaController extends Controller
         }
 
         $validateData['user_id'] = auth()->user()->id;
-        $validateData['excerpt'] = Str::limit(strip_tags($request->konten), 200, '...');
+        $validateData['excerpt'] = Str::limit(strip_tags($request->konten), 40, '...');
         Berita::create($validateData);
         return redirect('/dashboard/berita')->with('success', 'New berita has been added!');
     }

@@ -111,7 +111,7 @@ class PengurusController extends Controller
         $rules = [
             'name' => 'required',
             'devisi_id' => 'required',
-            'image' => 'image|file|max:1024'
+            'image' => 'image|file'
         ];
         $validateData = $request->validate($rules);
 

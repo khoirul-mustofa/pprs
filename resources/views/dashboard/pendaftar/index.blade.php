@@ -18,15 +18,14 @@
                     Tambah
                     Santri</a>
             </div>
-            <div class="col-2">
+            {{-- <div class="col-2">
                 <select class="form-select" name="status">
-                    {{-- <option value="">Semua</option> --}}
                     @foreach ($status as $s)
                         <option value="{{ $s->id }}">{{ $s->name }}</option>
                     @endforeach
                 </select>
-            </div>
-            <div class="col-md-6 mt-md-0 col-12 mt-2">
+            </div> --}}
+            <div class="col-md-8 mt-md-0 col-12 mt-2">
                 <form action="/dashboard/pendaftaran-santri" method="GET">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search.." name="search"

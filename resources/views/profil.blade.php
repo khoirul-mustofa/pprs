@@ -59,8 +59,8 @@
                                 <img class="img-fluid rounded" src="{{ asset('storage/' . $p->image) }}" alt="..." />
                             </figure>
                         @else
-                            <figure class="mb-3"><img class="img-fluid rounded"
-                                    src="https://source.unsplash.com/900x400?mosque " alt="..." /></figure>
+                            {{-- <figure class="mb-3"><img class="img-fluid rounded"
+                                    src="https://source.unsplash.com/900x400?mosque " alt="..." /></figure> --}}
                         @endif
                         <!-- Post content-->
                         <section class="mb-5">

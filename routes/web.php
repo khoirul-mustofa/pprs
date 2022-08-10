@@ -59,7 +59,7 @@ Route::put('/dashboard/pendaftaran-santri/{pendaftar:id}', [PendaftaranControlle
 
 Route::get('/berita', [BeritaController::class, 'index']);
 Route::get('/berita/{berita:slug}', [BeritaController::class, 'show']);
-Route::get('/kontak', [KontakController::class, 'index']);
+// Route::get('/kontak', [KontakController::class, 'index']);
 Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'kategoriShow']);
 
 //Dashboard Kategori
@@ -132,6 +132,7 @@ Route::get('/dashboard/profil/preview', function(){
         'title' => 'Detail Profil',
         'profil' => Profil::latest()->get()
     ]);
+
 })->middleware('auth');
 
 
@@ -158,7 +159,7 @@ Route::get('/pengumuman', function () {
 Route::get('/profil', function (){
     return view('profil',[
         "title" => "profil",
-        "profil" => Profil::latest()->get()
+        "profil" => Profil::all()
     ]);
 });
 

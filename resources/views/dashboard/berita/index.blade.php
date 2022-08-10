@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.main')
 @section('container')
-    <div class="container col-lg-9">
+    <div class="container col-lg-11">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Berita</h1>
         </div>
@@ -15,8 +15,8 @@
                     <div class="row col-md-5 mx-2">
                         <a href="/dashboard/berita/create" class="btn btn-primary mb-3"><span data-feather="plus"></span>
                             Tambah
-                            berita
-                            baru</a>
+                            Berita
+                            </a>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 ">

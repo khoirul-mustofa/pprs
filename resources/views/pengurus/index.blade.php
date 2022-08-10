@@ -62,7 +62,7 @@
                                         <img src="{{ asset('storage/' . $pengurus->image) }}"
                                             class="rounded-circle img-fluid " alt="">
                                     @else
-                                        <img src="https://source.unsplash.com/1080x1080?head"
+                                        <img src="https://source.unsplash.com/953x952?head"
                                             class="rounded-circle img-fluid " alt="">
                                     @endif
                                 </div>

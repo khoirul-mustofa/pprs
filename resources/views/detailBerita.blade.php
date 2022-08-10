@@ -51,21 +51,21 @@ backdrop-filter: blur(7000px);">
                 </div>
             </div> --}}
                 <!-- Categories widget-->
-                <div class="card mb-4">
-                    <div class="card-header">Semua Kategori</div>
-                    <div class="card-body">
-                        <div class="row">
-                            @foreach ($semuaKategori as $k)
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a class="text-decoration-none"
-                                                href="/kategori/{{ $k->slug }}">{{ $k->name }}</a></li>
-                                    </ul>
-                                </div>
-                            @endforeach
+                    {{-- <div class="card mb-4">
+                        <div class="card-header">Semua Kategori</div>
+                        <div class="card-body">
+                            <div class="row">
+                                @foreach ($semuaKategori as $k)
+                                    <div class="col-sm-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li><a class="text-decoration-none"
+                                                    href="/kategori/{{ $k->slug }}">{{ $k->name }}</a></li>
+                                        </ul>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div> --}}
                 <!-- Side widget-->
                 {{-- <div class="card mb-4">
                 <div class="card-header">Side Widget</div>

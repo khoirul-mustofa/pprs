@@ -53,22 +53,12 @@
                         <h6 class="text-center mt-1 text-light fw-semibold">{{ $sambutan[0]->name }}</h6>
                         <div class="row d-flex justify-content-around mb-2">
                             <div style="max-width: 300px">
-                                <img src="{{ asset('storage/' . $sambutan[0]->image) }}" alt="" class="img-fluid">
+                                <img src="{{ asset('storage/' . $sambutan[0]->image) }}" alt="" class="img-fluid pt-5">
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md py-5 px-3 pe-md-5 ">
-                        <p class="text-light">Assamu’alaikum wr wb</p>
-                        <p class="text-light">Puji syukur kami panjatkan ke hadirat Allah SWT atas karunia dan hidayah-Nya,
-                            sehingga kita semua
-                            dapat membaktikan segala hal yang kita miliki untuk kemajuan dunia pendidikan khususnya
-                            Pesantren.
-                        </p>
-                        <p class="text-light">
-                            Shalawat beserta Salam semoga tetap tercurahkan kepada Baginda Nabi Agung Muhammad SAW yang
-                            sangat kita harapkan syafa’atnya, dan mudah-mudahan kita diakui sebagai ummatnya serta mendapat
-                            syafaat beliau di Yaumil Mahsyar kelak. Amin.
-                        </p>
+                    <div class="col-12 col-md py-5 px-3 pe-md-5 text-light">
+                      {!! $sambutan[0]->konten !!}
                     </div>
                 </div>
 
@@ -121,7 +111,7 @@
 
                                 <hr class="w-100 clearfix mt-2" />
 
-                                <p class="card-text">{{ $headLine[0]->excerpt }}</p>
+                                <p class="card-text">{!! $headLine[0]->excerpt !!}</p>
 
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted"><span class="fw-bold">Diposting:</span>
@@ -161,7 +151,7 @@
 
                                 <hr class="w-100 clearfix mt-2" />
 
-                                <p class="card-text">{{ $headLine[1]->excerpt }}</p>
+                                <p class="card-text">{!! $headLine[1]->excerpt !!}</p>
 
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted"><span class="fw-bold">Diposting:</span>
@@ -201,7 +191,7 @@
 
                                 <hr class="w-100 clearfix mt-2" />
 
-                                <p class="card-text">{{ $headLine[2]->excerpt }}</p>
+                                <p class="card-text">{!! $headLine[2]->excerpt !!}</p>
 
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted"><span class="fw-bold">Diposting:</span>
@@ -235,10 +225,10 @@
                     <div class="col">
                         <div class="card card-cover h-100 overflow-hidden text-white rounded-4 shadow-lg"
                             style="background-color:rgba(0, 0, 0, 0.10);">
-                            <div class="d-flex flex-column h-100 p-3 pb-3 text-white text-shadow-1">
+                            <div class="d-flex flex-column h-100 p-3 pt-5 pb-4 text-white text-shadow-1">
                                 @if ($p->image)
                                     <img src="{{ asset('storage/' . $p->image) }}"
-                                        class="w-70 h-75 img-fluid rounded rounded-circle mx-auto shadow-lg img-thumbnail"
+                                        class="w-50 h-55 img-fluid rounded rounded-circle mx-auto shadow-lg img-thumbnail"
                                         alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/500x500?person"

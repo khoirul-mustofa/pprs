@@ -76,7 +76,7 @@ class BannerController extends Controller
     public function update(UpdateBannerRequest $request, Banner $banner)
     {
         $validateData = $request->validate([
-            'image' => 'image|file|max:5024'
+            'image' => 'image|file'
         ]);
 
         //  Jika ada gambar baru
