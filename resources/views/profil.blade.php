@@ -15,18 +15,16 @@
                 <h3 class="text-center p-md-3 fw-bold">ROUDLOTUSSHOLIHIN</h3>
             </div>
             <div class=" my-3 ml-3 col-12 col-md-6 p-md-5">
-                <h4 class="fw-bold my-1 my-md-4">Lorem Ipsum</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero asperiores quasi qui sit accusamus rerum
-                    error ab, blanditiis exercitationem, et ex accusantium tenetur iste quod amet ad iusto sequi. Tempore
-                    beatae exercitationem assumenda ipsam nihil asperiores excepturi alias provident aut eum quaerat, ut
-                    autem optio.</p>
+                <h4 class="fw-bold my-1 my-md-4">Latar Belakang</h4>
+                <p>Pondok Pesantren Roudlotussholihin Purwosari berdiri sejak tanggal 1 April 1963 yang beralamatkan di Jalan KH. Bustomil Karim Purwosari Kecamatan Padangratu Lampung Tengah didirikan oleh KH. Bustomil Karim al-Maghfurlah atas dasar tanggung jawab sosial kemasyarakatan sesuai  dengan ajaran dan syari’at Islam yang berhaluan Ahlussunah Waljama’ah dengan sistem salafiah.</p>
                 <hr class="w-100 clearfix mt-3 mb-md-3" />
-                <ul class="p-2 p-md-0">
-                    <li>Berdiri : Lorem ipsum dolor sit amet elit.</li>
-                    <li>Berdiri : Lorem ipsum dolor sit amet elit.</li>
-                    <li>Berdiri : Lorem ipsum dolor sit amet elit.</li>
-                    <li>Berdiri : Lorem ipsum dolor sit amet elit.</li>
-                    <li>Berdiri : Lorem ipsum dolor sit amet elit.</li>
+                <span class="py-3 fw-bold">Pendidikan Formal</span>
+                <ul class="ms-4 p-md-0">
+                    <li>MI Roudlotul Huda</li>
+                    <li>MTS Roudlotul Huda</li>
+                    <li>SMA Roudlotul Huda</li>
+                    <li>SMK Roudlotul Huda</li>
+                    <li>STIT Roudlotul Huda</li>
                 </ul>
             </div>
         </div>

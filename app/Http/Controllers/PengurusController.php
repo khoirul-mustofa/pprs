@@ -19,7 +19,8 @@ class PengurusController extends Controller
     {
         return view('dashboard.pengurus.index', [
             'title' => 'Data Pengurus',
-            'semuaPengurus' => Pengurus::all()
+            // 'semuaPengurus' => Pengurus::all()
+            'semuaPengurus'=> Pengurus::first()->filter(request(['search','devisi']))->paginate(20)->withQueryString()
         ]);
     }
 

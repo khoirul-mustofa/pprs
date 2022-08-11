@@ -132,7 +132,6 @@ Route::get('/dashboard/profil/preview', function(){
         'title' => 'Detail Profil',
         'profil' => Profil::latest()->get()
     ]);
-
 })->middleware('auth');
 
 
@@ -176,17 +175,17 @@ Route::get('/dashboar/informasi', function (){
 
 
 // Testing Print PDF
-Route::get('/pdf', function(){
-    return view('pdf.biayaPendaftaran');
-});
+// Route::get('/pdf', function(){
+//     return view('pdf.biayaPendaftaran');
+// });
 
-Route::get('/pdf/download', function(){
-    $pdf = App::make('dompdf.wrapper');
-    $pdf->loadView('pdf.biayaPendaftaran');
-    // $pdf->loadHTML('ini hanya test');
-    return $pdf->stream();
-    // $pdf = Pdf::loadView('pdf.biayaPendaftaran');
-    // return $pdf->download('invoice.pdf');
-});
+// Route::get('/pdf/download', function(){
+//     $pdf = App::make('dompdf.wrapper');
+//     $pdf->loadView('pdf.biayaPendaftaran');
+//     // $pdf->loadHTML('ini hanya test');
+//     return $pdf->stream();
+//     // $pdf = Pdf::loadView('pdf.biayaPendaftaran');
+//     // return $pdf->download('invoice.pdf');
+// });
 
 // Akhir Testing

@@ -11,10 +11,29 @@
             </div>
         @endif
 
-
         <div class="table-responsive">
-            <a href="/dashboard/pengurus/create" class="btn btn-primary mb-3 ms-1 mt-1"><span data-feather="plus"></span>
-                Tambah Pengurus Baru</a>
+            <div class="row">
+                <div class="col col-md-6">
+                    <div class="row col-md-5 mx-1">
+                        <a href="/dashboard/pengurus/create" class="btn btn-primary mb-3 ms-1 mt-1"><span
+                                data-feather="plus"></span>
+                            Tambah Pengurus Baru</a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 ">
+                    <form action="/dashboard/pengurus" method="GET">
+                        <div class="input-group mb-3 mt-1">
+                            @if (request('devisi'))
+                                <input type="hidden" name="devisi" value="{{ request('devisi') }}">
+                            @endif
+                            <input type="text" class="form-control" placeholder="Search.." name="search"
+                                value="{{ request('search') }}">
+                            <button class="btn btn-outline-dark" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
             <table class="table table-striped table-sm">
                 <thead>
                     <tr class="bg-dark text-light text-center">
@@ -44,9 +63,9 @@
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
         </div>
+        {{ $semuaPengurus->links() }}
     </div>
 @endsection
